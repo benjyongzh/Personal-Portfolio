@@ -2,54 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* original simple gradient */
-  /* --background-end-rgb: #81cff7; */
-  /* --background-accent-rgb: #f2e7ff91; */
-
-  /* double circle gradient */
-  --background-start-rgb: #ebf8ff;
-  --background-end-rgb: #c5e8fa;
-  --background-accent-rgb: #a6dffc91;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* original simple gradient */
-    /* --background-start-rgb: #272e33;
-    --background-end-rgb: #171d25; */
-
-    /* double circle gradient */
-    --background-start-rgb: #1b2125;
-    --background-end-rgb: #303336;
-    --background-accent-rgb: #404857a1;
-  }
-}
-
 main {
   width: 100vw;
   min-height: 100vh;
   position: fixed;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: 120px 24px 160px 24px;
-  pointer-events: none;
-
-  background-image: radial-gradient(
-      circle at 10% 65%,
-      var(--background-accent-rgb),
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 95% 15%,
-      var(--background-accent-rgb),
-      transparent 35%
-    ),
-    linear-gradient(
-      to bottom right,
-      var(--background-start-rgb),
-      var(--background-end-rgb)
-    );
 }
 
 @media screen and (max-width: 640px) {
@@ -59,12 +19,24 @@ main {
 }
 
 @layer components {
-  .btn-primary {
-    @apply flex items-center justify-center px-5 py-2 text-xl transition-all duration-200 rounded-md bg-primary text-text-lightmode hover:bg-primary-light;
+  .main {
+    @apply bg-gradient-to-br from-bglightmode-light to-bglightmode-dark dark:from-bgdarkmode-light dark:to-bgdarkmode-dark;
   }
 
   .app {
     @apply relative flex flex-col items-center min-w-full p-6 mx-auto justify-stretch max-w-7xl sm:px-16;
+  }
+
+  .btn-primary {
+    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 rounded-md cursor-pointer bg-primarylightmode text-textlightmode hover:bg-primarylightmode-light;
+  }
+
+  .btn-secondary {
+    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-md cursor-pointer text-textlightmode border-accentlightmode hover:bg-accentlightmode hover:text-textlightmode-dark;
+  }
+
+  .nav-link {
+    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-textlightmode-light;
   }
 
   .flex-center {

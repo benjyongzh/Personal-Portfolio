@@ -1,7 +1,10 @@
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+//components
+import Nav from "@/components/Nav";
+
+const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Personal Portfolio",
@@ -16,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className={`${inter.className}`}>{children}</main>
+        <main className={`main ${nunito.className}`}>
+          <Nav />
+          {children}
+        </main>
       </body>
     </html>
   );
