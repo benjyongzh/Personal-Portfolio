@@ -9,13 +9,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 120px 24px 160px 24px;
-}
-
-@media screen and (max-width: 640px) {
-  main {
-    padding: 0;
-  }
+  align-items: center;
+  padding: 80px 24px 120px 24px;
 }
 
 @layer components {
@@ -24,11 +19,11 @@ main {
   }
 
   .app {
-    @apply relative flex flex-col items-center min-w-full p-6 mx-auto justify-stretch max-w-7xl sm:px-16;
+    @apply relative p-4 mx-auto justify-stretch max-w-7xl;
   }
 
   .btn-circle-primary {
-    @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-md p-2.5 text-center inline-flex items-center mr-2;
+    @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center mr-2;
   }
 
   .btn-primary {
@@ -40,7 +35,7 @@ main {
   }
 
   .nav-link {
-    @apply flex items-center justify-center px-3 py-1 text-xl font-bold transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-textlightmode-light;
+    @apply flex items-center justify-center px-3 py-1 text-xl font-medium transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-textlightmode-light active:font-bold active:text-primarydarkmode;
   }
 
   .nav-icon {
