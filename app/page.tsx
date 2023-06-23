@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background-light">
+    <div className="app">
       <div className="btn-primary">Hello world</div>
     </div>
   );
