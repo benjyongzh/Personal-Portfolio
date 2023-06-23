@@ -32,11 +32,15 @@ main {
   }
 
   .btn-secondary {
-    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-md cursor-pointer text-textlightmode border-accentlightmode hover:bg-accentlightmode hover:text-textlightmode-dark;
+    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-md cursor-pointer text-textlightmode border-primarylightmode hover:bg-primarylightmode;
   }
 
   .nav-link {
-    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-textlightmode-light;
+    @apply flex items-center justify-center px-3 py-1 text-xl font-bold transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-textlightmode-light;
+  }
+
+  .nav-icon {
+    @apply transition-all duration-200 bg-transparent text-textlightmode-dark;
   }
 
   .flex-center {
