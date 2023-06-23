@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center gap-6 sm:px-12 sm:py-10 app">
       <div className="w-48 h-48 border-4 border-solid rounded-full border-primarylightmode sm:w-96 sm:h-96"></div>
       <header className="text-3xl font-light tracking-widest sm:text-5xl">
-        Benjamin Yong
+        BENJAMIN YONG
       </header>
       <div className="flex items-center justify-center gap-5">
         <Link className="nav-link group" href="/">
