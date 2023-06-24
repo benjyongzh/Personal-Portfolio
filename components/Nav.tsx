@@ -12,40 +12,57 @@ const routes = [
 ];
 
 const Nav = () => {
-  const [displayMode, setDisplayMode] = useState<string>("light");
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const pathname = usePathname();
 
-  const useLightMode = () => {
-    console.log("nav setting to light mode");
-    setDisplayMode("light");
-  };
-  const useDarkMode = () => {
-    console.log("nav setting to dark mode");
-    setDisplayMode("dark");
-  };
+  // const useLightMode = () => {
+  //   console.log("nav setting to light mode");
+  //   setDisplayMode("light");
+  // };
+  // const useDarkMode = () => {
+  //   console.log("nav setting to dark mode");
+  //   setDisplayMode("dark");
+  // };
 
   const toggleDropdown = () => {
     setShowDropdown((curr) => !curr);
   };
 
   return (
-    <nav className="absolute top-0 flex items-center justify-end w-screen gap-5 px-5 py-3 sm:gap-7">
-      <SwitchToggle
-        setLightMode={useLightMode}
-        setDarkMode={useDarkMode}
-        displayState={displayMode}
-      />
+    <nav className="absolute top-0 flex items-center justify-end w-screen gap-5 px-2 py-1">
+      <SwitchToggle />
       <div className="nav-dropdown">
         <button
-          className="nav-dropdown-btn"
+          className="nav-dropdown-btn group"
           type="button"
           onClick={() => toggleDropdown()}
         >
-          drop
+          <div
+            className={`space-y-1.5 transition-all duration-200 ${
+              showDropdown ? "rotate-90" : ""
+            }`}
+          >
+            <div
+              className={`w-7 h-0.5 bg-textlightmode group-hover:bg-primarydarkmode transition-all duration-200 ${
+                showDropdown ? "bg-primarydarkmode" : ""
+              }`}
+            ></div>
+            <div
+              className={`w-7 h-0.5 bg-textlightmode group-hover:bg-primarydarkmode transition-all duration-200 ${
+                showDropdown ? "bg-primarydarkmode" : ""
+              }`}
+            ></div>
+            <div
+              className={`w-7 h-0.5 bg-textlightmode group-hover:bg-primarydarkmode transition-all duration-200 ${
+                showDropdown ? "bg-primarydarkmode" : ""
+              }`}
+            ></div>
+          </div>
         </button>
         <ul
-          className={`nav-dropdown-menu ${showDropdown ? "visible" : "hidden"}`}
+          className={`nav-dropdown-menu ${
+            showDropdown ? "opacity-100" : "opacity-0"
+          }`}
         >
           {routes.map((route) => (
             <Link
