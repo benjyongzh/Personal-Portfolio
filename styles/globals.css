@@ -39,11 +39,11 @@ main {
   }
 
   .nav-dropdown-btn {
-    @apply flex items-center justify-center text-lg transition-all duration-200 bg-transparent rounded-full text-textlightmode;
+    @apply flex items-center justify-center h-full p-3 text-lg transition-all duration-200 bg-transparent text-textlightmode;
   }
 
   .nav-dropdown-menu {
-    @apply absolute right-0 flex flex-col items-end justify-start gap-3 transition-all duration-200 bg-transparent top-12;
+    @apply absolute flex flex-col items-end justify-start gap-3 transition-all duration-200 bg-transparent right-3 top-12;
   }
 
   .nav-link {
