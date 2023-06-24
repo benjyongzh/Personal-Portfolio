@@ -27,15 +27,27 @@ main {
   }
 
   .btn-primary {
-    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 rounded-md cursor-pointer bg-primarylightmode text-textlightmode hover:bg-primarylightmode-light;
+    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 rounded-full cursor-pointer bg-primarylightmode text-textlightmode hover:bg-primarylightmode-light;
   }
 
   .btn-secondary {
-    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-md cursor-pointer text-textlightmode border-primarylightmode hover:bg-primarylightmode;
+    @apply flex items-center justify-center px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-full cursor-pointer text-textlightmode border-primarylightmode hover:bg-primarylightmode;
+  }
+
+  .nav-dropdown {
+    @apply relative flex flex-col items-center justify-center;
+  }
+
+  .nav-dropdown-btn {
+    @apply flex items-center justify-center text-lg transition-all duration-200 bg-transparent rounded-full text-textlightmode;
+  }
+
+  .nav-dropdown-menu {
+    @apply absolute right-0 flex flex-col items-end justify-start gap-3 transition-all duration-200 bg-transparent top-12;
   }
 
   .nav-link {
-    @apply flex items-center justify-center px-3 py-1 text-xl font-medium transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-primarydarkmode active:font-bold active:text-primarydarkmode;
+    @apply flex items-center justify-center text-xl font-medium transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-primarydarkmode active:font-bold active:text-primarydarkmode;
   }
 
   .nav-icon {
@@ -63,15 +75,15 @@ main {
   }
 
   .switch {
-    @apply relative inline-block h-6 w-11;
+    @apply relative inline-block h-6 w-11 sm:h-7 sm:w-14;
   }
 
   .switch-slider {
-    @apply absolute top-0 bottom-0 left-0 right-0 transition-all duration-200 rounded-full cursor-pointer bg-accentdarkmode-light;
+    @apply absolute top-0 bottom-0 left-0 right-0 transition-all duration-200 rounded-full cursor-pointer bg-accentdarkmode;
   }
 
   .switch-slider-control {
-    @apply absolute h-5 w-5 left-[2px] bottom-[2px] rounded-full bg-accentlightmode-dark transition-all duration-200 flex justify-center items-center;
+    @apply absolute h-5 w-5 sm:h-6 sm:w-6 left-[2px] bottom-[2px] rounded-full bg-accentlightmode transition-all duration-200 flex justify-center items-center;
   }
 
   .switch-slider-control > .switch-slider-icon {
@@ -79,10 +91,10 @@ main {
   }
 
   input:checked + .switch-slider {
-    @apply bg-accentlightmode-dark;
+    @apply bg-accentlightmode;
   }
 
   input:checked + .switch-slider > .switch-slider-control {
-    @apply translate-x-5 bg-accentdarkmode-light;
+    @apply translate-x-5 sm:translate-x-7 bg-accentdarkmode;
   }
 }
