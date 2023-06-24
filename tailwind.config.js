@@ -8,7 +8,7 @@ module.exports = {
     "./utils/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  dark: "class",
+  darkmode: "class",
   theme: {
     extend: {
       colors: {
