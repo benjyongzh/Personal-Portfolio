@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="fixed flex flex-col items-center justify-center gap-6 sm:px-12 sm:py-10 app">
       <div className="w-48 h-48 border-4 border-solid rounded-full border-primarylightmode sm:w-96 sm:h-96"></div>
-      <header className="text-3xl font-light tracking-widest sm:text-5xl">
+      <header className="text-3xl font-light tracking-widest sm:text-5xl text-textlightmode-dark dark:text-textdarkmode">
         BENJAMIN YONG
       </header>
       <div className="flex items-center justify-center gap-5">
@@ -37,7 +37,7 @@ export default function Home() {
           </svg>
         </Link>
       </div>
-      <p className="text-base text-center text-textlightmode">
+      <p className="text-base text-center text-textlightmode dark:text-textdarkmode">
         Here is some text. A brief description of me. blablabla. Lorem ipsum,
         dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
         praesentium officia earum itaque nulla voluptatum obcaecati saepe
