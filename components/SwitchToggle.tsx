@@ -1,15 +1,22 @@
 "use client";
 
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 const SwitchToggle = () => {
   const { theme, systemTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   const toggleDisplayMode = () => {
     currentTheme === "light" ? setTheme("dark") : setTheme("light");
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="switch-toggle">
@@ -17,11 +24,11 @@ const SwitchToggle = () => {
         <input
           type="checkbox"
           onChange={toggleDisplayMode}
-          checked={theme !== "light"}
+          checked={currentTheme !== "light"}
         />
         <span className="switch-slider">
           <div className="switch-slider-control">
-            {theme === "light" ? (
+            {currentTheme === "light" ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
