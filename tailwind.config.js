@@ -28,10 +28,23 @@ module.exports = {
           DEFAULT: "#22b3a2",
           dark: "#3b998e",
         },
+
         primarydarkmode: {
           light: "#20bfb4",
           DEFAULT: "#1BA098", //original
           dark: "#328781",
+        },
+
+        secondarylightmode: {
+          light: "#a4cce8",
+          DEFAULT: "#90b4ce",
+          dark: "#5a8fb5",
+        },
+
+        secondarydarkmode: {
+          light: "#0f344d",
+          DEFAULT: "#001f33",
+          dark: "#00101a",
         },
 
         accentlightmode: {

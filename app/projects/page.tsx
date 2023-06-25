@@ -6,12 +6,14 @@ import { useState } from "react";
 import { isEmptyObj } from "@/utils/objects";
 import { projectReference } from "@/lib/projectList";
 
-export default function Projects() {
-  const [currentProject, setCurrentProject] = useState<projectReference | {}>(
-    {}
-  );
+import { motion } from "framer-motion";
 
-  const toggleProjectPopup = (projectName: string) => {
+export default function Projects() {
+  /* const [currentProject, setCurrentProject] = useState<projectReference | {}>(
+    {}
+  ); */
+
+  /* const toggleProjectPopup = (projectName: string) => {
     const project = projectList.filter(
       (projectItem: projectReference) => projectItem.projectName === projectName
     )[0];
@@ -28,29 +30,29 @@ export default function Projects() {
         setCurrentProject({});
       }
     }
-  };
+  }; */
 
   return (
     <div className="flex flex-col items-start gap-6 justify-stretch sm:px-12 sm:py-10 app">
       <header className="text-3xl font-light tracking-wide sm:text-5xl">
         PROJECTS
       </header>
-      <p className="text-base text-start text-textlightmode">
+      <p className="text-base text-start text-textlightmode dark:text-textdarkmode">
         Here is some text. A brief description of me. blablabla. Lorem ipsum,
         dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
         praesentium officia earum itaque nulla voluptatum obcaecati saepe
         suscipit!
       </p>
-      <ul className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
+      <ul className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projectList.map((project) => (
           <ProjectCard
             key={project.projectName}
             projectName={project.projectName}
-            click={(name: string) => toggleProjectPopup(name)}
+            // click={(name: string) => toggleProjectPopup(name)}
           />
         ))}
       </ul>
-      <ProjectPopup project={currentProject} />
+      {/* <ProjectPopup project={currentProject} /> */}
     </div>
   );
 }

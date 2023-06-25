@@ -1,14 +1,54 @@
 "use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-const ProjectCard = (props: { projectName?: string; click: Function }) => {
+const ProjectCard = (props: { projectName?: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen((curr) => !curr);
+  };
+
   return (
-    <button
-      className="max-w-lg border-2 border-solid rounded-lg border-textlightmode max-h-52 min-h-[250px] min-w-[200px] hover:bg-black"
+    <motion.button
+      className={`flex flex-col items-start justify-between bg-secondarylightmode dark:bg-secondarydarkmode-light rounded-[36px] shadow-slate-950
+        ${
+          !isOpen
+            ? "max-w-lg h-48 sm:h-96 min-w-[200px] gap-3 p-5 hover:shadow-2xl"
+            : "absolute w-[80%] h-[80%] gap-7 p-7 sm:p-9 shadow-2xl"
+        }`}
       type="button"
-      onClick={() => props.click(props.projectName || "")}
+      transition={{ type: "spring", duration: 0.4 }}
+      layout
     >
-      this is a test project card
-    </button>
+      <motion.header
+        layout
+        transition={{ type: "spring", duration: 0.4 }}
+        className={`text-accentlightmode-dark dark:text-accentdarkmode font-bold ${
+          isOpen ? "text-2xl" : "text-lg"
+        }`}
+      >
+        {props.projectName}
+      </motion.header>
+      {isOpen ? (
+        <p className="text-base text-justify text-accentlightmode-dark dark:text-accentdarkmode">
+          this is a test project card. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Fugiat temporibus accusamus provident maxime impedit
+          debitis quasi ipsa nobis amet qui nesciunt minima laborum corrupti a
+          autem, voluptate ex fugit quas porro deleniti quam dolore! Magnam,
+          consequatur. Ea aliquam dolores animi totam, accusantium quidem.
+          Itaque asperiores voluptates placeat dicta voluptate? Atque.
+        </p>
+      ) : null}
+      <motion.button
+        layout
+        className={`${isOpen ? "btn-secondary" : "btn-primary w-full"}`}
+        type="button"
+        onClick={() => toggleOpen()}
+      >
+        {`${isOpen ? "Close" : "More"}`}
+      </motion.button>
+    </motion.button>
   );
 };
 
