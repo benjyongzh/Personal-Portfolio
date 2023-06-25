@@ -6,7 +6,7 @@ import { useState } from "react";
 import { isEmptyObj } from "@/utils/objects";
 import { projectReference } from "@/lib/projectList";
 
-export default function Home() {
+export default function Projects() {
   const [currentProject, setCurrentProject] = useState<projectReference | {}>(
     {}
   );

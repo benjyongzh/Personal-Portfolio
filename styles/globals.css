@@ -39,15 +39,15 @@ main {
   }
 
   .nav-dropdown-btn {
-    @apply flex items-center justify-center h-full p-3 text-lg transition-all duration-200 bg-transparent text-textlightmode;
+    @apply flex items-center justify-center h-full p-3 text-lg bg-transparent text-textlightmode;
   }
 
   .nav-dropdown-menu {
-    @apply absolute flex flex-col items-end justify-start gap-3 transition-all duration-200 bg-transparent right-3 top-12;
+    @apply absolute flex flex-col items-end justify-start gap-3 bg-transparent right-3 top-12;
   }
 
   .nav-link {
-    @apply flex items-center justify-center text-xl font-medium transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-primarydarkmode active:font-bold dark:text-textdarkmode dark:hover:text-primarylightmode active:text-primarydarkmode;
+    @apply flex items-center justify-center text-xl font-medium bg-transparent cursor-default text-textlightmode hover:text-primarydarkmode active:font-bold dark:text-textdarkmode dark:hover:text-primarylightmode active:text-primarydarkmode;
   }
 
   .nav-icon {
