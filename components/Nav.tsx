@@ -14,7 +14,7 @@ const routes = [
   { href: "/contact", text: "Contact" },
 ];
 
-const dropDownMenuVariant = {
+const dropDownMenuVariant: Variants = {
   hide: {
     transition: {
       type: "tween",
@@ -31,7 +31,7 @@ const dropDownMenuVariant = {
   },
 };
 
-const dropDownButtonVariant = {
+const dropDownButtonVariant: Variants = {
   hide: {
     rotate: 0,
     transition: {
@@ -50,7 +50,7 @@ const dropDownButtonVariant = {
   },
 };
 
-const dropDownListGroupVariant = {
+const dropDownListGroupVariant: Variants = {
   hide: {
     transition: {
       staggerChildren: 0.06,
@@ -65,7 +65,7 @@ const dropDownListGroupVariant = {
   },
 };
 
-const dropDownListItemVariant = {
+const dropDownListItemVariant: Variants = {
   hide: {
     opacity: 0,
     y: -20,
@@ -99,13 +99,7 @@ const Nav = () => {
           type="button"
           onClick={() => toggleDropdown()}
         >
-          <motion.div
-            /* className={`space-y-1.5 transition-all duration-200 ${
-              showDropdown ? "rotate-90" : ""
-            }`} */
-            className="space-y-1.5"
-            variants={dropDownButtonVariant}
-          >
+          <motion.div className="space-y-1.5" variants={dropDownButtonVariant}>
             <div
               className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
@@ -124,9 +118,6 @@ const Nav = () => {
           </motion.div>
         </button>
         <motion.ul
-          /* className={`nav-dropdown-menu ${
-            showDropdown ? "opacity-100" : "opacity-0"
-          }`} */
           className="nav-dropdown-menu"
           variants={dropDownListGroupVariant}
         >
