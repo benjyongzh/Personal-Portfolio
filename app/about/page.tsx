@@ -4,6 +4,8 @@ export default function About() {
       <header className="text-3xl font-light tracking-wide sm:text-5xl">
         ABOUT
       </header>
+
+      <div className="w-48 h-48 border-4 border-solid rounded-full border-primarylightmode sm:w-96 sm:h-96"></div>
     </div>
   );
 }

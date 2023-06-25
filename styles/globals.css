@@ -19,7 +19,7 @@ main {
   }
 
   .app {
-    @apply p-4 mx-auto justify-stretch max-w-7xl;
+    @apply flex p-4 mx-auto justify-stretch max-w-7xl;
   }
 
   .btn-circle-primary {
@@ -51,7 +51,7 @@ main {
   }
 
   .nav-icon {
-    @apply transition-all duration-200 bg-transparent text-textlightmode-dark dark:text-textdarkmode;
+    @apply transition-all duration-200 bg-transparent text-textlightmode-dark dark:text-textdarkmode cursor-pointer;
   }
 
   .flex-center {

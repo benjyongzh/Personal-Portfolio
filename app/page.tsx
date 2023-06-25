@@ -3,13 +3,26 @@ import ButtonNext from "@/components/ButtonNext";
 
 export default function Home() {
   return (
-    <div className="fixed flex flex-col items-center justify-center gap-6 sm:px-12 sm:py-10 app">
-      <div className="w-48 h-48 border-4 border-solid rounded-full border-primarylightmode sm:w-96 sm:h-96"></div>
-      <header className="text-3xl font-light tracking-widest sm:text-5xl text-textlightmode-dark dark:text-textdarkmode">
-        BENJAMIN YONG
+    <div className="fixed flex flex-col items-start justify-center gap-8 px-10 mt-10 sm:gap-12 sm:px-12 sm:py-10 app sm:mt-24">
+      <header className="flex flex-col items-start justify-center gap-1 sm:gap-3">
+        <h3 className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode">
+          Hello! I'm
+        </h3>
+        <h1 className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode">
+          BENJAMIN YONG
+        </h1>
+        <h4 className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode">
+          Self-taught Software Developer
+        </h4>
       </header>
+
       <div className="flex items-center justify-center gap-5">
-        <Link className="nav-link group" href="https://github.com/benjyongzh">
+        <Link
+          className="nav-link group"
+          href="https://github.com/benjyongzh"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -26,7 +39,12 @@ export default function Home() {
             </g>
           </svg>
         </Link>
-        <Link className="nav-link group" href="/">
+        <Link
+          className="nav-link group"
+          href="/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -37,11 +55,13 @@ export default function Home() {
           </svg>
         </Link>
       </div>
-      <p className="text-base text-center text-textlightmode dark:text-textdarkmode">
+      <p className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode">
         Here is some text. A brief description of me. blablabla. Lorem ipsum,
         dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
         praesentium officia earum itaque nulla voluptatum obcaecati saepe
-        suscipit!
+        suscipit! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Repudiandae officiis esse quas omnis quis ab nemo officia adipisci
+        delectus culpa.
       </p>
 
       <div className="flex items-center self-end justify-center gap-4 mt-4">
