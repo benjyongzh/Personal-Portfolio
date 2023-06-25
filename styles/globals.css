@@ -47,11 +47,11 @@ main {
   }
 
   .nav-link {
-    @apply flex items-center justify-center text-xl font-medium transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-primarydarkmode active:font-bold active:text-primarydarkmode;
+    @apply flex items-center justify-center text-xl font-medium transition-all duration-200 bg-transparent cursor-pointer text-textlightmode hover:text-primarydarkmode active:font-bold dark:text-textdarkmode dark:hover:text-primarylightmode active:text-primarydarkmode;
   }
 
   .nav-icon {
-    @apply transition-all duration-200 bg-transparent text-textlightmode-dark;
+    @apply transition-all duration-200 bg-transparent text-textlightmode-dark dark:text-textdarkmode;
   }
 
   .flex-center {

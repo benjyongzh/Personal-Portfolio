@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Nunito } from "next/font/google";
+import { Provider } from "@/components/ThemeProvider";
 
 //components
 import Nav from "@/components/Nav";
@@ -17,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <main className={`main ${nunito.className}`}>
-          <Nav />
-          {children}
-        </main>
+        <Provider>
+          <main className={`main ${nunito.className}`}>
+            <Nav />
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   );

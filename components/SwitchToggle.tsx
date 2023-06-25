@@ -1,21 +1,15 @@
-import { useEffect } from "react";
+"use client";
 
-const SwitchToggle = (props: {
-  setLightMode: Function;
-  setDarkMode: Function;
-  displayState: string;
-}) => {
-  const { setLightMode, setDarkMode, displayState } = props;
+// import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+
+const SwitchToggle = () => {
+  const { theme, systemTheme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   const toggleDisplayMode = () => {
-    displayState === "light" ? setDarkMode() : setLightMode();
+    currentTheme === "light" ? setTheme("dark") : setTheme("light");
   };
-
-  useEffect(() => {
-    // document.querySelector("html").setAttribute("data-bs-theme", displayState);
-    // set dark mode here
-    console.log("display switch toggle activated: ", displayState);
-  }, [displayState]);
 
   return (
     <div className="switch-toggle">
@@ -23,11 +17,11 @@ const SwitchToggle = (props: {
         <input
           type="checkbox"
           onChange={toggleDisplayMode}
-          checked={displayState !== "light"}
+          checked={theme !== "light"}
         />
         <span className="switch-slider">
           <div className="switch-slider-control">
-            {displayState === "light" ? (
+            {theme === "light" ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

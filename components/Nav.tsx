@@ -43,17 +43,17 @@ const Nav = () => {
             }`}
           >
             <div
-              className={`w-7 h-0.5 bg-textlightmode group-hover:bg-primarydarkmode transition-all duration-200 ${
+              className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
               }`}
             ></div>
             <div
-              className={`w-7 h-0.5 bg-textlightmode group-hover:bg-primarydarkmode transition-all duration-200 ${
+              className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
               }`}
             ></div>
             <div
-              className={`w-7 h-0.5 bg-textlightmode group-hover:bg-primarydarkmode transition-all duration-200 ${
+              className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
               }`}
             ></div>
@@ -68,7 +68,7 @@ const Nav = () => {
             <Link
               className={`nav-link group ${
                 pathname === route.href
-                  ? "font-bold text-primarydarkmode"
+                  ? "font-bold text-primarydarkmode dark:text-primarydarkmode"
                   : null
               }`}
               href={route.href}
