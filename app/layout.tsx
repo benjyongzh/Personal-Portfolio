@@ -1,9 +1,11 @@
 import "@/styles/globals.css";
 import { Nunito } from "next/font/google";
-import { Provider } from "@/components/ThemeProvider";
 
 //components
 import Nav from "@/components/Nav";
+import ProviderGroup from "@/components/ProviderGroup";
+
+//hooks
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -20,13 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Provider>
+        <ProviderGroup>
           <main className={`main ${nunito.className}`}>
             <Nav />
             {children}
           </main>
-        </Provider>
+        </ProviderGroup>
       </body>
     </html>
   );
 }
+
+// export default storeWrapper.withRedux(RootLayout);
