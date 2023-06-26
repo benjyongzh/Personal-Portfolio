@@ -3,7 +3,7 @@
 //redux
 // import { useSelector } from "react-redux";
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
-import { removePopup } from "@/features/popup/popupSlice";
+// import { removePopup } from "@/features/popup/popupSlice";
 import { useEffect } from "react";
 
 import { motion } from "framer-motion";
@@ -25,16 +25,16 @@ const screenGreyOutVariant = {
   },
 };
 
-const ScreenGreyOut = () => {
-  const dispatch = useAppDispatch();
+const ScreenGreyOut = (props: { clicked: Function }) => {
+  // const dispatch = useAppDispatch();
   const currentPopups = useAppSelector((state) => state.popup.popups);
 
-  const clicked = () => {
-    dispatch(removePopup(currentPopups[currentPopups.length - 1]));
-  };
+  // const clicked = () => {
+  //   dispatch(removePopup(currentPopups[currentPopups.length - 1]));
+  // };
 
-  useEffect(() => {
-    if (currentPopups.length) {
+  const checkPopups = () => {
+    if (currentPopups.length > 0) {
       //make document body be unclickable
       //   body.has-popup
       if (!document.body.classList.contains("has-popup"))
@@ -49,6 +49,10 @@ const ScreenGreyOut = () => {
       //   body.has-popup
       document.body.classList.remove("has-popup");
     };
+  };
+
+  useEffect(() => {
+    checkPopups();
   }, [currentPopups]);
 
   return (
@@ -60,9 +64,9 @@ const ScreenGreyOut = () => {
         currentPopups.length > 0 ? "z-10" : "pointer-events-none"
       } fixed mx-auto left-0 right-0 flex my-auto top-0 bottom-0 items-center justify-center w-screen h-screen`}
       style={{ backgroundColor: "#020617b4" }}
-      //   onClick={() => {
-      //     clicked();
-      //   }}
+      onClick={() => {
+        props.clicked();
+      }}
     ></motion.div>
   );
 };

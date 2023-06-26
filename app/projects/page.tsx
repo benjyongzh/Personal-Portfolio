@@ -89,7 +89,9 @@ export default function Projects() {
           />
         ))}
       </ul>
-      <ScreenGreyOut />
+      <ScreenGreyOut
+        clicked={() => toggleProjectPopup(currentProject.projectName)}
+      />
       <ProjectPopup
         project={currentProject}
         closePopup={() => toggleProjectPopup(currentProject.projectName)}
