@@ -17,6 +17,10 @@ import { addPopup, removePopup } from "@/features/popup/popupSlice";
 import { IPopup } from "@/features/popup/popupSlice";
 
 import { motion } from "framer-motion";
+import {
+  pageVariant,
+  textVerticalFadeMoveFromBottomVariant,
+} from "@/lib/framerVariants";
 
 const emptyProject: projectReference = {
   projectName: "",
@@ -66,17 +70,32 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex flex-col items-start gap-6 justify-stretch sm:px-12 sm:py-10 app">
-      <header className="text-3xl font-light tracking-wide sm:text-5xl">
+    <motion.div
+      key={pathname}
+      animate="visible"
+      initial="hidden"
+      variants={pageVariant}
+      className="flex flex-col items-start gap-6 justify-stretch sm:px-12 sm:py-10 app"
+    >
+      <motion.header
+        variants={textVerticalFadeMoveFromBottomVariant}
+        className="text-3xl font-light tracking-wide sm:text-5xl"
+      >
         PROJECTS
-      </header>
-      <p className="text-base text-start text-textlightmode dark:text-textdarkmode">
+      </motion.header>
+      <motion.p
+        variants={textVerticalFadeMoveFromBottomVariant}
+        className="text-base text-start text-textlightmode dark:text-textdarkmode"
+      >
         Here is some text. A brief description of me. blablabla. Lorem ipsum,
         dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
         praesentium officia earum itaque nulla voluptatum obcaecati saepe
         suscipit!
-      </p>
-      <ul className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      </motion.p>
+      <motion.ul
+        variants={textVerticalFadeMoveFromBottomVariant}
+        className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
         {projectList.map((project) => (
           <ProjectCard
             key={project.projectName}
@@ -88,7 +107,7 @@ export default function Projects() {
             }
           />
         ))}
-      </ul>
+      </motion.ul>
       <ScreenGreyOut
         clicked={() => toggleProjectPopup(currentProject.projectName)}
       />
@@ -96,6 +115,6 @@ export default function Projects() {
         project={currentProject}
         closePopup={() => toggleProjectPopup(currentProject.projectName)}
       />
-    </div>
+    </motion.div>
   );
 }

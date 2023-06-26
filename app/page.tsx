@@ -1,68 +1,48 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+//animations
 import { motion } from "framer-motion";
-
-const pageVariant = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      staggerDirection: 1,
-      delay: 0.6,
-    },
-  },
-};
-
-const contentVariant = {
-  hidden: {
-    opacity: 0,
-    y: 200,
-    transition: {
-      type: "spring",
-      duration: 0.8,
-      staggerChildren: 0.075,
-      staggerDirection: 1,
-    },
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      duration: 0.8,
-      staggerChildren: 0.075,
-      staggerDirection: 1,
-    },
-  },
-};
+import {
+  pageVariant,
+  textVerticalFadeMoveFromBottomVariant,
+} from "@/lib/framerVariants";
 
 export default function Home() {
+  const pathname = usePathname();
   return (
     <motion.div
+      key={pathname}
       animate="visible"
       initial="hidden"
       variants={pageVariant}
       className="fixed flex flex-col items-start justify-center gap-8 px-10 mt-10 sm:gap-12 sm:px-12 sm:py-10 app sm:mt-24"
     >
       <motion.header
-        variants={contentVariant}
+        variants={textVerticalFadeMoveFromBottomVariant}
         className="flex flex-col items-start justify-center gap-1 sm:gap-3"
       >
         <motion.h3
-          variants={contentVariant}
+          exit="hidden"
+          key={"home Hello! I'm"}
+          variants={textVerticalFadeMoveFromBottomVariant}
           className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode"
         >
           Hello! I'm
         </motion.h3>
         <motion.h1
-          variants={contentVariant}
+          exit="hidden"
+          key={"home Name"}
+          variants={textVerticalFadeMoveFromBottomVariant}
           className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode"
         >
           BENJAMIN YONG
         </motion.h1>
         <motion.h4
-          variants={contentVariant}
+          exit="hidden"
+          key={"home job"}
+          variants={textVerticalFadeMoveFromBottomVariant}
           className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode"
         >
           Self-taught Software Developer
@@ -70,7 +50,7 @@ export default function Home() {
       </motion.header>
 
       <motion.div
-        variants={contentVariant}
+        variants={textVerticalFadeMoveFromBottomVariant}
         className="flex items-center justify-center gap-5"
       >
         <Link
@@ -112,7 +92,7 @@ export default function Home() {
         </Link>
       </motion.div>
       <motion.p
-        variants={contentVariant}
+        variants={textVerticalFadeMoveFromBottomVariant}
         className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode"
       >
         Here is some text. A brief description of me. blablabla. Lorem ipsum,
@@ -124,7 +104,7 @@ export default function Home() {
       </motion.p>
 
       <motion.div
-        variants={contentVariant}
+        variants={textVerticalFadeMoveFromBottomVariant}
         className="flex items-center self-end justify-center gap-4 mt-4"
       >
         <Link href="/projects" className="btn-primary" type="button">
