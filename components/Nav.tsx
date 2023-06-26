@@ -92,6 +92,7 @@ const Nav = () => {
       <motion.div
         className="nav-dropdown"
         animate={showDropdown ? "show" : "hide"}
+        initial="hide"
         variants={dropDownMenuVariant}
       >
         <button
