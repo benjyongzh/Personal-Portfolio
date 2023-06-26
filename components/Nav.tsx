@@ -131,7 +131,7 @@ const Nav = () => {
                 }`}
                 href={showDropdown ? route.href : "#"}
                 key={route.text}
-                onClick={() => toggleDropdown()}
+                onClick={() => (showDropdown ? toggleDropdown() : {})}
               >
                 {route.text}
               </Link>
