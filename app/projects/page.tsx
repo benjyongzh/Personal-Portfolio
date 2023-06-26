@@ -1,10 +1,20 @@
 "use client";
-import ProjectCard from "@/components/ProjectCard";
-import ProjectPopup from "@/components/ProjectPopup";
-import projectList from "@/lib/projectList";
 import { useState } from "react";
-import { isEmptyObj } from "@/utils/objects";
-import { projectReference } from "@/lib/projectList";
+import { usePathname } from "next/navigation";
+
+//lib
+import projectList, { projectReference } from "@/lib/projectList";
+
+//components
+import ProjectPopup from "@/components/ProjectPopup";
+import ProjectCard from "@/components/ProjectCard";
+import ScreenGreyOut from "@/components/ScreenGreyOut";
+
+//redux
+// import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
+import { addPopup, removePopup } from "@/features/popup/popupSlice";
+import { IPopup } from "@/features/popup/popupSlice";
 
 import { motion } from "framer-motion";
 
@@ -23,21 +33,34 @@ export default function Projects() {
   const [currentProject, setCurrentProject] =
     useState<projectReference>(emptyProject);
 
+  const pathname = usePathname();
+  const dispatch = useAppDispatch();
+  const currentPopups = useAppSelector((state) => state.popup.popups);
+
   const toggleProjectPopup = (projectName: string) => {
     const project = projectList.filter(
       (projectItem: projectReference) => projectItem.projectName === projectName
     )[0];
     if (project) {
       // toggle pop up here
+      const thisPopup: IPopup = {
+        page: pathname,
+        type: `popup ${project.projectName}`,
+      };
+
       if (currentProject === emptyProject) {
         //no pop up at currently. so open one
         console.log("project found: ", project);
         console.log("Open pop up");
         setCurrentProject(project);
+
+        dispatch(addPopup(thisPopup));
       } else {
         //pop up is currently already open. close it
         console.log("Close pop up");
         setCurrentProject(emptyProject);
+
+        dispatch(removePopup(thisPopup));
       }
     }
   };
@@ -66,6 +89,7 @@ export default function Projects() {
           />
         ))}
       </ul>
+      <ScreenGreyOut />
       <ProjectPopup
         project={currentProject}
         closePopup={() => toggleProjectPopup(currentProject.projectName)}
