@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body.has-popup {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 main {
   width: 100vw;
   min-height: 100vh;
