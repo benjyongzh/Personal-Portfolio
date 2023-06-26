@@ -48,9 +48,9 @@ module.exports = {
         },
 
         accentlightmode: {
-          light: "#a38564",
-          DEFAULT: "#806951",
-          dark: "#674b2c",
+          light: "#7a5118",
+          DEFAULT: "#5c3e14",
+          dark: "#422701",
         },
 
         accentdarkmode: {

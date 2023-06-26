@@ -31,7 +31,7 @@ main {
   }
 
   .btn-secondary {
-    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-full cursor-pointer text-textlightmode-dark dark:text-textlightmode-dark border-primarylightmode hover:bg-primarylightmode;
+    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-full cursor-pointer text-textlightmode-dark dark:text-textdarkmode dark:hover:text-textlightmode-dark border-primarylightmode hover:bg-primarylightmode;
   }
 
   .nav-dropdown {
@@ -83,7 +83,7 @@ main {
   }
 
   .switch-slider-control {
-    @apply absolute h-5 w-5 sm:h-6 sm:w-6 left-[2px] bottom-[2px] rounded-full bg-accentlightmode transition-all duration-200 flex justify-center items-center;
+    @apply absolute h-5 w-5 sm:h-6 sm:w-6 left-[2px] bottom-[2px] rounded-full bg-accentlightmode-light transition-all duration-200 flex justify-center items-center;
   }
 
   .switch-slider-control > .switch-slider-icon {
