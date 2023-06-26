@@ -1,21 +1,78 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const pageVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      staggerDirection: 1,
+      delay: 0.6,
+    },
+  },
+};
+
+const contentVariant = {
+  hidden: {
+    opacity: 0,
+    y: 200,
+    transition: {
+      type: "spring",
+      duration: 0.8,
+      staggerChildren: 0.075,
+      staggerDirection: 1,
+    },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      duration: 0.8,
+      staggerChildren: 0.075,
+      staggerDirection: 1,
+    },
+  },
+};
 
 export default function Home() {
   return (
-    <div className="fixed flex flex-col items-start justify-center gap-8 px-10 mt-10 sm:gap-12 sm:px-12 sm:py-10 app sm:mt-24">
-      <header className="flex flex-col items-start justify-center gap-1 sm:gap-3">
-        <h3 className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode">
+    <motion.div
+      animate="visible"
+      initial="hidden"
+      variants={pageVariant}
+      className="fixed flex flex-col items-start justify-center gap-8 px-10 mt-10 sm:gap-12 sm:px-12 sm:py-10 app sm:mt-24"
+    >
+      <motion.header
+        variants={contentVariant}
+        className="flex flex-col items-start justify-center gap-1 sm:gap-3"
+      >
+        <motion.h3
+          variants={contentVariant}
+          className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode"
+        >
           Hello! I'm
-        </h3>
-        <h1 className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode">
+        </motion.h3>
+        <motion.h1
+          variants={contentVariant}
+          className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode"
+        >
           BENJAMIN YONG
-        </h1>
-        <h4 className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode">
+        </motion.h1>
+        <motion.h4
+          variants={contentVariant}
+          className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode"
+        >
           Self-taught Software Developer
-        </h4>
-      </header>
+        </motion.h4>
+      </motion.header>
 
-      <div className="flex items-center justify-center gap-5">
+      <motion.div
+        variants={contentVariant}
+        className="flex items-center justify-center gap-5"
+      >
         <Link
           className="nav-link group"
           href="https://github.com/benjyongzh"
@@ -53,17 +110,23 @@ export default function Home() {
             <path d="M116 3H12a8.91 8.91 0 00-9 8.8v104.42a8.91 8.91 0 009 8.78h104a8.93 8.93 0 009-8.81V11.77A8.93 8.93 0 00116 3zM39.17 107H21.06V48.73h18.11zm-9-66.21a10.5 10.5 0 1110.49-10.5 10.5 10.5 0 01-10.54 10.48zM107 107H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53V48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75z" />
           </svg>
         </Link>
-      </div>
-      <p className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode">
+      </motion.div>
+      <motion.p
+        variants={contentVariant}
+        className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode"
+      >
         Here is some text. A brief description of me. blablabla. Lorem ipsum,
         dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
         praesentium officia earum itaque nulla voluptatum obcaecati saepe
         suscipit! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Repudiandae officiis esse quas omnis quis ab nemo officia adipisci
         delectus culpa.
-      </p>
+      </motion.p>
 
-      <div className="flex items-center self-end justify-center gap-4 mt-4">
+      <motion.div
+        variants={contentVariant}
+        className="flex items-center self-end justify-center gap-4 mt-4"
+      >
         <Link href="/projects" className="btn-primary" type="button">
           Projects
           <svg
@@ -80,7 +143,7 @@ export default function Home() {
             ></path>
           </svg>
         </Link>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
