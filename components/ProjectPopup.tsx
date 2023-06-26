@@ -1,5 +1,6 @@
-import { isEmptyObj } from "@/utils/objects";
-import { projectReference, isProjectReference } from "@/lib/projectList";
+"use client";
+
+import { projectReference } from "@/lib/projectList";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -9,7 +10,7 @@ const screenPopupVariant = {
     scale: 0,
     transition: {
       type: "spring",
-      bounce: 0.4,
+      duration: 0.3,
     },
   },
   visible: {
@@ -17,7 +18,7 @@ const screenPopupVariant = {
     scale: 1,
     transition: {
       type: "spring",
-      bounce: 0.4,
+      duration: 0.3,
     },
   },
 };
@@ -49,7 +50,7 @@ const ProjectPopup = (props: {
       variants={screenPopupVariant}
       initial="hidden"
       animate={shown ? "visible" : "hidden"}
-      className={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode z-10 fixed mx-auto left-0 right-0 flex flex-col items-start justify-between w-[90%] h-[80%]  rounded-[36px] gap-7 p-7 sm:p-9 shadow-2xl`}
+      className={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode z-20 fixed mx-auto left-0 right-0 flex flex-col items-start justify-between w-[90%] h-[80%]  rounded-[36px] gap-7 p-7 sm:p-9 shadow-2xl`}
     >
       <motion.header
         layout="position"
