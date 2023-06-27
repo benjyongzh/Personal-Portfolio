@@ -4,7 +4,7 @@ import { useRef } from "react";
 //animations
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
-interface ISpring {
+export interface ISpring {
   damping?: number; //25
   stiffness?: number; //120
   restDelta?: number; //if the delta per tick is less than this, calculations stop (less taxing for processing. too high = movement stops too early)
@@ -16,31 +16,42 @@ const defaultSpring: ISpring = {
   restDelta: 1,
 };
 
-interface IScrollAnimations {
+export interface IScrollAnimations {
   opacityMin?: number;
   opacityMax?: number;
-  translateXIn?: number;
-  translateXOut?: number;
+  xIn?: number;
+  xOut?: number;
+  yIn?: number;
+  yOut?: number;
+  scaleMin?: number;
   spring?: ISpring;
 }
 
 const defaultScrollAnimations: IScrollAnimations = {
-  opacityMin: 0,
+  opacityMin: 1,
   opacityMax: 1,
-  translateXIn: 150,
-  translateXOut: -150,
+  xIn: 0,
+  xOut: 0,
+  yIn: 0,
+  yOut: 0,
+  scaleMin: 1,
   spring: defaultSpring,
+};
+
+export const dampSpring: ISpring = {
+  damping: 25,
+  stiffness: 125,
 };
 
 export default function ScrollAnimationWrapper({
   children,
   animationProps,
 }: {
-  children: React.ReactNode;
+  children: React.ReactElement;
   animationProps: IScrollAnimations;
 }) {
   const spring = { ...defaultSpring, ...animationProps.spring };
-  const { opacityMin, opacityMax, translateXIn, translateXOut } = {
+  const { opacityMin, opacityMax, xIn, xOut, yIn, yOut, scaleMin } = {
     ...defaultScrollAnimations,
     ...animationProps,
   };
@@ -61,40 +72,46 @@ export default function ScrollAnimationWrapper({
   ]);
 
   const scrollTranslateX = useTransform(scrollYProgress, screenCutoffPoints, [
-    translateXIn,
+    xIn,
     0,
     0,
-    translateXOut,
+    xOut,
   ]);
 
-  return (
-    <motion.div
-      style={{
-        translateX: useSpring(scrollTranslateX, spring),
-        opacity: useSpring(scrollOpacity, spring),
-      }}
-      ref={targetRef}
-    >
-      {children}
-    </motion.div>
-  );
-}
+  const scrollTranslateY = useTransform(scrollYProgress, screenCutoffPoints, [
+    yIn,
+    0,
+    0,
+    yOut,
+  ]);
 
-export const createScrollAnimation = (
-  opacity: number,
-  translateX: number,
-  dampenSpring = false
-): IScrollAnimations => {
-  return {
-    opacityMin: opacity,
-    opacityMax: 1,
-    translateXIn: translateX,
-    translateXOut: -1 * translateX,
-    spring: dampenSpring ? dampSpring : defaultSpring,
+  const scrollScale = useTransform(scrollYProgress, screenCutoffPoints, [
+    scaleMin,
+    1,
+    1,
+    scaleMin,
+  ]);
+
+  // console.log("original children: ", children);
+
+  const addedStyle = {
+    translateX: useSpring(scrollTranslateX, spring),
+    translateY: useSpring(scrollTranslateY, spring),
+    opacity: useSpring(scrollOpacity, spring),
+    scale: useSpring(scrollScale, spring),
   };
-};
 
-export const dampSpring: ISpring = {
-  damping: 25,
-  stiffness: 125,
-};
+  const newStyle = {
+    ...children.props.style,
+    ...addedStyle,
+  };
+  // console.log("newStyle: ", newStyle);
+
+  const newProps = { ...children.props, style: newStyle };
+  // console.log("newProps: ", newProps);
+
+  const newChildren = { ...children, props: newProps, ref: targetRef };
+  // console.log("newChildren: ", newChildren);
+
+  return <>{newChildren}</>;
+}
