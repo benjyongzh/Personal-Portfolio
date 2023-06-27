@@ -40,6 +40,7 @@ interface animationType {
 
 const animTypes: animationType = {
   focusCenter: [0, 0.2, 0.8, 1],
+  focusCenterlg: [0, 0.35, 0.65, 1],
   linear: [0, 0.5, 0.5, 1],
 };
 
