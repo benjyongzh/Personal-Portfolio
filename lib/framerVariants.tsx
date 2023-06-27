@@ -1,18 +1,12 @@
 export const pageVariant = {
   hidden: {
-    opacity: 0,
     transition: {
-      type: "spring",
-      duration: 4,
       staggerChildren: 0.1,
       staggerDirection: -1,
     },
   },
   visible: {
-    opacity: 1,
     transition: {
-      type: "spring",
-      duration: 4,
       staggerChildren: 0.1,
       staggerDirection: 1,
     },
