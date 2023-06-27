@@ -46,6 +46,10 @@ export default function Home() {
           opacityMin: 0.15,
           translateXIn: 200,
           translateXOut: -200,
+          spring: {
+            damping: 1000,
+            stiffness: 100,
+          },
         }}
       >
         <motion.header
