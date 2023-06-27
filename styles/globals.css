@@ -8,14 +8,14 @@ body.has-popup {
 }
 
 main {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 80px 24px 120px 24px;
 }
 
 @layer components {
@@ -24,7 +24,7 @@ main {
   }
 
   .app {
-    @apply flex p-4 mx-auto justify-stretch max-w-7xl;
+    @apply flex mx-auto justify-stretch max-w-7xl;
   }
 
   .btn-circle-primary {

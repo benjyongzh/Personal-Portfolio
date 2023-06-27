@@ -87,7 +87,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="absolute top-0 z-10 flex items-center justify-end w-screen gap-5 px-2 py-1">
+    <nav className="fixed top-0 z-10 flex items-center justify-end w-full gap-5 px-3 py-1 whitespace-nowrap">
       <SwitchToggle />
       <motion.div
         className="nav-dropdown"
