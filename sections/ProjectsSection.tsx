@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
 
 //lib
 import projectList, { projectReference } from "@/lib/projectList";
@@ -18,9 +17,9 @@ import { addPopup, removePopup } from "@/features/popup/popupSlice";
 import { IPopup } from "@/features/popup/popupSlice";
 
 //animations
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  pageVariant,
+  staggerVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
 
@@ -38,12 +37,6 @@ const emptyProject: projectReference = {
 export default function Projects() {
   const [currentProject, setCurrentProject] =
     useState<projectReference>(emptyProject);
-
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
 
   const pathname = usePathname();
   const dispatch = useAppDispatch();
@@ -77,17 +70,8 @@ export default function Projects() {
     }
   };
 
-  const scrollOpacity = useTransform(scrollYProgress, [0.25, 0.5], [0.2, 1]);
-
   return (
-    <motion.section
-      ref={targetRef}
-      animate="visible"
-      initial="hidden"
-      style={{ opacity: scrollOpacity }}
-      variants={pageVariant}
-      className="flex flex-col items-start gap-6 justify-stretch sm:px-12 sm:py-10 app"
-    >
+    <motion.section className="flex flex-col items-start justify-center h-screen gap-8 sm:gap-12 sm:py-10">
       <motion.header
         variants={textVerticalFadeMoveFromBottomVariant}
         className="text-3xl font-light tracking-wide sm:text-5xl"

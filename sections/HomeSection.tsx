@@ -3,26 +3,20 @@
 import Link from "next/link";
 //animations
 import { motion } from "framer-motion";
-import ScrollAnimationWrapper, {
-  dampSpring,
-} from "@/components/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 
 import {
-  pageVariant,
+  staggerVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
 
 export default function Home() {
-  // const pathname = usePathname();
-  // const targetRef = useRef(null);
-
   return (
     <motion.section
-      // ref={targetRef}
       animate="visible"
       initial="hidden"
-      variants={pageVariant}
-      className="flex flex-col items-start justify-center h-screen gap-8 px-10 sm:gap-12 sm:px-12 sm:py-10"
+      variants={staggerVariant}
+      className="flex flex-col items-start justify-center h-screen gap-8 sm:gap-12 sm:py-10"
     >
       <motion.header
         variants={textVerticalFadeMoveFromBottomVariant}
