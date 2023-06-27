@@ -13,9 +13,9 @@ import { useRef } from "react";
 //sections
 import HomeSection from "@/sections/HomeSection";
 import ProjectsSection from "@/sections/ProjectsSection";
-import ResumeSection from "@/sections/ResumeSection";
-import AboutSection from "@/sections/AboutSection";
-import ContactSection from "@/sections/ContactSection";
+// import ResumeSection from "@/sections/ResumeSection";
+// import AboutSection from "@/sections/AboutSection";
+// import ContactSection from "@/sections/ContactSection";
 
 // export default function Home() {
 // const pathname = usePathname();
