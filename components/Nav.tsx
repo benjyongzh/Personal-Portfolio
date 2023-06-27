@@ -102,16 +102,19 @@ const Nav = () => {
         >
           <motion.div className="space-y-1.5" variants={dropDownButtonVariant}>
             <div
+              key="navDropdownLine1"
               className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
               }`}
             ></div>
             <div
+              key="navDropdownLine2"
               className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
               }`}
             ></div>
             <div
+              key="navDropdownLine3"
               className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
                 showDropdown ? "bg-primarydarkmode" : ""
               }`}

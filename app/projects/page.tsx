@@ -18,7 +18,7 @@ import { IPopup } from "@/features/popup/popupSlice";
 
 import { motion } from "framer-motion";
 import {
-  pageVariant,
+  staggerVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
 
@@ -74,7 +74,7 @@ export default function Projects() {
       key={pathname}
       animate="visible"
       initial="hidden"
-      variants={pageVariant}
+      variants={staggerVariant}
       className="flex flex-col items-start gap-6 justify-stretch sm:px-12 sm:py-10 app"
     >
       <motion.header
