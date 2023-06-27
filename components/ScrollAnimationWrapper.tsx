@@ -32,14 +32,15 @@ const defaultScrollAnimations: IScrollAnimations = {
   spring: defaultSpring,
 };
 
-export default function ScrollTranslateXWrapper({
+export default function ScrollAnimationWrapper({
   children,
-  ...animationProps
+  animationProps,
 }: {
   children: React.ReactNode;
   animationProps: IScrollAnimations;
 }) {
-  const { opacityMin, opacityMax, translateXIn, translateXOut, spring } = {
+  const spring = { ...defaultSpring, ...animationProps.spring };
+  const { opacityMin, opacityMax, translateXIn, translateXOut } = {
     ...defaultScrollAnimations,
     ...animationProps,
   };
@@ -50,17 +51,21 @@ export default function ScrollTranslateXWrapper({
     offset: ["start end", "end start"],
   });
 
-  const scrollOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [opacityMin, opacityMax, opacityMax, opacityMin]
-  );
+  const screenCutoffPoints: Array<number> = [0, 0.2, 0.8, 1];
 
-  const scrollTranslateX = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [translateXIn, 0, 0, translateXOut]
-  );
+  const scrollOpacity = useTransform(scrollYProgress, screenCutoffPoints, [
+    opacityMin,
+    opacityMax,
+    opacityMax,
+    opacityMin,
+  ]);
+
+  const scrollTranslateX = useTransform(scrollYProgress, screenCutoffPoints, [
+    translateXIn,
+    0,
+    0,
+    translateXOut,
+  ]);
 
   return (
     <motion.div
@@ -74,3 +79,22 @@ export default function ScrollTranslateXWrapper({
     </motion.div>
   );
 }
+
+export const createScrollAnimation = (
+  opacity: number,
+  translateX: number,
+  dampenSpring = false
+): IScrollAnimations => {
+  return {
+    opacityMin: opacity,
+    opacityMax: 1,
+    translateXIn: translateX,
+    translateXOut: -1 * translateX,
+    spring: dampenSpring ? dampSpring : defaultSpring,
+  };
+};
+
+export const dampSpring: ISpring = {
+  damping: 25,
+  stiffness: 125,
+};
