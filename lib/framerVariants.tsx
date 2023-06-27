@@ -1,4 +1,4 @@
-export const pageVariant = {
+export const staggerVariant = {
   hidden: {
     transition: {
       staggerChildren: 0.1,
@@ -21,7 +21,7 @@ export const textVerticalFadeMoveFromBottomVariant = {
       type: "spring",
       duration: 1,
       staggerChildren: 0.1,
-      staggerDirection: -11,
+      staggerDirection: -1,
     },
   },
   visible: {

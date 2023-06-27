@@ -24,7 +24,7 @@ main {
   }
 
   .app {
-    @apply flex mx-auto justify-stretch max-w-7xl;
+    @apply flex px-10 mx-auto justify-stretch max-w-7xl sm:px-12;
   }
 
   .btn-circle-primary {
