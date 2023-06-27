@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 //animations
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useScroll, useTransform, useSpring } from "framer-motion";
 
 export interface ISpring {
   damping?: number; //25
@@ -16,6 +16,12 @@ const defaultSpring: ISpring = {
   restDelta: 1,
 };
 
+//exported in case it is used by another component
+export const dampSpring: ISpring = {
+  damping: 25,
+  stiffness: 125,
+};
+
 export interface IScrollAnimations {
   opacityMin?: number;
   opacityMax?: number;
@@ -25,7 +31,17 @@ export interface IScrollAnimations {
   yOut?: number;
   scaleMin?: number;
   spring?: ISpring;
+  animType?: string;
 }
+
+interface animationType {
+  [key: string]: number[];
+}
+
+const animTypes: animationType = {
+  focusCenter: [0, 0.2, 0.8, 1],
+  linear: [0, 0.5, 0.5, 1],
+};
 
 const defaultScrollAnimations: IScrollAnimations = {
   opacityMin: 1,
@@ -36,11 +52,7 @@ const defaultScrollAnimations: IScrollAnimations = {
   yOut: 0,
   scaleMin: 1,
   spring: defaultSpring,
-};
-
-export const dampSpring: ISpring = {
-  damping: 25,
-  stiffness: 125,
+  animType: Object.keys(animTypes)[0], //focusCenter
 };
 
 export default function ScrollAnimationWrapper({
@@ -50,11 +62,27 @@ export default function ScrollAnimationWrapper({
   children: React.ReactElement;
   animationProps: IScrollAnimations;
 }) {
-  const spring = { ...defaultSpring, ...animationProps.spring };
-  const { opacityMin, opacityMax, xIn, xOut, yIn, yOut, scaleMin } = {
+  const spring: ISpring = { ...defaultSpring, ...animationProps.spring };
+  const {
+    opacityMin,
+    opacityMax,
+    xIn,
+    xOut,
+    yIn,
+    yOut,
+    scaleMin,
+    animType,
+  }: IScrollAnimations = {
     ...defaultScrollAnimations,
     ...animationProps,
   };
+
+  let animPattern: Array<number>;
+  if (Object.keys(animTypes).includes(animType!)) {
+    animPattern = animTypes[animType!];
+  } else {
+    animPattern = animTypes["focusCenter"];
+  }
 
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -62,30 +90,28 @@ export default function ScrollAnimationWrapper({
     offset: ["start end", "end start"],
   });
 
-  const screenCutoffPoints: Array<number> = [0, 0.2, 0.8, 1];
-
-  const scrollOpacity = useTransform(scrollYProgress, screenCutoffPoints, [
+  const scrollOpacity = useTransform(scrollYProgress, animPattern, [
     opacityMin,
     opacityMax,
     opacityMax,
     opacityMin,
   ]);
 
-  const scrollTranslateX = useTransform(scrollYProgress, screenCutoffPoints, [
+  const scrollTranslateX = useTransform(scrollYProgress, animPattern, [
     xIn,
     0,
     0,
     xOut,
   ]);
 
-  const scrollTranslateY = useTransform(scrollYProgress, screenCutoffPoints, [
+  const scrollTranslateY = useTransform(scrollYProgress, animPattern, [
     yIn,
     0,
     0,
     yOut,
   ]);
 
-  const scrollScale = useTransform(scrollYProgress, screenCutoffPoints, [
+  const scrollScale = useTransform(scrollYProgress, animPattern, [
     scaleMin,
     1,
     1,
