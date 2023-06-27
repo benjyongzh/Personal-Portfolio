@@ -23,7 +23,7 @@ export default function Home() {
         className="flex flex-col items-start justify-center gap-1 sm:gap-3"
       >
         <ScrollAnimationWrapper
-          animationProps={{ opacityMin: 0.2, xOut: -100 }}
+          animationProps={{ opacityMin: 0.2, yOut: -100 }}
         >
           <motion.h3
             variants={textVerticalFadeMoveFromBottomVariant}
@@ -33,7 +33,7 @@ export default function Home() {
           </motion.h3>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper
-          animationProps={{ opacityMin: 0.2, xOut: -100 }}
+          animationProps={{ opacityMin: 0.2, yOut: -100 }}
         >
           <motion.h1
             variants={textVerticalFadeMoveFromBottomVariant}
@@ -43,7 +43,7 @@ export default function Home() {
           </motion.h1>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper
-          animationProps={{ opacityMin: 0.2, xOut: -100 }}
+          animationProps={{ opacityMin: 0.2, yOut: -100 }}
         >
           <motion.h4
             variants={textVerticalFadeMoveFromBottomVariant}
@@ -53,7 +53,7 @@ export default function Home() {
           </motion.h4>
         </ScrollAnimationWrapper>
       </motion.header>
-      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, xOut: -100 }}>
+      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, yOut: -100 }}>
         <motion.div
           variants={textVerticalFadeMoveFromBottomVariant}
           className="flex items-center justify-center gap-5"
@@ -97,7 +97,7 @@ export default function Home() {
           </Link>
         </motion.div>
       </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, xOut: 100 }}>
+      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, yOut: -100 }}>
         <motion.p
           // style={{ translateX: scrollOutTranslateX }}
           variants={textVerticalFadeMoveFromBottomVariant}
@@ -111,7 +111,12 @@ export default function Home() {
           delectus culpa.
         </motion.p>
       </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, xOut: 100 }}>
+      <ScrollAnimationWrapper
+        animationProps={{
+          opacityMin: 0.2,
+          yOut: -100,
+        }}
+      >
         <motion.div
           // style={{ translateX: scrollOutTranslateX }}
           variants={textVerticalFadeMoveFromBottomVariant}
