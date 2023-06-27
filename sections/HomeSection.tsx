@@ -1,55 +1,83 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRef } from "react";
+// import { usePathname } from "next/navigation";
 //animations
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import ScrollTranslateXWrapper from "@/components/ScrollTranslateXWrapper";
+
 import {
   pageVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
 
 export default function Home() {
-  const pathname = usePathname();
+  // const pathname = usePathname();
+  // const targetRef = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: targetRef,
+  //   offset: ["end center", "end start"],
+  // });
+
+  // const scrollInTranslateX = useTransform(
+  //   scrollYProgress,
+  //   [0.6, 0.9],
+  //   [0, 200]
+  // );
+
+  // const scrollOutOpacity = useTransform(scrollYProgress, [0.6, 0.85], [1, 0.1]);
+  // const scrollOutTranslateX = useTransform(
+  //   scrollYProgress,
+  //   [0.6, 0.9],
+  //   [0, 200]
+  // );
+
   return (
-    <motion.div
-      key={pathname}
+    <motion.section
+      // ref={targetRef}
       animate="visible"
       initial="hidden"
       variants={pageVariant}
-      className="fixed flex flex-col items-start justify-center gap-8 px-10 mt-10 sm:gap-12 sm:px-12 sm:py-10 app sm:mt-24"
+      className="flex flex-col items-start justify-center h-screen gap-8 px-10 sm:gap-12 sm:px-12 sm:py-10"
     >
-      <motion.header
-        variants={textVerticalFadeMoveFromBottomVariant}
-        className="flex flex-col items-start justify-center gap-1 sm:gap-3"
+      <ScrollTranslateXWrapper
+        animationProps={{
+          opacityMin: 0.15,
+          translateXIn: 200,
+          translateXOut: -200,
+        }}
       >
-        <motion.h3
-          exit="hidden"
-          key={"home Hello! I'm"}
+        <motion.header
           variants={textVerticalFadeMoveFromBottomVariant}
-          className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode"
+          className="flex flex-col items-start justify-center gap-1 sm:gap-3"
         >
-          Hello! I'm
-        </motion.h3>
-        <motion.h1
-          exit="hidden"
-          key={"home Name"}
-          variants={textVerticalFadeMoveFromBottomVariant}
-          className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode"
-        >
-          BENJAMIN YONG
-        </motion.h1>
-        <motion.h4
-          exit="hidden"
-          key={"home job"}
-          variants={textVerticalFadeMoveFromBottomVariant}
-          className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode"
-        >
-          Self-taught Software Developer
-        </motion.h4>
-      </motion.header>
+          <motion.h3
+            // style={{ translateX: scrollOutTranslateX }}
+            variants={textVerticalFadeMoveFromBottomVariant}
+            className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode"
+          >
+            Hello! I'm
+          </motion.h3>
+          <motion.h1
+            // style={{ translateX: scrollOutTranslateX }}
+            variants={textVerticalFadeMoveFromBottomVariant}
+            className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode"
+          >
+            BENJAMIN YONG
+          </motion.h1>
+          <motion.h4
+            // style={{ translateX: scrollOutTranslateX }}
+            variants={textVerticalFadeMoveFromBottomVariant}
+            className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode"
+          >
+            Self-taught Software Developer
+          </motion.h4>
+        </motion.header>
+      </ScrollTranslateXWrapper>
 
       <motion.div
+        // style={{ translateX: scrollOutTranslateX }}
         variants={textVerticalFadeMoveFromBottomVariant}
         className="flex items-center justify-center gap-5"
       >
@@ -92,6 +120,7 @@ export default function Home() {
         </Link>
       </motion.div>
       <motion.p
+        // style={{ translateX: scrollOutTranslateX }}
         variants={textVerticalFadeMoveFromBottomVariant}
         className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode"
       >
@@ -104,6 +133,7 @@ export default function Home() {
       </motion.p>
 
       <motion.div
+        // style={{ translateX: scrollOutTranslateX }}
         variants={textVerticalFadeMoveFromBottomVariant}
         className="flex items-center self-end justify-center gap-4 mt-4"
       >
@@ -124,6 +154,6 @@ export default function Home() {
           </svg>
         </Link>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 }
