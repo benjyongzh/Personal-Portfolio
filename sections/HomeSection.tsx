@@ -4,6 +4,7 @@ import Link from "next/link";
 //animations
 import { motion } from "framer-motion";
 import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import { checkScreenSize } from "@/utils/media";
 
 import {
   staggerVariant,
@@ -23,7 +24,11 @@ export default function Home() {
         className="flex flex-col items-start justify-center gap-1 sm:gap-3"
       >
         <ScrollAnimationWrapper
-          animationProps={{ opacityMin: 0.2, yOut: -100 }}
+          animationProps={{
+            opacityMin: 0.2,
+            yOut: -100,
+            animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+          }}
         >
           <motion.h3
             variants={textVerticalFadeMoveFromBottomVariant}
@@ -33,7 +38,11 @@ export default function Home() {
           </motion.h3>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper
-          animationProps={{ opacityMin: 0.2, yOut: -100 }}
+          animationProps={{
+            opacityMin: 0.2,
+            yOut: -100,
+            animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+          }}
         >
           <motion.h1
             variants={textVerticalFadeMoveFromBottomVariant}
@@ -43,7 +52,11 @@ export default function Home() {
           </motion.h1>
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper
-          animationProps={{ opacityMin: 0.2, yOut: -100 }}
+          animationProps={{
+            opacityMin: 0.2,
+            yOut: -100,
+            animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+          }}
         >
           <motion.h4
             variants={textVerticalFadeMoveFromBottomVariant}
@@ -53,7 +66,13 @@ export default function Home() {
           </motion.h4>
         </ScrollAnimationWrapper>
       </motion.header>
-      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, yOut: -100 }}>
+      <ScrollAnimationWrapper
+        animationProps={{
+          opacityMin: 0.2,
+          yOut: -100,
+          animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+        }}
+      >
         <motion.div
           variants={textVerticalFadeMoveFromBottomVariant}
           className="flex items-center justify-center gap-5"
@@ -97,7 +116,13 @@ export default function Home() {
           </Link>
         </motion.div>
       </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper animationProps={{ opacityMin: 0.2, yOut: -100 }}>
+      <ScrollAnimationWrapper
+        animationProps={{
+          opacityMin: 0.2,
+          yOut: -100,
+          animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+        }}
+      >
         <motion.p
           // style={{ translateX: scrollOutTranslateX }}
           variants={textVerticalFadeMoveFromBottomVariant}

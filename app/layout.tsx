@@ -22,6 +22,28 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <div id="screensizechecker">
+          <div
+            className="block sm:hidden m:hidden lg:hidden xl:hidden"
+            data-size="xs"
+          ></div>
+          <div
+            className="hidden sm-block m:hidden lg:hidden xl:hidden"
+            data-size="sm"
+          ></div>
+          <div
+            className="hidden sm:hidden m:block lg:hidden xl:hidden"
+            data-size="md"
+          ></div>
+          <div
+            className="hidden sm:hidden m:hidden lg:block xl:hidden"
+            data-size="lg"
+          ></div>
+          <div
+            className="hidden sm:hidden m:hidden lg:hidden xl:block"
+            data-size="xl"
+          ></div>
+        </div>
         <ProviderGroup>
           <main className={`main ${nunito.className}`}>
             <Nav />
