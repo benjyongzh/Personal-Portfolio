@@ -1,9 +1,10 @@
-// "use client";
+"use client";
 
 // import Link from "next/link";
 // import { usePathname } from "next/navigation";
 // //animations
-// import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
+import { useRef } from "react";
 // import {
 //   pageVariant,
 //   textVerticalFadeMoveFromBottomVariant,
@@ -136,13 +137,16 @@ import ContactSection from "@/sections/ContactSection";
 // }
 
 export default function Portfolio() {
+  // const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll();
+
   return (
-    <div className="flex flex-col items-start justify-center px-10 mt-10 sm:px-12 sm:py-10 app sm:mt-24">
+    <motion.section className="relative flex flex-col items-start justify-center app">
       <HomeSection />
       <ProjectsSection />
-      <ResumeSection />
+      {/* <ResumeSection />
       <AboutSection />
-      <ContactSection />
-    </div>
+      <ContactSection /> */}
+    </motion.section>
   );
 }
