@@ -57,10 +57,10 @@ const defaultScrollAnimations: IScrollAnimations = {
 
 export default function ScrollAnimationWrapper({
   children,
-  animationProps,
+  animationProps = defaultScrollAnimations,
 }: {
   children: React.ReactElement;
-  animationProps: IScrollAnimations;
+  animationProps?: IScrollAnimations;
 }) {
   const spring: ISpring = { ...defaultSpring, ...animationProps.spring };
   const {
