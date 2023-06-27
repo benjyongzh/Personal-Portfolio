@@ -22,6 +22,9 @@ import {
   staggerVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
+import ScrollAnimationWrapper, {
+  dampSpring,
+} from "@/components/ScrollAnimationWrapper";
 
 const emptyProject: projectReference = {
   projectName: "",
@@ -72,21 +75,39 @@ export default function Projects() {
 
   return (
     <motion.section className="flex flex-col items-start justify-center h-screen gap-8 sm:gap-12 sm:py-10">
-      <motion.header
-        variants={textVerticalFadeMoveFromBottomVariant}
-        className="text-3xl font-light tracking-wide sm:text-5xl"
+      <ScrollAnimationWrapper
+        animationProps={{
+          xIn: -200,
+          xOut: 200,
+          animType: "linear",
+          spring: dampSpring,
+        }}
       >
-        PROJECTS
-      </motion.header>
-      <motion.p
-        variants={textVerticalFadeMoveFromBottomVariant}
-        className="text-base text-start text-textlightmode dark:text-textdarkmode"
+        <motion.header
+          variants={textVerticalFadeMoveFromBottomVariant}
+          className="text-3xl font-light tracking-widest sm:text-5xl"
+        >
+          PROJECTS
+        </motion.header>
+      </ScrollAnimationWrapper>
+      <ScrollAnimationWrapper
+        animationProps={{
+          xIn: -50,
+          xOut: 50,
+          animType: "linear",
+          spring: dampSpring,
+        }}
       >
-        Here is some text. A brief description of me. blablabla. Lorem ipsum,
-        dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
-        praesentium officia earum itaque nulla voluptatum obcaecati saepe
-        suscipit!
-      </motion.p>
+        <motion.p
+          variants={textVerticalFadeMoveFromBottomVariant}
+          className="text-base text-justify text-textlightmode dark:text-textdarkmode"
+        >
+          Here is some text. A brief description of me. blablabla. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
+          praesentium officia earum itaque nulla voluptatum obcaecati saepe
+          suscipit!
+        </motion.p>
+      </ScrollAnimationWrapper>
       <motion.ul
         variants={textVerticalFadeMoveFromBottomVariant}
         className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
