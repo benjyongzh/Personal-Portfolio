@@ -27,6 +27,10 @@ main {
     @apply flex px-10 mx-auto justify-stretch max-w-7xl sm:px-12;
   }
 
+  .popup {
+    @apply bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl;
+  }
+
   .btn-circle-primary {
     @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center mr-2;
   }
