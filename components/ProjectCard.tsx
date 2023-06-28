@@ -1,12 +1,7 @@
 "use client";
-import { useState } from "react";
 import { motion } from "framer-motion";
 
-const ProjectCard = (props: {
-  projectName?: string;
-  click: Function;
-  isOpen: boolean;
-}) => {
+const ProjectCard = (props: { projectName?: string; click: Function }) => {
   return (
     <motion.button
       className={`flex flex-col items-start justify-between bg-secondarylightmode dark:bg-secondarydarkmode-light rounded-[24px] shadow-slate-950
@@ -21,7 +16,7 @@ const ProjectCard = (props: {
       layout
       whileHover={{ scale: 1.05 }}
       onClick={() => {
-        !props.isOpen ? props.click() : {};
+        props.click();
       }}
     >
       <header

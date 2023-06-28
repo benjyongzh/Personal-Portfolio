@@ -8,8 +8,8 @@ import PopupWrapper from "./PopupWrapper";
 const ProjectPopup = (props: {
   project: projectReference;
   closePopup: Function;
-
   popupId: string;
+
   popupAnimations: {
     variants: Variants;
     initial: string;
@@ -35,7 +35,7 @@ const ProjectPopup = (props: {
       animate={props.popupAnimations.animate}
       variants={props.popupAnimations.variants}
       data-popupId={props.popupId}
-      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 ${props.popupStyle}`}
+      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 mx-auto left-0 right-0 ${props.popupStyle}`}
     >
       <motion.header
         layout="position"

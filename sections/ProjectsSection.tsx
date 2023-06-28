@@ -6,14 +6,14 @@ import { usePathname } from "next/navigation";
 import projectList, { projectReference } from "@/lib/projectList";
 
 //components
-import ProjectPopup from "@/features/popup/ProjectPopup";
 import ProjectCard from "@/components/ProjectCard";
 
 //redux
 // import { useDispatch, useSelector } from "react-redux";
-import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
-import { addPopup, removePopup } from "@/features/popup/popupSlice";
-import { IPopup } from "@/features/popup/popupSlice";
+// import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
+// import { addPopup, removePopup } from "@/features/popup/popupSlice";
+// import { IPopup } from "@/features/popup/popupSlice";
+// import { IPopupType } from "@/features/popup/PopupList";
 
 //animations
 import { motion } from "framer-motion";
@@ -25,7 +25,7 @@ import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
 
-const emptyProject: projectReference = {
+export const emptyProject: projectReference = {
   projectName: "",
   href: "",
   githubLink: "",
@@ -36,38 +36,22 @@ const emptyProject: projectReference = {
   techStack: [],
 };
 
-export default function Projects() {
-  const [currentProject, setCurrentProject] =
-    useState<projectReference>(emptyProject);
-
+export default function Projects(props: {
+  handleCreatePopup: Function;
+  currentProjectPopup: projectReference;
+}) {
   const pathname = usePathname();
-  const dispatch = useAppDispatch();
-  const currentPopups = useAppSelector((state) => state.popup.popups);
 
-  const toggleProjectPopup = (projectName: string) => {
+  const openProjectPopup = (projectName: string) => {
+    if (props.currentProjectPopup !== emptyProject) return;
+
     const project = projectList.filter(
       (projectItem: projectReference) => projectItem.projectName === projectName
     )[0];
     if (project) {
-      // toggle pop up here
-      const thisPopup: IPopup = {
-        id: pathname,
-      };
-
-      if (currentProject === emptyProject) {
-        //no pop up at currently. so open one
-        console.log("project found: ", project);
-        console.log("Open pop up");
-        setCurrentProject(project);
-
-        dispatch(addPopup(thisPopup));
-      } else {
-        //pop up is currently already open. close it
-        console.log("Close pop up");
-        setCurrentProject(emptyProject);
-
-        dispatch(removePopup(thisPopup));
-      }
+      console.log("project found: ", project);
+      console.log("Open pop up");
+      props.handleCreatePopup({ type: "projectPopup", info: project });
     }
   };
 
@@ -114,11 +98,7 @@ export default function Projects() {
           <ProjectCard
             key={project.projectName}
             projectName={project.projectName}
-            click={() => toggleProjectPopup(project.projectName)}
-            isOpen={
-              currentProject !== emptyProject &&
-              currentProject.projectName === project.projectName
-            }
+            click={() => openProjectPopup(project.projectName)}
           />
         ))}
       </motion.ul>

@@ -1,9 +1,7 @@
 "use client";
 import { Variants } from "framer-motion";
-import { useEffect } from "react";
 
-import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
-import { addPopup, removePopup } from "@/features/popup/popupSlice";
+import { useAppSelector } from "@/hooks/reduxHooks";
 
 const screenPopupVariant = {
   hidden: {
@@ -46,7 +44,7 @@ export function withExtraInfo<P>(
 } */
 
 export type popupWrapperInfoType = {
-  popupId: string;
+  //   popupId: string;
   popupAnimations: {
     variants: Variants;
     initial: string;
@@ -58,29 +56,22 @@ export type popupWrapperInfoType = {
 export default function PopupWrapper<T>(
   OriginalComponent: React.ComponentType<T & popupWrapperInfoType>
 ) {
-  const newPopupId = "hello"; //make a unique ID here
-  const dispatch = useAppDispatch();
+  //   const newPopupId = "hello"; //make a unique ID here
   const currentPopups = useAppSelector((state) => state.popup.popups);
-
-  useEffect(() => {
-    dispatch(addPopup({ id: newPopupId }));
-
-    return () => {
-      dispatch(removePopup({ id: newPopupId }));
-    };
-  }, []);
 
   const NewComponent = (props: T) => {
     return (
       <OriginalComponent
         {...props}
-        popupId={newPopupId}
+        // popupId={newPopupId}
         popupAnimations={{
           variants: screenPopupVariant,
           initial: "hidden",
           animate: "visible",
         }}
-        popupStyle="bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode z-20 fixed mx-auto left-0 right-0 p-7 sm:p-9 shadow-2xl"
+        popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
+          10 + currentPopups.length * 10
+        }]`}
       />
     );
   };
