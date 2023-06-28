@@ -27,7 +27,7 @@ export default function Home() {
           animationProps={{
             opacityMin: 0.2,
             yOut: -100,
-            animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+            /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
           }}
         >
           <motion.h3
@@ -41,7 +41,7 @@ export default function Home() {
           animationProps={{
             opacityMin: 0.2,
             yOut: -100,
-            animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+            /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
           }}
         >
           <motion.h1
@@ -55,7 +55,7 @@ export default function Home() {
           animationProps={{
             opacityMin: 0.2,
             yOut: -100,
-            animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+            /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
           }}
         >
           <motion.h4
@@ -70,7 +70,7 @@ export default function Home() {
         animationProps={{
           opacityMin: 0.2,
           yOut: -100,
-          animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+          /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
         }}
       >
         <motion.div
@@ -120,7 +120,7 @@ export default function Home() {
         animationProps={{
           opacityMin: 0.2,
           yOut: -100,
-          animType: checkScreenSize() !== "xs" ? "focusContentlg" : "",
+          /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
         }}
       >
         <motion.p
@@ -136,7 +136,7 @@ export default function Home() {
           delectus culpa.
         </motion.p>
       </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper
+      {/* <ScrollAnimationWrapper
         animationProps={{
           opacityMin: 0.2,
           yOut: -100,
@@ -164,7 +164,7 @@ export default function Home() {
             </svg>
           </Link>
         </motion.div>
-      </ScrollAnimationWrapper>
+      </ScrollAnimationWrapper> */}
     </motion.section>
   );
 }

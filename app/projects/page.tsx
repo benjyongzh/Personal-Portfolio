@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import projectList, { projectReference } from "@/lib/projectList";
 
 //components
-import ProjectPopup from "@/components/ProjectPopup";
+import ProjectPopup from "@/features/popup/ProjectPopup";
 import ProjectCard from "@/components/ProjectCard";
 import ScreenGreyOut from "@/components/ScreenGreyOut";
 
@@ -101,20 +101,9 @@ export default function Projects() {
             key={project.projectName}
             projectName={project.projectName}
             click={() => toggleProjectPopup(project.projectName)}
-            isOpen={
-              currentProject !== emptyProject &&
-              currentProject.projectName === project.projectName
-            }
           />
         ))}
       </motion.ul>
-      <ScreenGreyOut
-        clicked={() => toggleProjectPopup(currentProject.projectName)}
-      />
-      <ProjectPopup
-        project={currentProject}
-        closePopup={() => toggleProjectPopup(currentProject.projectName)}
-      />
     </motion.div>
   );
 }

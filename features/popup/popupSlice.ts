@@ -7,7 +7,7 @@ export interface IPopup {
 }
 
 export interface IPopupType {
-  type: string; //project, contact, about
+  type: string; //projectPopup, contact, about
   info: projectReference; // or whatever reference for other types of popups
 }
 
@@ -24,24 +24,25 @@ const popupSlice = createSlice({
   initialState,
   reducers: {
     addPopup: (state, action: PayloadAction<IPopup>) => {
-      // console.log("add action. payload: ", action.payload);
+      console.log("add action. payload: ", action.payload);
       state.popups.push(action.payload);
       // check if popup was a project popup
-      if (action.payload.type!.type === "project") {
+      if (action.payload.type!.type === "projectPopup") {
         state.currentProjectPopup = action.payload;
       }
-      // console.log("state: ", state.popups);
+      console.log("popups: ", state.popups);
+      console.log("projectpopup: ", state.currentProjectPopup);
     },
     removePopup: (state, action: PayloadAction<IPopup>) => {
-      // console.log("remove action. payload: ", action.payload);
+      console.log("remove action. payload: ", action.payload);
       state.popups = state.popups.filter(
         (popup) => action.payload.id !== popup.id
       );
       // check if popup was a project popup
-      if (action.payload.type!.type === "project") {
+      if (action.payload.type!.type === "projectPopup") {
         //check if this was the only popup type project
         const remainingProjectPopup = state.popups.filter(
-          (popup) => action.payload.type!.type === "project"
+          (popup) => action.payload.type!.type === "projectPopup"
         )[0];
         if (remainingProjectPopup) {
           state.currentProjectPopup = remainingProjectPopup;
@@ -49,8 +50,9 @@ const popupSlice = createSlice({
           state.currentProjectPopup = {};
         }
       }
-      // console.log("payload found and removed");
-      // console.log("state: ", state.popups);
+      console.log("payload found and removed");
+      console.log("popups: ", state.popups);
+      console.log("projectpopup: ", state.currentProjectPopup);
     },
   },
 });
