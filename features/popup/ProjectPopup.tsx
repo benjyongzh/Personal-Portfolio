@@ -8,6 +8,15 @@ import PopupWrapper, { popupWrapperInfoType } from "./PopupWrapper";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 
+// type popupProps = {
+//   project: projectReference;
+//   popupId: string;
+//   variants?: Variants;
+//   initial?: string;
+//   animate?: string;
+//   popupStyle?: string;
+// };
+
 const ProjectPopup = (props: {
   project: projectReference;
   popupId: string;
