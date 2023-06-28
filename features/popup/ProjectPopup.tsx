@@ -4,18 +4,8 @@ import { projectReference } from "@/lib/projectList";
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import PopupWrapper, { popupWrapperInfoType } from "./PopupWrapper";
-
-import { useAppDispatch } from "@/hooks/reduxHooks";
+import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
-
-// type popupProps = {
-//   project: projectReference;
-//   popupId: string;
-//   variants?: Variants;
-//   initial?: string;
-//   animate?: string;
-//   popupStyle?: string;
-// };
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -23,7 +13,6 @@ const ProjectPopup = (props: {
   variants: Variants;
   initial: string;
   animate: string;
-  popupStyle: string;
 }) => {
   const dispatch = useAppDispatch();
   const {
@@ -36,6 +25,7 @@ const ProjectPopup = (props: {
     popupImage,
     techStack,
   } = props.project;
+  const currentPopups = useAppSelector((state) => state.popup.popups);
 
   const close = () => {
     dispatch(removePopup({ id: props.popupId }));
@@ -46,9 +36,11 @@ const ProjectPopup = (props: {
       layout
       initial={props.initial}
       animate={props.animate}
+      exit={props.initial}
       variants={props.variants}
       data-popupId={props.popupId!}
-      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 mx-auto left-0 right-0 ${props.popupStyle}`}
+      className="flex flex-col items-start justify-between w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
+      style={{ zIndex: 10 + currentPopups.length * 10 }}
     >
       <motion.header
         layout="position"
