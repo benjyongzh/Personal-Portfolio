@@ -1,31 +1,21 @@
 "use client";
 
 import { projectReference } from "@/lib/projectList";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
-
-const screenPopupVariant = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-    transition: {
-      type: "spring",
-      duration: 0.3,
-    },
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      duration: 0.3,
-    },
-  },
-};
+import PopupWrapper from "./PopupWrapper";
 
 const ProjectPopup = (props: {
   project: projectReference;
   closePopup: Function;
+
+  popupId: string;
+  popupAnimations: {
+    variants: Variants;
+    initial: string;
+    animate: string;
+  };
+  popupStyle: string;
 }) => {
   const {
     projectName,
@@ -38,19 +28,14 @@ const ProjectPopup = (props: {
     techStack,
   } = props.project;
 
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    setShown(projectName !== "");
-  }, [props.project]);
-
   return (
     <motion.div
       layout
-      variants={screenPopupVariant}
-      initial="hidden"
-      animate={shown ? "visible" : "hidden"}
-      className={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode z-20 fixed mx-auto left-0 right-0 flex flex-col items-start justify-between w-[90%] h-[80%]  rounded-[36px] gap-7 p-7 sm:p-9 shadow-2xl`}
+      initial={props.popupAnimations.initial}
+      animate={props.popupAnimations.animate}
+      variants={props.popupAnimations.variants}
+      data-popupId={props.popupId}
+      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 ${props.popupStyle}`}
     >
       <motion.header
         layout="position"
@@ -84,4 +69,4 @@ const ProjectPopup = (props: {
   );
 };
 
-export default ProjectPopup;
+export default PopupWrapper(ProjectPopup);

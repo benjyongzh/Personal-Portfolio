@@ -16,6 +16,7 @@ import ProjectsSection from "@/sections/ProjectsSection";
 // import ResumeSection from "@/sections/ResumeSection";
 // import AboutSection from "@/sections/AboutSection";
 // import ContactSection from "@/sections/ContactSection";
+import ScreenGreyOut from "@/components/ScreenGreyOut";
 
 // export default function Home() {
 // const pathname = usePathname();
@@ -147,6 +148,7 @@ export default function Portfolio() {
       {/* <ResumeSection />
       <AboutSection />
       <ContactSection /> */}
+      <ScreenGreyOut clicked={() => {}} />
     </motion.section>
   );
 }

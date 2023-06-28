@@ -2,7 +2,7 @@
 
 //redux
 // import { useSelector } from "react-redux";
-import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
+import { useAppSelector } from "@/hooks/reduxHooks";
 // import { removePopup } from "@/features/popup/popupSlice";
 import { useEffect } from "react";
 
@@ -26,12 +26,7 @@ const screenGreyOutVariant = {
 };
 
 const ScreenGreyOut = (props: { clicked: Function }) => {
-  // const dispatch = useAppDispatch();
   const currentPopups = useAppSelector((state) => state.popup.popups);
-
-  // const clicked = () => {
-  //   dispatch(removePopup(currentPopups[currentPopups.length - 1]));
-  // };
 
   const checkPopups = () => {
     if (currentPopups.length > 0) {

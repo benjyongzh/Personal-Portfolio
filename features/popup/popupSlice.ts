@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IPopup {
-  page: string;
-  type: string;
+  id: string;
 }
 
 type InitialState = { popups: Array<IPopup> };
@@ -24,9 +23,7 @@ const popupSlice = createSlice({
     removePopup: (state, action: PayloadAction<IPopup>) => {
       // console.log("remove action. payload: ", action.payload);
       state.popups = state.popups.filter(
-        (popup) =>
-          action.payload.page !== popup.page ||
-          action.payload.type !== popup.type
+        (popup) => action.payload.id !== popup.id
       );
       // console.log("payload found and removed");
       // console.log("state: ", state.popups);

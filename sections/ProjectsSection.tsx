@@ -6,9 +6,8 @@ import { usePathname } from "next/navigation";
 import projectList, { projectReference } from "@/lib/projectList";
 
 //components
-import ProjectPopup from "@/components/ProjectPopup";
+import ProjectPopup from "@/features/popup/ProjectPopup";
 import ProjectCard from "@/components/ProjectCard";
-import ScreenGreyOut from "@/components/ScreenGreyOut";
 
 //redux
 // import { useDispatch, useSelector } from "react-redux";
@@ -52,8 +51,7 @@ export default function Projects() {
     if (project) {
       // toggle pop up here
       const thisPopup: IPopup = {
-        page: pathname,
-        type: `popup ${project.projectName}`,
+        id: pathname,
       };
 
       if (currentProject === emptyProject) {
@@ -124,13 +122,6 @@ export default function Projects() {
           />
         ))}
       </motion.ul>
-      <ScreenGreyOut
-        clicked={() => toggleProjectPopup(currentProject.projectName)}
-      />
-      <ProjectPopup
-        project={currentProject}
-        closePopup={() => toggleProjectPopup(currentProject.projectName)}
-      />
     </motion.section>
   );
 }
