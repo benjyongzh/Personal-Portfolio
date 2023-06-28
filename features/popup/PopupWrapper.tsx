@@ -1,6 +1,7 @@
 "use client";
 import { Variants } from "framer-motion";
-import { Diff } from "utility-types";
+import { Diff, Subtract } from "utility-types";
+import React from "react";
 
 import { useAppSelector } from "@/hooks/reduxHooks";
 
@@ -51,12 +52,13 @@ export interface popupWrapperInfoType {
   popupStyle: string;
 }
 
-function PopupWrapper<propsT>(
+/* function PopupWrapper<propsT>(
   OriginalComponent: React.ComponentType<propsT & popupWrapperInfoType>
 ): React.ComponentType<propsT> {
   const currentPopups = useAppSelector((state) => state.popup.popups);
 
   const NewComponent = (props: propsT) => {
+    //props here should not contain items in popupWrapperInfoType
     return (
       <OriginalComponent
         {...props}
@@ -70,27 +72,34 @@ function PopupWrapper<propsT>(
     );
   };
   return NewComponent;
-}
-
-/* function PopupWrapper<propsT extends popupWrapperInfoType>(
-  OriginalComponent: React.ComponentType<propsT>
-): React.ComponentType<propsT> {
-  const currentPopups = useAppSelector((state) => state.popup.popups);
-
-  const NewComponent = (props: Diff<propsT, popupWrapperInfoType>) => {
-    return (
-      <OriginalComponent
-        {...(props as propsT)}
-        variants={screenPopupVariant}
-        initial="hidden"
-        animate="visible"
-        popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
-          10 + currentPopups.length * 10
-        }]`} //z-index might get updated with even more popups. so all popups will have same z-index, because they are all based on the same hook (currentPopups)
-      />
-    );
-  };
-  return NewComponent;
 } */
+
+function PopupWrapper<T extends {}>(Component: React.ComponentType<T>) {
+  return class extends React.Component<Diff<T, popupWrapperInfoType>> {
+    currentPopups = useAppSelector((state) => state.popup.popups);
+    // extraInfo = {
+    //   variants: screenPopupVariant,
+    //   initial: "hidden",
+    //   animate: "visible",
+    //   popupStyle: `bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
+    //     10 + this.currentPopups.length * 10
+    //   }]`,
+    // };
+    render() {
+      return (
+        // <Component {...(this.props as T)} popupWrapperProps={this.extraInfo} />
+        <Component
+          {...(this.props as T)}
+          variants={screenPopupVariant}
+          initial="hidden"
+          animate="visible"
+          popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
+            10 + this.currentPopups.length * 10
+          }]`}
+        />
+      );
+    }
+  };
+}
 
 export default PopupWrapper;

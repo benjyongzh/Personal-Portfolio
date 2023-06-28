@@ -8,16 +8,14 @@ import PopupWrapper, { popupWrapperInfoType } from "./PopupWrapper";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 
-type popupProps = {
+const ProjectPopup = (props: {
   project: projectReference;
   popupId: string;
-  variants?: Variants;
-  initial?: string;
-  animate?: string;
-  popupStyle?: string;
-};
-
-const ProjectPopup = (props: popupProps) => {
+  variants: Variants;
+  initial: string;
+  animate: string;
+  popupStyle: string;
+}) => {
   const dispatch = useAppDispatch();
   const {
     projectName,
@@ -37,11 +35,11 @@ const ProjectPopup = (props: popupProps) => {
   return (
     <motion.div
       layout
-      initial={props.initial!}
-      animate={props.animate!}
-      variants={props.variants!}
+      initial={props.initial}
+      animate={props.animate}
+      variants={props.variants}
       data-popupId={props.popupId!}
-      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 mx-auto left-0 right-0 ${props.popupStyle!}`}
+      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 mx-auto left-0 right-0 ${props.popupStyle}`}
     >
       <motion.header
         layout="position"
