@@ -1,9 +1,9 @@
 "use client";
 import { Variants } from "framer-motion";
-import { Diff, Subtract } from "utility-types";
-import React from "react";
+import { Diff } from "utility-types";
+import React, { ReactElement } from "react";
 
-import { useAppSelector } from "@/hooks/reduxHooks";
+// import { useAppSelector } from "@/hooks/reduxHooks";
 
 const screenPopupVariant = {
   hidden: {
@@ -45,18 +45,17 @@ export function withExtraInfo<P>(
   return ComponentWithExtraInfo;
 } */
 
-export interface popupWrapperInfoType {
+export type popupWrapperInfoType = {
   variants: Variants;
   initial: string;
   animate: string;
-  popupStyle: string;
-}
+};
+
+// type Subtract<T, V> = Pick<T, Exclude<keyof T, keyof V>>;
 
 /* function PopupWrapper<propsT>(
   OriginalComponent: React.ComponentType<propsT & popupWrapperInfoType>
 ): React.ComponentType<propsT> {
-  const currentPopups = useAppSelector((state) => state.popup.popups);
-
   const NewComponent = (props: propsT) => {
     //props here should not contain items in popupWrapperInfoType
     return (
@@ -65,18 +64,32 @@ export interface popupWrapperInfoType {
         variants={screenPopupVariant}
         initial="hidden"
         animate="visible"
-        popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
-          10 + currentPopups.length * 10
-        }]`} //z-index might get updated with even more popups. so all popups will have same z-index, because they are all based on the same hook (currentPopups)
       />
     );
   };
   return NewComponent;
 } */
 
+/* function PopupWrapper<T>(
+  Component: React.ComponentType<T>
+): React.ComponentType<T & popupWrapperInfoType> {
+  
+  return (props: T) => (
+    const currentPopups = useAppSelector((state) => state.popup.popups);
+    <Component
+      {...props}
+      variants={screenPopupVariant}
+      initial="hidden"
+      animate="visible"
+      popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
+        10 + currentPopups.length * 10
+      }]`}
+    />
+  );
+} */
+
 function PopupWrapper<T extends {}>(Component: React.ComponentType<T>) {
   return class extends React.Component<Diff<T, popupWrapperInfoType>> {
-    currentPopups = useAppSelector((state) => state.popup.popups);
     // extraInfo = {
     //   variants: screenPopupVariant,
     //   initial: "hidden",
@@ -93,9 +106,6 @@ function PopupWrapper<T extends {}>(Component: React.ComponentType<T>) {
           variants={screenPopupVariant}
           initial="hidden"
           animate="visible"
-          popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
-            10 + this.currentPopups.length * 10
-          }]`}
         />
       );
     }
