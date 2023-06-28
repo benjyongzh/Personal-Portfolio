@@ -19,6 +19,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 //reducers
 import popupReducer from "@/features/popup/popupSlice";
+import displayReducer from "@/features/display/displaySlice";
 // const rootReducer = combineReducers({
 //   auth: authReducer,
 //   page: pageReducer,
@@ -32,6 +33,7 @@ export const store = configureStore({
   //the reducer key is similar to the combineReducer of the original redux
   reducer: {
     popup: popupReducer,
+    display: displayReducer,
   },
   //middleware takes a function that has getDefaultMiddleware. concat your middleware to it
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),

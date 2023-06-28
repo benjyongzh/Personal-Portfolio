@@ -1,19 +1,26 @@
 "use client";
 
 import Link from "next/link";
+
 //animations
 import { motion } from "framer-motion";
 import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
-import { checkScreenSize } from "@/utils/media";
-
 import {
   staggerVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
 
+//redux
+import { useAppSelector } from "@/hooks/reduxHooks";
+import { IScreenSize } from "@/features/display/displaySlice";
+
 export default function Home() {
+  const currentScreenSize: IScreenSize = useAppSelector(
+    (state) => state.display.screenSize
+  );
+
   return (
     <motion.section
       animate="visible"

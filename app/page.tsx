@@ -1,15 +1,10 @@
 "use client";
 
-import { useState } from "react";
-// import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+
 // //animations
-import { motion, useScroll } from "framer-motion";
-// import { useRef } from "react";
-// import {
-//   pageVariant,
-//   textVerticalFadeMoveFromBottomVariant,
-// } from "@/lib/framerVariants";
+import { motion } from "framer-motion";
+import { useWindowDimensions } from "@/hooks/displayHooks";
 
 //sections
 import HomeSection from "@/sections/HomeSection";
@@ -17,8 +12,9 @@ import ProjectsSection from "@/sections/ProjectsSection";
 // import ResumeSection from "@/sections/ResumeSection";
 // import AboutSection from "@/sections/AboutSection";
 // import ContactSection from "@/sections/ContactSection";
-
 import ScreenGreyOut from "@/components/ScreenGreyOut";
+
+//redux
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import {
   addPopup,
@@ -27,9 +23,11 @@ import {
   IPopupType,
 } from "@/features/popup/popupSlice";
 import PopupList from "@/features/popup/PopupList";
+import { storeScreenSize } from "@/features/display/displaySlice";
 
 export default function Portfolio() {
   const dispatch = useAppDispatch();
+  const { height, width } = useWindowDimensions();
 
   //general popup stuff
   const currentPopups = useAppSelector((state) => state.popup.popups);
@@ -40,6 +38,10 @@ export default function Portfolio() {
   const deletePopup = (popup: IPopup) => {
     dispatch(removePopup(popup));
   };
+
+  useEffect(() => {
+    dispatch(storeScreenSize({ screenWidth: width, screenHeight: height }));
+  }, [height, width]);
 
   return (
     <motion.section className="relative flex flex-col items-start justify-center app">
