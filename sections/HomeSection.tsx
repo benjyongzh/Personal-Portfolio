@@ -3,7 +3,9 @@
 import Link from "next/link";
 //animations
 import { motion } from "framer-motion";
-import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
+import ScrollAnimationWrapper, {
+  dampSpring,
+} from "@/components/ScrollAnimationWrapper";
 import { checkScreenSize } from "@/utils/media";
 
 import {
@@ -27,6 +29,7 @@ export default function Home() {
           animationProps={{
             opacityMin: 0.2,
             yOut: -100,
+            spring: dampSpring,
             /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
           }}
         >
@@ -41,6 +44,7 @@ export default function Home() {
           animationProps={{
             opacityMin: 0.2,
             yOut: -100,
+            spring: dampSpring,
             /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
           }}
         >
@@ -55,6 +59,7 @@ export default function Home() {
           animationProps={{
             opacityMin: 0.2,
             yOut: -100,
+            spring: dampSpring,
             /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
           }}
         >
@@ -70,6 +75,7 @@ export default function Home() {
         animationProps={{
           opacityMin: 0.2,
           yOut: -100,
+          spring: dampSpring,
           /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
         }}
       >
@@ -120,6 +126,7 @@ export default function Home() {
         animationProps={{
           opacityMin: 0.2,
           yOut: -100,
+          spring: dampSpring,
           /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
         }}
       >
@@ -136,14 +143,14 @@ export default function Home() {
           delectus culpa.
         </motion.p>
       </ScrollAnimationWrapper>
-      {/* <ScrollAnimationWrapper
+      <ScrollAnimationWrapper
         animationProps={{
           opacityMin: 0.2,
           yOut: -100,
+          spring: dampSpring,
         }}
       >
         <motion.div
-          // style={{ translateX: scrollOutTranslateX }}
           variants={textVerticalFadeMoveFromBottomVariant}
           className="flex items-center self-end justify-center gap-4 mt-4"
         >
@@ -164,7 +171,7 @@ export default function Home() {
             </svg>
           </Link>
         </motion.div>
-      </ScrollAnimationWrapper> */}
+      </ScrollAnimationWrapper>
     </motion.section>
   );
 }
