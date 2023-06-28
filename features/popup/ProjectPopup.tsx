@@ -28,7 +28,12 @@ const ProjectPopup = (props: {
   const currentPopups = useAppSelector((state) => state.popup.popups);
 
   const close = () => {
-    dispatch(removePopup({ id: props.popupId }));
+    dispatch(
+      removePopup({
+        id: props.popupId,
+        type: { type: "projectPopup", info: props.project },
+      })
+    );
   };
 
   return (
