@@ -1,5 +1,6 @@
 "use client";
 import { Variants } from "framer-motion";
+import { Diff } from "utility-types";
 
 import { useAppSelector } from "@/hooks/reduxHooks";
 
@@ -43,12 +44,12 @@ export function withExtraInfo<P>(
   return ComponentWithExtraInfo;
 } */
 
-export type popupWrapperInfoType = {
+export interface popupWrapperInfoType {
   variants: Variants;
   initial: string;
   animate: string;
   popupStyle: string;
-};
+}
 
 function PopupWrapper<propsT>(
   OriginalComponent: React.ComponentType<propsT & popupWrapperInfoType>
@@ -70,5 +71,26 @@ function PopupWrapper<propsT>(
   };
   return NewComponent;
 }
+
+/* function PopupWrapper<propsT extends popupWrapperInfoType>(
+  OriginalComponent: React.ComponentType<propsT>
+): React.ComponentType<propsT> {
+  const currentPopups = useAppSelector((state) => state.popup.popups);
+
+  const NewComponent = (props: Diff<propsT, popupWrapperInfoType>) => {
+    return (
+      <OriginalComponent
+        {...(props as propsT)}
+        variants={screenPopupVariant}
+        initial="hidden"
+        animate="visible"
+        popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
+          10 + currentPopups.length * 10
+        }]`} //z-index might get updated with even more popups. so all popups will have same z-index, because they are all based on the same hook (currentPopups)
+      />
+    );
+  };
+  return NewComponent;
+} */
 
 export default PopupWrapper;
