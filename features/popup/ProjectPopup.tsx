@@ -68,7 +68,7 @@ const ProjectPopup = (props: {
       </motion.p>
       <motion.button
         layout="position"
-        className="btn-secondary"
+        className="btn-popup-secondary-blue"
         type="button"
         transition={{ type: "spring", duration: 0.4 }}
         onClick={() => close()}

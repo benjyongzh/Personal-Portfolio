@@ -28,7 +28,7 @@ main {
   }
 
   .popup {
-    @apply bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl;
+    @apply fixed shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode p-7 sm:p-9;
   }
 
   .btn-circle-primary {
@@ -36,11 +36,27 @@ main {
   }
 
   .btn-primary {
-    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 rounded-full cursor-pointer bg-primarylightmode text-textlightmode-dark dark:text-textlightmode-dark hover:bg-primarylightmode-light;
+    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 rounded-full cursor-pointer bg-primarylightmode text-textlightmode-dark hover:bg-primarylightmode-light;
   }
 
   .btn-secondary {
     @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-full cursor-pointer text-textlightmode-dark dark:text-textdarkmode dark:hover:text-textlightmode-dark border-primarylightmode hover:bg-primarylightmode;
+  }
+
+  .btn-popup-primary-blue {
+    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent rounded-full cursor-pointer text-accentdarkmode bg-secondarydarkmode hover:bg-secondarydarkmode-light dark:text-accentlightmode-dark dark:bg-secondarylightmode dark:hover:bg-secondarylightmode-dark;
+  }
+
+  .btn-popup-secondary-blue {
+    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-full cursor-pointer text-accentlightmode-dark hover:text-accentdarkmode border-secondarydarkmode hover:bg-secondarydarkmode dark:hover:text-accentlightmode-dark dark:text-accentdarkmode dark:border-secondarylightmode dark:hover:bg-secondarylightmode;
+  }
+
+  .btn-popup-primary-brown {
+    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent rounded-full cursor-pointer text-textdarkmode-light bg-accentlightmode hover:bg-accentlightmode-light dark:text-textlightmode-dark dark:bg-accentdarkmode dark:hover:bg-accentdarkmode-dark;
+  }
+
+  .btn-popup-secondary-brown {
+    @apply flex items-center justify-center gap-3 px-5 py-2 text-xl font-bold transition-all duration-200 bg-transparent border-2 rounded-full cursor-pointer text-textlightmode-dark hover:text-textdarkmode-light border-accentlightmode hover:bg-accentlightmode dark:text-textdarkmode-light dark:hover:text-textlightmode-dark dark:border-accentdarkmode dark:hover:bg-accentdarkmode;
   }
 
   .nav-dropdown {
