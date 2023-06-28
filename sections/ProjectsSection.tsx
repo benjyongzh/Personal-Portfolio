@@ -10,10 +10,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 //redux
 // import { useDispatch, useSelector } from "react-redux";
-// import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
-// import { addPopup, removePopup } from "@/features/popup/popupSlice";
-// import { IPopup } from "@/features/popup/popupSlice";
-// import { IPopupType } from "@/features/popup/PopupList";
+import { useAppSelector } from "@/hooks/reduxHooks";
 
 //animations
 import { motion } from "framer-motion";
@@ -36,14 +33,15 @@ export const emptyProject: projectReference = {
   techStack: [],
 };
 
-export default function Projects(props: {
-  handleCreatePopup: Function;
-  currentProjectPopup: projectReference;
-}) {
+export default function Projects(props: { handleCreatePopup: Function }) {
   const pathname = usePathname();
 
+  const currentProjectPopup = useAppSelector(
+    (state) => state.popup.currentProjectPopup
+  );
+
   const openProjectPopup = (projectName: string) => {
-    if (props.currentProjectPopup !== emptyProject) return;
+    if (JSON.stringify(currentProjectPopup) !== "{}") return;
 
     const project = projectList.filter(
       (projectItem: projectReference) => projectItem.projectName === projectName

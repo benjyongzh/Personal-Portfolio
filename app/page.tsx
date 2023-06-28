@@ -28,22 +28,13 @@ import {
 } from "@/features/popup/popupSlice";
 import PopupList from "@/features/popup/PopupList";
 
-//lib
-import { emptyProject } from "@/sections/ProjectsSection";
-
 export default function Portfolio() {
   const dispatch = useAppDispatch();
-
-  const [currentProjectPopup, setCurrentProjectPopup] = useState(emptyProject);
 
   //general popup stuff
   const currentPopups = useAppSelector((state) => state.popup.popups);
   const createPopup = (popupType: IPopupType) => {
     dispatch(addPopup({ id: "hello", type: popupType })); //create unique popup ID here
-    //only for projectcards
-    if (popupType.type === "project") {
-      setCurrentProjectPopup(popupType.info);
-    }
   };
 
   const deletePopup = (popup: IPopup) => {
@@ -57,7 +48,6 @@ export default function Portfolio() {
         handleCreatePopup={(popup: IPopupType) => {
           createPopup(popup);
         }}
-        currentProjectPopup={currentProjectPopup}
       />
       {/* <ResumeSection />
       <AboutSection />
