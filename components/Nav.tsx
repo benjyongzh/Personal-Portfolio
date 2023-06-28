@@ -7,11 +7,11 @@ import SwitchToggle from "./SwitchToggle";
 import { motion, Variants } from "framer-motion";
 
 const routes = [
-  { href: "/", text: "Home" },
-  { href: "/projects", text: "Projects" },
-  { href: "/resume", text: "Resume" },
-  { href: "/about", text: "About" },
-  { href: "/contact", text: "Contact" },
+  { href: "/#home-section", text: "Home", id: "home-section" },
+  { href: "/#projects-section", text: "Projects", id: "projects-section" },
+  // { href: "/resume", text: "Resume" },
+  // { href: "/about", text: "About" },
+  // { href: "/contact", text: "Contact" },
 ];
 
 const dropDownMenuVariant: Variants = {
@@ -86,6 +86,22 @@ const Nav = () => {
     setShowDropdown((curr) => !curr);
   };
 
+  const scrolltoHash = function (element_id: string) {
+    const element = document.getElementById(element_id);
+    element?.scrollIntoView({
+      behavior: "smooth",
+      // block: "start",
+      // inline: "start",
+    });
+  };
+
+  const handleNavLinkClick = (target: string) => {
+    if (showDropdown) {
+      toggleDropdown();
+      scrolltoHash(target);
+    }
+  };
+
   return (
     <nav className="fixed top-0 z-10 flex items-center justify-end w-full gap-5 px-3 py-1 whitespace-nowrap">
       <SwitchToggle />
@@ -133,9 +149,9 @@ const Nav = () => {
                     ? "font-bold text-primarydarkmode dark:text-primarydarkmode"
                     : null
                 }`}
-                href={showDropdown ? route.href : "#"}
+                href="#"
                 key={route.text}
-                onClick={() => (showDropdown ? toggleDropdown() : {})}
+                onClick={() => handleNavLinkClick(route.id)}
               >
                 {route.text}
               </Link>

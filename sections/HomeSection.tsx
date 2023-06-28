@@ -19,6 +19,7 @@ export default function Home() {
       animate="visible"
       initial="hidden"
       variants={staggerVariant}
+      id="home-section"
       className="flex flex-col items-start justify-center h-screen gap-8 sm:gap-12 sm:py-10"
     >
       <motion.header

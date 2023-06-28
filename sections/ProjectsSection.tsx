@@ -54,7 +54,10 @@ export default function Projects(props: { handleCreatePopup: Function }) {
   };
 
   return (
-    <motion.section className="flex flex-col items-start justify-start h-screen gap-8 sm:gap-12 sm:py-10">
+    <motion.section
+      id="projects-section"
+      className="flex flex-col items-start justify-start h-screen gap-8 sm:gap-12 sm:py-10"
+    >
       <ScrollAnimationWrapper
         animationProps={{
           xIn: 200,
