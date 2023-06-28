@@ -3,20 +3,22 @@
 import { projectReference } from "@/lib/projectList";
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
-import PopupWrapper from "./PopupWrapper";
+import PopupWrapper, { popupWrapperInfoType } from "./PopupWrapper";
 
-const ProjectPopup = (props: {
+import { useAppDispatch } from "@/hooks/reduxHooks";
+import { removePopup } from "./popupSlice";
+
+type popupProps = {
   project: projectReference;
-  closePopup: Function;
   popupId: string;
+  variants?: Variants;
+  initial?: string;
+  animate?: string;
+  popupStyle?: string;
+};
 
-  popupAnimations: {
-    variants: Variants;
-    initial: string;
-    animate: string;
-  };
-  popupStyle: string;
-}) => {
+const ProjectPopup = (props: popupProps) => {
+  const dispatch = useAppDispatch();
   const {
     projectName,
     href,
@@ -28,14 +30,18 @@ const ProjectPopup = (props: {
     techStack,
   } = props.project;
 
+  const close = () => {
+    dispatch(removePopup({ id: props.popupId }));
+  };
+
   return (
     <motion.div
       layout
-      initial={props.popupAnimations.initial}
-      animate={props.popupAnimations.animate}
-      variants={props.popupAnimations.variants}
-      data-popupId={props.popupId}
-      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 mx-auto left-0 right-0 ${props.popupStyle}`}
+      initial={props.initial!}
+      animate={props.animate!}
+      variants={props.variants!}
+      data-popupId={props.popupId!}
+      className={`flex flex-col items-center justify-between w-[90%] h-[80%] rounded-[36px] gap-7 mx-auto left-0 right-0 ${props.popupStyle!}`}
     >
       <motion.header
         layout="position"
@@ -61,7 +67,7 @@ const ProjectPopup = (props: {
         className="btn-secondary"
         type="button"
         transition={{ type: "spring", duration: 0.4 }}
-        onClick={() => props.closePopup()}
+        onClick={() => close()}
       >
         Close
       </motion.button>

@@ -44,36 +44,31 @@ export function withExtraInfo<P>(
 } */
 
 export type popupWrapperInfoType = {
-  //   popupId: string;
-  popupAnimations: {
-    variants: Variants;
-    initial: string;
-    animate: string;
-  };
+  variants: Variants;
+  initial: string;
+  animate: string;
   popupStyle: string;
 };
 
-export default function PopupWrapper<T>(
-  OriginalComponent: React.ComponentType<T & popupWrapperInfoType>
-) {
-  //   const newPopupId = "hello"; //make a unique ID here
+function PopupWrapper<propsT>(
+  OriginalComponent: React.ComponentType<propsT & popupWrapperInfoType>
+): React.ComponentType<propsT> {
   const currentPopups = useAppSelector((state) => state.popup.popups);
 
-  const NewComponent = (props: T) => {
+  const NewComponent = (props: propsT) => {
     return (
       <OriginalComponent
         {...props}
-        // popupId={newPopupId}
-        popupAnimations={{
-          variants: screenPopupVariant,
-          initial: "hidden",
-          animate: "visible",
-        }}
+        variants={screenPopupVariant}
+        initial="hidden"
+        animate="visible"
         popupStyle={`bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode fixed p-7 sm:p-9 shadow-2xl z-[${
           10 + currentPopups.length * 10
-        }]`}
+        }]`} //z-index might get updated with even more popups. so all popups will have same z-index, because they are all based on the same hook (currentPopups)
       />
     );
   };
   return NewComponent;
 }
+
+export default PopupWrapper;
