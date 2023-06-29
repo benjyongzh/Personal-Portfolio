@@ -64,7 +64,7 @@ main {
   }
 
   .nav-dropdown-btn {
-    @apply flex items-center justify-center h-full p-3 text-lg bg-transparent text-textlightmode;
+    @apply flex items-center justify-center h-full p-3 text-lg bg-transparent text-textlightmode dark:text-textdarkmode;
   }
 
   .nav-dropdown-menu {
@@ -72,11 +72,11 @@ main {
   }
 
   .nav-link {
-    @apply flex items-center justify-center text-xl font-medium bg-transparent cursor-default text-textlightmode hover:text-primarydarkmode active:font-bold dark:text-textdarkmode dark:hover:text-primarylightmode active:text-primarydarkmode;
+    @apply flex items-center justify-center text-xl font-medium bg-transparent cursor-default dark:text-textlightmode hover:text-primarydarkmode active:font-bold text-textdarkmode dark:hover:text-primarylightmode-dark;
   }
 
   .nav-icon {
-    @apply transition-all duration-200 bg-transparent cursor-pointer text-textlightmode-dark dark:text-textdarkmode;
+    @apply top-0 bottom-0 flex flex-col items-center justify-center bg-transparent cursor-pointer;
   }
 
   .flex-center {
