@@ -7,19 +7,21 @@ import React, { ReactElement } from "react";
 
 const screenPopupVariant = {
   hidden: {
-    opacity: 0,
-    scale: 0,
+    // opacity: 0,
+    // scale: 0,
+    clipPath: `circle(0%)`,
     transition: {
-      type: "spring",
-      duration: 0.3,
+      type: "tween",
+      duration: 0.4,
     },
   },
   visible: {
-    opacity: 1,
-    scale: 1,
+    // opacity: 1,
+    // scale: 1,
+    clipPath: `circle(70%)`,
     transition: {
-      type: "spring",
-      duration: 0.3,
+      type: "tween",
+      duration: 0.4,
     },
   },
 };
