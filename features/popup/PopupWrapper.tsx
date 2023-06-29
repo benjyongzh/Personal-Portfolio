@@ -12,7 +12,7 @@ const screenPopupVariant = {
     clipPath: `circle(0%)`,
     transition: {
       type: "spring",
-      duration: 0.4,
+      duration: 0.7,
     },
   },
   visible: {
@@ -21,7 +21,7 @@ const screenPopupVariant = {
     clipPath: `circle(70%)`,
     transition: {
       type: "spring",
-      duration: 0.4,
+      duration: 0.7,
     },
   },
 };

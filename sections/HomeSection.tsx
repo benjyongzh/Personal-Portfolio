@@ -14,7 +14,6 @@ import {
 
 //redux
 import { useAppSelector } from "@/hooks/reduxHooks";
-import { IScreenSize } from "@/features/display/displaySlice";
 
 export default function Home() {
   const currentBreakpoint: string = useAppSelector(
