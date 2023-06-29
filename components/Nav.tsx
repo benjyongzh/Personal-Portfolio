@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import SwitchToggle from "./SwitchToggle";
 
 import { motion, Variants } from "framer-motion";
+import Path from "./Path";
 
 const routes = [
   { href: "/#home-section", text: "Home", id: "home-section" },
@@ -116,25 +117,40 @@ const Nav = () => {
           type="button"
           onClick={() => toggleDropdown()}
         >
-          <motion.div className="space-y-1.5" variants={dropDownButtonVariant}>
-            <div
-              key="navDropdownLine1"
-              className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
-                showDropdown ? "bg-primarydarkmode" : ""
+          <motion.div
+          /* className="space-y-1.5" variants={dropDownButtonVariant}*/
+          >
+            <svg
+              width="24"
+              height="24"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              className={`top-0 bottom-0 flex flex-col items-center justify-center text-textlightmode dark:text-textdarkmode group-hover:text-primarydarkmode ${
+                showDropdown ? "text-primarydarkmode" : ""
               }`}
-            ></div>
-            <div
-              key="navDropdownLine2"
-              className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
-                showDropdown ? "bg-primarydarkmode" : ""
-              }`}
-            ></div>
-            <div
-              key="navDropdownLine3"
-              className={`w-7 h-0.5 bg-textlightmode dark:bg-textdarkmode group-hover:bg-primarydarkmode transition-all duration-200 ${
-                showDropdown ? "bg-primarydarkmode" : ""
-              }`}
-            ></div>
+            >
+              <Path
+                variants={{
+                  hide: { d: "M 2 5.5 L 25 5.5" },
+                  show: { d: "M 4.5 20.5 L 20 5.5" },
+                }}
+              />
+              <Path
+                d="M 2 13 L 25 13"
+                variants={{
+                  hide: { opacity: 1 },
+                  show: { opacity: 0 },
+                }}
+                transition={{ duration: 0.25 }}
+              />
+              <Path
+                variants={{
+                  hide: { d: "M 2 20.5 L 25 20.5" },
+                  show: { d: "M 4.5 5.5 L 20 20.5" },
+                }}
+              />
+            </svg>
           </motion.div>
         </button>
         <motion.ul

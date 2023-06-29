@@ -68,7 +68,7 @@ main {
   }
 
   .nav-dropdown-menu {
-    @apply absolute flex flex-col items-end justify-start gap-3 bg-transparent right-3 top-12;
+    @apply absolute flex flex-col items-end justify-start gap-3 bg-transparent right-3 top-14;
   }
 
   .nav-link {

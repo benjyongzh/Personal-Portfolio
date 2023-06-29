@@ -11,7 +11,7 @@ const screenPopupVariant = {
     // scale: 0,
     clipPath: `circle(0%)`,
     transition: {
-      type: "tween",
+      type: "spring",
       duration: 0.4,
     },
   },
@@ -20,7 +20,7 @@ const screenPopupVariant = {
     // scale: 1,
     clipPath: `circle(70%)`,
     transition: {
-      type: "tween",
+      type: "spring",
       duration: 0.4,
     },
   },
