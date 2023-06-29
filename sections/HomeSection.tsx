@@ -17,8 +17,8 @@ import { useAppSelector } from "@/hooks/reduxHooks";
 import { IScreenSize } from "@/features/display/displaySlice";
 
 export default function Home() {
-  const currentScreenSize: IScreenSize = useAppSelector(
-    (state) => state.display.screenSize
+  const currentBreakpoint: string = useAppSelector(
+    (state) => state.display.currentBreakpoint
   );
 
   return (
@@ -38,7 +38,8 @@ export default function Home() {
             opacityMin: 0.2,
             yOut: -100,
             spring: dampSpring,
-            /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
+            animType:
+              currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
           }}
         >
           <motion.h3
@@ -53,7 +54,8 @@ export default function Home() {
             opacityMin: 0.2,
             yOut: -100,
             spring: dampSpring,
-            /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
+            animType:
+              currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
           }}
         >
           <motion.h1
@@ -68,7 +70,8 @@ export default function Home() {
             opacityMin: 0.2,
             yOut: -100,
             spring: dampSpring,
-            /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
+            animType:
+              currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
           }}
         >
           <motion.h4
@@ -84,7 +87,8 @@ export default function Home() {
           opacityMin: 0.2,
           yOut: -100,
           spring: dampSpring,
-          /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
+          animType:
+            currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
         }}
       >
         <motion.div
@@ -135,11 +139,11 @@ export default function Home() {
           opacityMin: 0.2,
           yOut: -100,
           spring: dampSpring,
-          /* animType: checkScreenSize() !== "xs" ? "focusContentlg" : "", */
+          animType:
+            currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
         }}
       >
         <motion.p
-          // style={{ translateX: scrollOutTranslateX }}
           variants={textVerticalFadeMoveFromBottomVariant}
           className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode"
         >
@@ -156,6 +160,8 @@ export default function Home() {
           opacityMin: 0.2,
           yOut: -100,
           spring: dampSpring,
+          animType:
+            currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
         }}
       >
         <motion.div

@@ -39,8 +39,8 @@ interface animationType {
 }
 
 const animTypes: animationType = {
-  focusCenter: [0, 0.2, 0.8, 1],
-  focusCenterlg: [0, 0.35, 0.65, 1],
+  focusCenterxs: [0, 0.2, 0.8, 1],
+  focusCenterlg: [0, 0.3, 0.7, 1],
   linear: [0, 0.5, 0.5, 1],
 };
 
@@ -82,7 +82,7 @@ export default function ScrollAnimationWrapper({
   if (Object.keys(animTypes).includes(animType!)) {
     animPattern = animTypes[animType!];
   } else {
-    animPattern = animTypes["focusCenter"];
+    animPattern = animTypes["focusCenterxs"];
   }
 
   const targetRef = useRef(null);
