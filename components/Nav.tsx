@@ -8,12 +8,13 @@ import { motion, Variants } from "framer-motion";
 import SwitchToggle from "./SwitchToggle";
 import Path from "./Path";
 import { IScreenSize } from "@/features/display/displaySlice";
+import SiteLinkButton from "./SiteLinkButton";
 
 const routes = [
   { href: "/#home-section", text: "Home", id: "home-section" },
   { href: "/#projects-section", text: "Projects", id: "projects-section" },
   // { href: "/resume", text: "Resume" },
-  // { href: "/about", text: "About" },
+  { href: "/#about-section", text: "About", id: "about-section" },
   // { href: "/contact", text: "Contact" },
 ];
 
@@ -71,22 +72,6 @@ const Nav = () => {
 
   const toggleDropdown = () => {
     setShowDropdown((curr) => !curr);
-  };
-
-  const scrolltoHash = function (element_id: string) {
-    const element = document.getElementById(element_id);
-    element?.scrollIntoView({
-      behavior: "smooth",
-      // block: "start",
-      // inline: "start",
-    });
-  };
-
-  const handleNavLinkClick = (target: string) => {
-    if (showDropdown) {
-      toggleDropdown();
-      scrolltoHash(target);
-    }
   };
 
   //background circle parameters
@@ -148,15 +133,14 @@ const Nav = () => {
           variants={dropDownListGroupVariant}
         >
           {routes.map((route) => (
-            <motion.div variants={dropDownListItemVariant}>
-              <Link
-                className="nav-link"
-                href="#"
-                key={route.text}
-                onClick={() => handleNavLinkClick(route.id)}
+            <motion.div variants={dropDownListItemVariant} key={route.text}>
+              <SiteLinkButton
+                classStyle="nav-link"
+                sectionId={route.id}
+                onClickCallback={toggleDropdown}
               >
                 {route.text}
-              </Link>
+              </SiteLinkButton>
             </motion.div>
           ))}
         </motion.ul>
