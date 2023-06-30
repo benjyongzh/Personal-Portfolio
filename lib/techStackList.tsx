@@ -438,12 +438,7 @@ export const unity: tech = {
 export const framermotion: tech = {
   name: "Framer Motion",
   icon: (
-    <svg
-      height="2500"
-      viewBox="3.7 3.7 43.6 43.6"
-      width="2500"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="3.7 3.7 43.6 43.6" xmlns="http://www.w3.org/2000/svg">
       <path
         d="m47.3 3.7v21.8l-10.9 10.9-10.9 10.9-10.9-10.9 10.9-10.9v.1-.1z"
         fill="#59529d"
@@ -461,8 +456,6 @@ export const passportjs: tech = {
   name: "Passportjs",
   icon: (
     <svg
-      width="256px"
-      height="320px"
       viewBox="0 0 256 320"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

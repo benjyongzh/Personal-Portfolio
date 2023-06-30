@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import PopupWrapper, { popupWrapperInfoType } from "./PopupWrapper";
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
+import TechIcon from "@/components/TechIcon";
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -51,14 +52,19 @@ const ProjectPopup = (props: {
       <motion.header
         layout="position"
         transition={{ type: "spring", duration: 0.4 }}
-        className={`text-accentlightmode dark:text-accentdarkmode font-bold text-2xl`}
+        className={`pageText pageText-pageTitle`}
       >
         {projectName}
       </motion.header>
+      <motion.div className="flex flex-wrap items-center justify-center w-full gap-4 pb-5 border-b-2 sm:justify-start border-secondarydarkmode dark:border-accentdarkmode">
+        {techStack.map((tech) => (
+          <TechIcon tech={tech} size="sm" />
+        ))}
+      </motion.div>
       <motion.p
         layout="position"
         transition={{ type: "spring", duration: 0.4 }}
-        className="text-base text-justify text-accentlightmode-dark dark:text-accentdarkmode"
+        className="pageText pageText-bodytext"
       >
         this is a test project card. Lorem ipsum dolor sit amet consectetur
         adipisicing elit. Fugiat temporibus accusamus provident maxime impedit
@@ -67,7 +73,6 @@ const ProjectPopup = (props: {
         consequatur. Ea aliquam dolores animi totam, accusantium quidem. Itaque
         asperiores voluptates placeat dicta voluptate? Atque.
       </motion.p>
-      <motion.div className="flex items-center justify-start gap-4"></motion.div>
       <motion.button
         layout="position"
         className="btn-popup-secondary-blue"

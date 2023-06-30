@@ -8,7 +8,7 @@ export interface projectReference {
   longDescription?: string;
   cardImage?: string;
   popupImage?: string;
-  techStack?: tech.techStack;
+  techStack: tech.techStack;
 }
 
 export function isProjectReference(arg: any): arg is projectReference {
