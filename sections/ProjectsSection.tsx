@@ -22,17 +22,6 @@ import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
 
-export const emptyProject: projectReference = {
-  projectName: "",
-  href: "",
-  githubLink: "",
-  cardDescription: "",
-  longDescription: "",
-  cardImage: "",
-  popupImage: "",
-  techStack: [],
-};
-
 export default function Projects(props: { handleCreatePopup: Function }) {
   const pathname = usePathname();
 

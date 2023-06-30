@@ -18,7 +18,7 @@ const ProjectPopup = (props: {
   const {
     projectName,
     href,
-    githubLink,
+    githubName,
     cardDescription,
     longDescription,
     cardImage,
@@ -26,6 +26,7 @@ const ProjectPopup = (props: {
     techStack,
   } = props.project;
   const currentPopups = useAppSelector((state) => state.popup.popups);
+  const githubAPI = `https://api.github.com/repos/benjyongzh/${githubName}`; ///relevant methods: updated_At
 
   const close = () => {
     dispatch(
@@ -66,6 +67,7 @@ const ProjectPopup = (props: {
         consequatur. Ea aliquam dolores animi totam, accusantium quidem. Itaque
         asperiores voluptates placeat dicta voluptate? Atque.
       </motion.p>
+      <motion.div className="flex items-center justify-start gap-4"></motion.div>
       <motion.button
         layout="position"
         className="btn-popup-secondary-blue"
