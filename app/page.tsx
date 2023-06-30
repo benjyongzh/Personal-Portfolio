@@ -10,7 +10,7 @@ import { useWindowDimensions } from "@/hooks/displayHooks";
 import HomeSection from "@/sections/HomeSection";
 import ProjectsSection from "@/sections/ProjectsSection";
 // import ResumeSection from "@/sections/ResumeSection";
-// import AboutSection from "@/sections/AboutSection";
+import AboutSection from "@/sections/AboutSection";
 // import ContactSection from "@/sections/ContactSection";
 import ScreenGreyOut from "@/components/ScreenGreyOut";
 
@@ -51,9 +51,9 @@ export default function Portfolio() {
           createPopup(popup);
         }}
       />
-      {/* <ResumeSection />
+      {/* <ResumeSection /> */}
       <AboutSection />
-      <ContactSection /> */}
+      {/* <ContactSection /> */}
       <ScreenGreyOut
         clicked={() => deletePopup(currentPopups[currentPopups.length - 1])}
       />

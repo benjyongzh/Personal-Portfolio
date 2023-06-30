@@ -67,7 +67,7 @@ export default function Projects(props: { handleCreatePopup: Function }) {
       >
         <motion.header
           variants={textVerticalFadeMoveFromBottomVariant}
-          className="text-3xl font-light tracking-widest sm:text-5xl"
+          className="pageText pageText-pageTitle"
         >
           PROJECTS
         </motion.header>
@@ -81,7 +81,7 @@ export default function Projects(props: { handleCreatePopup: Function }) {
       >
         <motion.p
           variants={textVerticalFadeMoveFromBottomVariant}
-          className="text-base text-justify text-textlightmode dark:text-textdarkmode"
+          className="pageText pageText-header"
         >
           Here is some text. A brief description of me. blablabla. Lorem ipsum,
           dolor sit amet consectetur adipisicing elit. Quis laboriosam qui

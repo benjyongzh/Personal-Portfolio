@@ -14,6 +14,7 @@ import {
 
 //redux
 import { useAppSelector } from "@/hooks/reduxHooks";
+import SiteLinkButton from "@/components/SiteLinkButton";
 
 export default function Home() {
   const currentBreakpoint: string = useAppSelector(
@@ -43,7 +44,7 @@ export default function Home() {
         >
           <motion.h3
             variants={textVerticalFadeMoveFromBottomVariant}
-            className="text-2xl font-light sm:text-3xl text-textlightmode-dark dark:text-textdarkmode"
+            className="pageText-header pageText"
           >
             Hello! I'm
           </motion.h3>
@@ -59,7 +60,7 @@ export default function Home() {
         >
           <motion.h1
             variants={textVerticalFadeMoveFromBottomVariant}
-            className="text-3xl font-light tracking-widest sm:text-7xl text-textlightmode-dark dark:text-textdarkmode"
+            className="pageText-bigTitle pageText"
           >
             BENJAMIN YONG
           </motion.h1>
@@ -75,7 +76,7 @@ export default function Home() {
         >
           <motion.h4
             variants={textVerticalFadeMoveFromBottomVariant}
-            className="text-lg sm:text-2xl text-textlightmode-dark dark:text-textdarkmode"
+            className="pageText-header pageText"
           >
             Self-taught Software Developer
           </motion.h4>
@@ -118,7 +119,7 @@ export default function Home() {
           </Link>
           <Link
             className="nav-link group"
-            href="/"
+            href="/" //linkedin link here
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -144,7 +145,7 @@ export default function Home() {
       >
         <motion.p
           variants={textVerticalFadeMoveFromBottomVariant}
-          className="text-base text-justify sm:text-xl text-textlightmode dark:text-textdarkmode"
+          className="pageText pageText-bodytext"
         >
           Here is some text. A brief description of me. blablabla. Lorem ipsum,
           dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
@@ -167,7 +168,7 @@ export default function Home() {
           variants={textVerticalFadeMoveFromBottomVariant}
           className="flex items-center self-end justify-center gap-4 mt-4"
         >
-          <Link href="/projects" className="btn-primary" type="button">
+          <SiteLinkButton classStyle="btn-primary" sectionId="projects-section">
             Projects
             <svg
               aria-hidden="true"
@@ -182,7 +183,7 @@ export default function Home() {
                 clipRule="evenodd"
               ></path>
             </svg>
-          </Link>
+          </SiteLinkButton>
         </motion.div>
       </ScrollAnimationWrapper>
     </motion.section>

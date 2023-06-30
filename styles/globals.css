@@ -24,7 +24,7 @@ main {
   }
 
   .app {
-    @apply flex px-10 mx-auto justify-stretch max-w-7xl sm:px-12;
+    @apply flex w-full px-10 mx-auto justify-stretch max-w-7xl sm:px-12;
   }
 
   .popup {
@@ -121,5 +121,25 @@ main {
 
   input:checked + .switch-slider > .switch-slider-control {
     @apply translate-x-5 sm:translate-x-7 bg-accentdarkmode;
+  }
+
+  .pageText {
+    @apply text-textlightmode dark:text-accentdarkmode;
+  }
+
+  .pageText-bigTitle {
+    @apply text-3xl tracking-widest font-extralight sm:text-7xl;
+  }
+
+  .pageText-pageTitle {
+    @apply text-2xl font-light tracking-widest sm:text-5xl;
+  }
+
+  .pageText-header {
+    @apply text-lg tracking-wide sm:text-3xl;
+  }
+
+  .pageText-bodytext {
+    @apply text-sm text-justify sm:text-base;
   }
 }
