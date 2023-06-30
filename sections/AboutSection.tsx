@@ -35,9 +35,9 @@ export default function About() {
         {aboutText.pageTitle}
       </header>
 
-      <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
-        <div className="flex flex-col items-center justify-between w-full h-full gap-5">
-          <div className="w-48 h-48 border-4 border-solid rounded-full border-accentlightmode dark:border-accentdarkmode sm:w-96 sm:h-96">
+      <div className="flex flex-col items-center sm:justify-center justify-stretch sm:flex-row">
+        <div className="flex flex-col items-center justify-between w-full h-full gap-5 pb-6 border-b-2 sm:w-1/2 sm-h-full sm:pr-6 sm:pb-0 sm:border-b-0 sm:border-r-2 border-textlightmode dark:border-accentdarkmode">
+          <div className="w-48 h-48 border-2 border-solid rounded-full sm:border-4 border-textlightmode dark:border-accentdarkmode sm:w-96 sm:h-96">
             profile image
           </div>
 
@@ -48,9 +48,7 @@ export default function About() {
           </div>
         </div>
 
-        <div>vertical divider</div>
-
-        <div className="flex items-center justify-center w-full h-full pageText pageText-bodytext">
+        <div className="flex items-stretch w-full h-full pt-6 justify-stretch sm:items-center sm:w-1/2 sm:pl-20 sm:pt-0 pageText pageText-bodytext">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum enim
           at dolor in nostrum reiciendis quos distinctio, consequatur accusamus.
           Eveniet expedita eum sit iure. Accusamus perferendis obcaecati iure,
