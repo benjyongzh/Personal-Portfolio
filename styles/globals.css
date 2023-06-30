@@ -79,6 +79,10 @@ main {
     @apply top-0 bottom-0 flex flex-col items-center justify-center bg-transparent cursor-pointer;
   }
 
+  .link-icon {
+    @apply flex items-center justify-center bg-transparent cursor-pointer text-primarylightmode dark:text-primarydarkmode hover:text-primarylightmode-dark dark:hover:text-primarydarkmode-light;
+  }
+
   .flex-center {
     @apply flex items-center justify-center;
   }
@@ -128,15 +132,15 @@ main {
   }
 
   .pageText-bigTitle {
-    @apply text-3xl tracking-widest font-extralight sm:text-7xl;
+    @apply text-3xl tracking-widest font-extralight sm:text-5xl md:text-7xl;
   }
 
   .pageText-pageTitle {
-    @apply text-2xl font-light tracking-widest sm:text-5xl;
+    @apply text-2xl font-light tracking-widest sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
   .pageText-header {
-    @apply text-lg tracking-wide sm:text-3xl;
+    @apply text-lg tracking-wide sm:text-xl md:text-2xl lg:text-3xl;
   }
 
   .pageText-bodytext {
