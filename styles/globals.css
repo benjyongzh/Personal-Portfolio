@@ -80,7 +80,7 @@ main {
   }
 
   .link-icon {
-    @apply flex items-center justify-center bg-transparent cursor-pointer text-primarylightmode dark:text-primarydarkmode hover:text-primarylightmode-dark dark:hover:text-primarydarkmode-light;
+    @apply flex items-center justify-center bg-transparent cursor-pointer brightness-90 dark:brightness-100 text-primarylightmode dark:text-primarydarkmode hover:text-primarylightmode-dark dark:hover:text-primarydarkmode-light;
   }
 
   .flex-center {

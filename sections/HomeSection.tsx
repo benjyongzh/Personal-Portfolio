@@ -35,7 +35,7 @@ export default function Home() {
       >
         <ScrollAnimationWrapper
           animationProps={{
-            opacityMin: 0.2,
+            opacityOut: 0.2,
             yOut: -100,
             spring: dampSpring,
             animType:
@@ -51,7 +51,7 @@ export default function Home() {
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper
           animationProps={{
-            opacityMin: 0.2,
+            opacityOut: 0.2,
             yOut: -100,
             spring: dampSpring,
             animType:
@@ -67,7 +67,7 @@ export default function Home() {
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper
           animationProps={{
-            opacityMin: 0.2,
+            opacityOut: 0.2,
             yOut: -100,
             spring: dampSpring,
             animType:
@@ -84,7 +84,7 @@ export default function Home() {
       </motion.header>
       <ScrollAnimationWrapper
         animationProps={{
-          opacityMin: 0.2,
+          opacityOut: 0.2,
           yOut: -100,
           spring: dampSpring,
           animType:
@@ -136,7 +136,7 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper
         animationProps={{
-          opacityMin: 0.2,
+          opacityOut: 0.2,
           yOut: -100,
           spring: dampSpring,
           animType:
@@ -157,7 +157,7 @@ export default function Home() {
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper
         animationProps={{
-          opacityMin: 0.2,
+          opacityOut: 0.2,
           yOut: -100,
           spring: dampSpring,
           animType:

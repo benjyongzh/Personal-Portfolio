@@ -23,13 +23,14 @@ export const dampSpring: ISpring = {
 };
 
 export interface IScrollAnimations {
-  opacityMin?: number;
-  opacityMax?: number;
+  opacityIn?: number;
+  opacityOut?: number;
   xIn?: number;
   xOut?: number;
   yIn?: number;
   yOut?: number;
-  scaleMin?: number;
+  scaleIn?: number;
+  scaleOut?: number;
   spring?: ISpring;
   animType?: string;
 }
@@ -45,13 +46,14 @@ const animTypes: animationType = {
 };
 
 const defaultScrollAnimations: IScrollAnimations = {
-  opacityMin: 1,
-  opacityMax: 1,
+  opacityIn: 1,
+  opacityOut: 1,
   xIn: 0,
   xOut: 0,
   yIn: 0,
   yOut: 0,
-  scaleMin: 1,
+  scaleIn: 1,
+  scaleOut: 1,
   spring: defaultSpring,
   animType: Object.keys(animTypes)[0], //focusCenter
 };
@@ -65,13 +67,14 @@ export default function ScrollAnimationWrapper({
 }) {
   const spring: ISpring = { ...defaultSpring, ...animationProps.spring };
   const {
-    opacityMin,
-    opacityMax,
+    opacityIn,
+    opacityOut,
     xIn,
     xOut,
     yIn,
     yOut,
-    scaleMin,
+    scaleIn,
+    scaleOut,
     animType,
   }: IScrollAnimations = {
     ...defaultScrollAnimations,
@@ -92,10 +95,10 @@ export default function ScrollAnimationWrapper({
   });
 
   const scrollOpacity = useTransform(scrollYProgress, animPattern, [
-    opacityMin,
-    opacityMax,
-    opacityMax,
-    opacityMin,
+    opacityIn,
+    1,
+    1,
+    opacityOut,
   ]);
 
   const scrollTranslateX = useTransform(scrollYProgress, animPattern, [
@@ -113,10 +116,10 @@ export default function ScrollAnimationWrapper({
   ]);
 
   const scrollScale = useTransform(scrollYProgress, animPattern, [
-    scaleMin,
+    scaleIn,
     1,
     1,
-    scaleMin,
+    scaleOut,
   ]);
 
   // console.log("original children: ", children);
