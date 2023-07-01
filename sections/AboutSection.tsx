@@ -30,7 +30,7 @@ export default function About() {
   return (
     <motion.section
       id="about-section"
-      className="flex flex-col items-start justify-start gap-12 pt-20 pb-40 sm:gap-16 sm:pb-20"
+      className="flex flex-col items-start justify-start gap-12 pt-20 pb-40 sm:gap-16 sm:pb-24"
     >
       <ScrollAnimationWrapper
         animationProps={{
@@ -46,7 +46,7 @@ export default function About() {
       </ScrollAnimationWrapper>
 
       <div className="flex flex-col items-center sm:justify-center justify-stretch sm:flex-row">
-        <div className="flex flex-col  sm:pr-[10%] items-center justify-between w-full h-full gap-10 pb-6 border-b-2 sm:w-1/2 sm-h-full sm:pb-0 sm:border-b-0 sm:border-r-2 border-textlightmode dark:border-accentdarkmode">
+        <div className="flex flex-col sm:pr-[10%] items-center justify-between w-full h-full gap-10 pb-6 border-b-2 sm:w-1/2 sm-h-full sm:pb-0 sm:border-b-0 sm:border-r-2 border-textlightmode dark:border-accentdarkmode">
           <ScrollAnimationWrapper
             animationProps={{
               yIn: 150,
