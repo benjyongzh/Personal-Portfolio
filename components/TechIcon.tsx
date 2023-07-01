@@ -20,7 +20,7 @@ const TechIcon = (props: { tech: tech; size: string }) => {
     >
       {props.tech.icon}
 
-      <span className="absolute w-auto px-3 py-1.5 text-xs font-bold text-center transition-all duration-200 origin-bottom scale-0 rounded-md shadow-lg bottom-10 min-w-max group-hover:scale-100 bg-secondarydarkmode text-accentdarkmode">
+      <span className="absolute w-auto px-3 py-1.5 pt-2 text-xs font-bold text-center transition-all duration-200 origin-bottom scale-0 rounded-md shadow-lg bottom-10 min-w-max group-hover:scale-100 bg-secondarydarkmode text-accentdarkmode">
         {props.tech.name}
       </span>
     </motion.div>
