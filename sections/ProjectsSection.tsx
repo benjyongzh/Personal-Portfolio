@@ -80,11 +80,12 @@ export default function Projects(props: { handleCreatePopup: Function }) {
       </ScrollAnimationWrapper>
       <motion.ul
         variants={textVerticalFadeMoveFromBottomVariant}
-        className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
-        {projectList.map((project) => (
+        {projectList.map((project, i) => (
           <ProjectCard
             key={project.projectName}
+            index={i}
             projectName={project.projectName}
             click={() => openProjectPopup(project.projectName)}
           />

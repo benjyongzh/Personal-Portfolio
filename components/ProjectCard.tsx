@@ -1,57 +1,68 @@
 "use client";
 import { motion } from "framer-motion";
+import ScrollAnimationWrapper, {
+  IScrollAnimations,
+  dampSpring,
+} from "./ScrollAnimationWrapper";
+import { useAppSelector } from "@/hooks/reduxHooks";
+import { getRandomArbitrary } from "@/utils/numbers";
 
-const ProjectCard = (props: { projectName?: string; click: Function }) => {
+const animationPropsXS: IScrollAnimations = {
+  yIn: 100,
+  yOut: -100,
+  animType: "focusCenterxs",
+};
+
+const ProjectCard = (props: {
+  projectName?: string;
+  click: Function;
+  index: number;
+}) => {
+  const currentBreakpoint: string = useAppSelector(
+    (state) => state.display.currentBreakpoint
+  );
+
+  const getAnimPropsFromIndex = (index: number) => {
+    const randomStartDistance = getRandomArbitrary(0, 200);
+    const randomEndDistance = getRandomArbitrary(0, 200);
+    const randomXDistance = getRandomArbitrary(-30, 30);
+    const newProps: IScrollAnimations = {
+      xIn: randomXDistance,
+      xOut: randomXDistance,
+      yIn: randomStartDistance,
+      yOut: -randomEndDistance,
+      animType: "fromStartToEnd",
+      spring: dampSpring,
+    };
+
+    return newProps;
+  };
+
   return (
-    <motion.button
-      className={`flex flex-col items-start justify-between bg-secondarylightmode dark:bg-secondarydarkmode-light rounded-[24px] shadow-slate-950
-        ${
-          // !props.isOpen
-          // ?
-          "max-w-lg h-52 sm:h-80 min-w-[200px] gap-3 p-5 hover:shadow-2xl"
-          // : "absolute w-[80%] h-[80%] gap-7 p-7 sm:p-9 shadow-2xl"
-        }`}
-      type="button"
-      transition={{ type: "spring", duration: 0.4 }}
-      layout
-      whileHover={{ scale: 1.05 }}
-      onClick={() => {
-        props.click();
-      }}
+    <ScrollAnimationWrapper
+      animationProps={
+        currentBreakpoint === "xs"
+          ? animationPropsXS
+          : getAnimPropsFromIndex(props.index)
+      }
     >
-      <header
-        className={`text-accentlightmode dark:text-accentdarkmode font-bold text-lg`}
-      >
-        {props.projectName}
-      </header>
-      {/* <motion.header
-        layout
-        transition={{ type: "spring", duration: 0.4 }}
-        className={`text-accentlightmode-dark dark:text-accentdarkmode font-bold ${
-          isOpen ? "text-2xl" : "text-lg"
-        }`}
-      >
-        {props.projectName}
-      </motion.header> */}
-      {/* {isOpen ? (
-        <p className="text-base text-justify text-accentlightmode-dark dark:text-accentdarkmode">
-          this is a test project card. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Fugiat temporibus accusamus provident maxime impedit
-          debitis quasi ipsa nobis amet qui nesciunt minima laborum corrupti a
-          autem, voluptate ex fugit quas porro deleniti quam dolore! Magnam,
-          consequatur. Ea aliquam dolores animi totam, accusantium quidem.
-          Itaque asperiores voluptates placeat dicta voluptate? Atque.
-        </p>
-      ) : null} */}
-      {/* <motion.button
-        layout
-        className={`${isOpen ? "btn-secondary" : "btn-primary w-full"}`}
+      <motion.button
+        className="flex flex-col items-start justify-between bg-secondarylightmode dark:bg-secondarydarkmode-light rounded-[24px] max-w-lg h-52 sm:h-80 min-w-[200px] gap-3 p-5 shadow-xl hover:shadow-2xl hover:shadow-slate-400"
         type="button"
-        onClick={() => toggleOpen()}
+        transition={{ type: "spring", duration: 0.4 }}
+        layout
+        whileHover={{ scale: 1.05 }}
+        onClick={() => {
+          props.click();
+        }}
       >
-        {`${isOpen ? "Close" : "More"}`}
-      </motion.button> */}
-    </motion.button>
+        <header
+          className={`text-accentlightmode dark:text-accentdarkmode font-bold text-lg`}
+        >
+          {props.projectName}
+        </header>
+      </motion.button>
+    </ScrollAnimationWrapper>
   );
 };
 

@@ -46,7 +46,7 @@ const ProjectPopup = (props: {
       exit={props.initial}
       variants={props.variants}
       data-popupId={props.popupId!}
-      className="flex flex-col items-start justify-between w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
+      className="flex flex-col items-start justify-start w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
       style={{ zIndex: 10 + currentPopups.length * 10 }}
     >
       <motion.header
@@ -75,7 +75,7 @@ const ProjectPopup = (props: {
       </motion.p>
       <motion.button
         layout="position"
-        className="btn-popup-secondary-blue"
+        className="btn-popup-secondary-blue justify-self-end"
         type="button"
         transition={{ type: "spring", duration: 0.4 }}
         onClick={() => close()}

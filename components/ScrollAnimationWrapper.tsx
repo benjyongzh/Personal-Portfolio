@@ -43,6 +43,7 @@ const animTypes: animationType = {
   focusCenterxs: [0, 0.2, 0.8, 1],
   focusCenterlg: [0, 0.3, 0.7, 1],
   linear: [0, 0.5, 0.5, 1],
+  fromStartToEnd: [0, 1],
 };
 
 const defaultScrollAnimations: IScrollAnimations = {
@@ -94,33 +95,37 @@ export default function ScrollAnimationWrapper({
     offset: ["start end", "end start"],
   });
 
-  const scrollOpacity = useTransform(scrollYProgress, animPattern, [
-    opacityIn,
-    1,
-    1,
-    opacityOut,
-  ]);
+  const scrollOpacity = useTransform(
+    scrollYProgress,
+    animPattern,
+    animPattern === animTypes["fromStartToEnd"]
+      ? [opacityIn, opacityOut]
+      : [opacityIn, 1, 1, opacityOut]
+  );
 
-  const scrollTranslateX = useTransform(scrollYProgress, animPattern, [
-    xIn,
-    0,
-    0,
-    xOut,
-  ]);
+  const scrollTranslateX = useTransform(
+    scrollYProgress,
+    animPattern,
+    animPattern === animTypes["fromStartToEnd"]
+      ? [xIn, xOut]
+      : [xIn, 0, 0, xOut]
+  );
 
-  const scrollTranslateY = useTransform(scrollYProgress, animPattern, [
-    yIn,
-    0,
-    0,
-    yOut,
-  ]);
+  const scrollTranslateY = useTransform(
+    scrollYProgress,
+    animPattern,
+    animPattern === animTypes["fromStartToEnd"]
+      ? [yIn, yOut]
+      : [yIn, 0, 0, yOut]
+  );
 
-  const scrollScale = useTransform(scrollYProgress, animPattern, [
-    scaleIn,
-    1,
-    1,
-    scaleOut,
-  ]);
+  const scrollScale = useTransform(
+    scrollYProgress,
+    animPattern,
+    animPattern === animTypes["fromStartToEnd"]
+      ? [scaleIn, scaleOut]
+      : [scaleIn, 1, 1, scaleOut]
+  );
 
   // console.log("original children: ", children);
 
