@@ -30,7 +30,7 @@ export default function About() {
   return (
     <motion.section
       id="about-section"
-      className="flex flex-col items-start justify-start gap-12 pt-20 pb-40 sm:gap-16 sm:pb-32"
+      className="flex flex-col items-start justify-start gap-12 pt-20 pb-40 sm:gap-16 sm:pb-24"
     >
       <ScrollAnimationWrapper
         animationProps={{
