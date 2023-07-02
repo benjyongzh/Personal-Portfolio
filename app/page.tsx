@@ -44,7 +44,7 @@ export default function Portfolio() {
   }, [height, width]);
 
   return (
-    <motion.section className="relative flex flex-col items-start justify-center app">
+    <motion.section className="relative flex flex-col items-start justify-center w-full mx-auto">
       <HomeSection />
       <ProjectsSection
         handleCreatePopup={(popup: IPopupType) => {

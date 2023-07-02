@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useRef } from "react";
+// import { usePathname } from "next/navigation";
 
 //lib
 import projectList, { projectReference } from "@/lib/projectList";
@@ -21,13 +21,15 @@ import {
 import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
+import { useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function Projects(props: { handleCreatePopup: Function }) {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   const currentProjectPopup = useAppSelector(
     (state) => state.popup.currentProjectPopup
   );
+  const currentScreenSize = useAppSelector((state) => state.display.screenSize);
 
   const openProjectPopup = (projectName: string) => {
     if (JSON.stringify(currentProjectPopup) !== "{}") return;
@@ -42,48 +44,60 @@ export default function Projects(props: { handleCreatePopup: Function }) {
     }
   };
 
+  //useref usescroll for project section header
+  const targetRef = useRef(null);
+  const { scrollY } = useScroll({
+    target: targetRef,
+  });
+
+  const headerTranslateY = useTransform(
+    scrollY,
+    [currentScreenSize.screenHeight, 2000],
+    [0, 2000 - currentScreenSize.screenHeight]
+  );
+
   return (
     <motion.section
       id="projects-section"
-      className="flex flex-col items-start justify-start gap-8 py-10 h-max sm:gap-12 sm:py-10"
+      className="flex flex-col items-start justify-start gap-8 py-10 h-max sm:gap-12 sm:py-10 section"
     >
-      <motion.div className="sticky top-0 flex flex-col gap-8">
-        {/* <ScrollAnimationWrapper
+      <motion.div className="sticky bottom-0 flex flex-col gap-8 top-36">
+        <ScrollAnimationWrapper
           animationProps={{
             xIn: 200,
             animType: "linear",
             spring: dampSpring,
           }}
-        > */}
-        <motion.header
-          variants={textVerticalFadeMoveFromBottomVariant}
-          className="sticky pageText pageText-pageTitle"
         >
-          PROJECTS
-        </motion.header>
-        {/* </ScrollAnimationWrapper> */}
-        {/* <ScrollAnimationWrapper
+          <motion.header
+            variants={textVerticalFadeMoveFromBottomVariant}
+            className="sticky pageText pageText-pageTitle"
+          >
+            PROJECTS
+          </motion.header>
+        </ScrollAnimationWrapper>
+        <ScrollAnimationWrapper
           animationProps={{
             xIn: 50,
             animType: "linear",
             spring: dampSpring,
           }}
-        > */}
-        <motion.p
-          variants={textVerticalFadeMoveFromBottomVariant}
-          className="pageText pageText-header"
         >
-          Here is some text. A brief description of me. blablabla. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
-          praesentium officia earum itaque nulla voluptatum obcaecati saepe
-          suscipit!
-        </motion.p>
-        {/* </ScrollAnimationWrapper> */}
+          <motion.p
+            variants={textVerticalFadeMoveFromBottomVariant}
+            className="pageText pageText-header"
+          >
+            Here is some text. A brief description of me. blablabla. Lorem
+            ipsum, dolor sit amet consectetur adipisicing elit. Quis laboriosam
+            qui praesentium officia earum itaque nulla voluptatum obcaecati
+            saepe suscipit!
+          </motion.p>
+        </ScrollAnimationWrapper>
       </motion.div>
 
       <motion.ul
         variants={textVerticalFadeMoveFromBottomVariant}
-        className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        className="z-[1] grid w-full grid-flow-row grid-cols-1 gap-10 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {projectList.map((project, i) => (
           <ProjectCard

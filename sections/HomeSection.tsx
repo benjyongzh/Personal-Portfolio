@@ -27,7 +27,7 @@ export default function Home() {
       initial="hidden"
       variants={staggerVariant}
       id="home-section"
-      className="flex flex-col items-start justify-center h-screen gap-8 sm:gap-12 sm:py-10"
+      className="flex flex-col items-start justify-center h-screen gap-8 sm:gap-12 sm:py-10 section"
     >
       <motion.header
         variants={textVerticalFadeMoveFromBottomVariant}

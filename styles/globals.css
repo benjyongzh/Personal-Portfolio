@@ -10,7 +10,7 @@ body.has-popup {
 main {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   position: static;
   display: flex;
   flex-direction: column;
@@ -23,8 +23,8 @@ main {
     @apply bg-gradient-to-br from-bglightmode-light to-bglightmode-dark dark:from-bgdarkmode-light dark:to-bgdarkmode-dark;
   }
 
-  .app {
-    @apply flex w-full px-10 mx-auto justify-stretch max-w-7xl sm:px-12;
+  .section {
+    @apply px-10 max-w-7xl sm:px-12;
   }
 
   .popup {
