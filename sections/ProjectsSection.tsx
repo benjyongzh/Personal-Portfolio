@@ -45,29 +45,30 @@ export default function Projects(props: { handleCreatePopup: Function }) {
   return (
     <motion.section
       id="projects-section"
-      className="flex flex-col items-start justify-start gap-8 sm:gap-12 sm:py-10"
+      className="flex flex-col items-start justify-start gap-8 py-10 h-max sm:gap-12 sm:py-10"
     >
-      <ScrollAnimationWrapper
-        animationProps={{
-          xIn: 200,
-          animType: "linear",
-          spring: dampSpring,
-        }}
-      >
+      <motion.div className="sticky top-0 flex flex-col gap-8">
+        {/* <ScrollAnimationWrapper
+          animationProps={{
+            xIn: 200,
+            animType: "linear",
+            spring: dampSpring,
+          }}
+        > */}
         <motion.header
           variants={textVerticalFadeMoveFromBottomVariant}
-          className="pageText pageText-pageTitle"
+          className="sticky pageText pageText-pageTitle"
         >
           PROJECTS
         </motion.header>
-      </ScrollAnimationWrapper>
-      <ScrollAnimationWrapper
-        animationProps={{
-          xIn: 50,
-          animType: "linear",
-          spring: dampSpring,
-        }}
-      >
+        {/* </ScrollAnimationWrapper> */}
+        {/* <ScrollAnimationWrapper
+          animationProps={{
+            xIn: 50,
+            animType: "linear",
+            spring: dampSpring,
+          }}
+        > */}
         <motion.p
           variants={textVerticalFadeMoveFromBottomVariant}
           className="pageText pageText-header"
@@ -77,7 +78,9 @@ export default function Projects(props: { handleCreatePopup: Function }) {
           praesentium officia earum itaque nulla voluptatum obcaecati saepe
           suscipit!
         </motion.p>
-      </ScrollAnimationWrapper>
+        {/* </ScrollAnimationWrapper> */}
+      </motion.div>
+
       <motion.ul
         variants={textVerticalFadeMoveFromBottomVariant}
         className="grid w-full grid-flow-row grid-cols-1 gap-10 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"

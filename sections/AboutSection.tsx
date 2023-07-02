@@ -30,7 +30,7 @@ export default function About() {
   return (
     <motion.section
       id="about-section"
-      className="flex flex-col items-start justify-start gap-12 pt-20 pb-40 sm:gap-16 sm:pb-24"
+      className="flex flex-col items-start justify-start gap-12 pt-20 pb-40 sm:gap-16 sm:pb-32"
     >
       <ScrollAnimationWrapper
         animationProps={{
@@ -54,7 +54,7 @@ export default function About() {
               animType: "focusCenterlg",
             }}
           >
-            <motion.div className="border-2 border-solid rounded-full w-60 border-textlightmode dark:border-accentdarkmode sm:w-full aspect-square" />
+            <motion.div className="border-4 border-solid rounded-full w-60 border-textlightmode dark:border-accentdarkmode sm:w-full aspect-square" />
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper

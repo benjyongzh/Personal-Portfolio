@@ -82,11 +82,11 @@ const Nav = () => {
   const navBackgroundRadiusShown = 180;
 
   return (
-    <nav className="fixed top-0 z-10 flex items-center justify-end w-full gap-5 px-3 py-1 whitespace-nowrap">
+    <nav className="fixed top-0 z-10 flex items-center justify-end w-screen gap-5 py-1 whitespace-nowrap">
       <SwitchToggle />
 
       <motion.div
-        className="nav-dropdown"
+        className="mr-3 nav-dropdown"
         animate={showDropdown ? "show" : "hide"}
         initial="hide"
         variants={dropDownMenuVariant}
@@ -145,7 +145,7 @@ const Nav = () => {
           ))}
         </motion.ul>
       </motion.div>
-      <div className="fixed m-auto right-0 w-screen h-screen -z-[1] top-0 pointer-events-none">
+      <div className="fixed w-screen h-screen -z-[1] top-0 pointer-events-none">
         <motion.div
           animate={
             showDropdown
