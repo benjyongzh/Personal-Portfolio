@@ -1,5 +1,6 @@
 "use client";
 
+import ImageCarousel from "@/components/ImageCarousel";
 import { projectReference } from "@/lib/projectList";
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -23,7 +24,7 @@ const ProjectPopup = (props: {
     cardDescription,
     longDescription,
     cardImage,
-    popupImage,
+    detailImages,
     techStack,
   } = props.project;
   const currentPopups = useAppSelector((state) => state.popup.popups);
@@ -61,17 +62,14 @@ const ProjectPopup = (props: {
           <TechIcon tech={tech} size="sm" />
         ))}
       </motion.div>
+      {detailImages ? <ImageCarousel images={detailImages} /> : null}
+
       <motion.p
         layout="position"
         transition={{ type: "spring", duration: 0.4 }}
         className="pageText pageText-bodytext"
       >
-        this is a test project card. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Fugiat temporibus accusamus provident maxime impedit
-        debitis quasi ipsa nobis amet qui nesciunt minima laborum corrupti a
-        autem, voluptate ex fugit quas porro deleniti quam dolore! Magnam,
-        consequatur. Ea aliquam dolores animi totam, accusantium quidem. Itaque
-        asperiores voluptates placeat dicta voluptate? Atque.
+        {longDescription}
       </motion.p>
       <motion.button
         layout="position"
