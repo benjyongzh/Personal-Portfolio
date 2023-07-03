@@ -80,11 +80,12 @@ const projectList: projectReference[] = [
     techStack: [tech.react, tech.css],
   },
   {
-    projectName: "Tic Tac Toe",
-    githubName: "Tic-Tac-Toe",
-    href: "https://benjyongzh.github.io/Tic-Tac-Toe/",
-    cardDescription: "Its tic tac toe",
-    longDescription: "What more do you want",
+    projectName: "Knights Travails",
+    githubName: "Knights-Travails",
+    href: "https://benjyongzh.github.io/Knights-Travails/",
+    cardDescription: "For chess lovers",
+    longDescription:
+      "Find out how many steps it takes for a knight piece to reach a particular board position",
     techStack: [tech.html, tech.css, tech.javascript],
   },
   {

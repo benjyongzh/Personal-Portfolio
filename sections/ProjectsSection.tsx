@@ -15,6 +15,7 @@ import { useAppSelector } from "@/hooks/reduxHooks";
 //animations
 import { motion } from "framer-motion";
 import {
+  projectCardHolderVariant,
   staggerVariant,
   textVerticalFadeMoveFromBottomVariant,
 } from "@/lib/framerVariants";
@@ -61,7 +62,7 @@ export default function Projects(props: { handleCreatePopup: Function }) {
       id="projects-section"
       className="flex flex-col items-start justify-start gap-8 py-10 mx-auto h-max sm:gap-12 sm:py-10 max-w-7xl"
     >
-      <motion.div className="sticky bottom-0 flex flex-col gap-8 px-10 overflow-hidden top-36 sm:px-12">
+      <motion.div className="sticky bottom-0 flex flex-col gap-8 px-10 overflow-hidden top-36 sm:px-12 pb-36">
         <ScrollAnimationWrapper
           animationProps={{
             xIn: 200,
@@ -96,8 +97,8 @@ export default function Projects(props: { handleCreatePopup: Function }) {
       </motion.div>
 
       <motion.ul
-        variants={textVerticalFadeMoveFromBottomVariant}
-        className="z-[1] grid w-full grid-flow-row grid-cols-1 px-10 sm:px-12 gap-10 sm:gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        initial="hidden"
+        className="z-[1] grid w-full grid-flow-row grid-cols-1 px-10 sm:px-12 gap-10 sm:gap-x-16 sm:gap-y-30 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {projectList.map((project, i) => (
           <ProjectCard

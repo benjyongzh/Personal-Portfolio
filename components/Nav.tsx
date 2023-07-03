@@ -82,7 +82,7 @@ const Nav = () => {
   const navBackgroundRadiusShown = 180;
 
   return (
-    <nav className="fixed top-0 z-10 flex items-center justify-end w-screen gap-3 py-1 whitespace-nowrap">
+    <nav className="fixed top-0 z-10 flex items-center justify-end w-screen gap-3 py-1 overflow-hidden whitespace-nowrap">
       <SwitchToggle />
 
       <motion.div
