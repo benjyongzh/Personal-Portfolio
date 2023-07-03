@@ -88,23 +88,21 @@ export default function Projects(props: { handleCreatePopup: Function }) {
             variants={textVerticalFadeMoveFromBottomVariant}
             className="pageText pageText-header"
           >
-            Here is some text. A brief description of me. blablabla. Lorem
-            ipsum, dolor sit amet consectetur adipisicing elit. Quis laboriosam
-            qui praesentium officia earum itaque nulla voluptatum obcaecati
-            saepe suscipit!
+            Feel free to explore some of the works I have done on my own as part
+            of my self-learning practice.
           </motion.p>
         </ScrollAnimationWrapper>
       </motion.div>
 
       <motion.ul
         initial="hidden"
-        className="z-[1] grid w-full grid-flow-row grid-cols-1 px-10 sm:px-12 gap-10 sm:gap-x-16 sm:gap-y-30 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        className="z-[1] grid w-full grid-flow-row align-top grid-cols-1 px-10 sm:px-12 gap-10 sm:gap-x-16 sm:gap-y-30 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {projectList.map((project, i) => (
           <ProjectCard
             key={project.projectName}
             index={i}
-            projectName={project.projectName}
+            project={project}
             click={() => openProjectPopup(project.projectName)}
           />
         ))}
