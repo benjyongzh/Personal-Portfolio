@@ -47,7 +47,7 @@ const ProjectCard = (props: {
       }
     >
       <motion.button
-        className="flex flex-col items-start justify-between bg-opacity-50 backdrop-blur-sm bg-secondarylightmode dark:bg-secondarydarkmode-light rounded-[24px] max-w-lg h-52 sm:h-80 min-w-[200px] gap-3 p-5 shadow-xl hover:shadow-2xl hover:shadow-slate-400"
+        className="flex flex-col items-start justify-between bg-opacity-80 backdrop-blur bg-secondarylightmode/50 dark:bg-secondarylightmode/10 rounded-[24px] max-w-lg h-52 sm:h-80 min-w-[200px] gap-3 p-5 shadow-xl hover:z-[2] hover:shadow-2xl hover:shadow-slate-500 dark:hover:shadow-slate-900"
         type="button"
         transition={{ type: "spring", duration: 0.4 }}
         layout
