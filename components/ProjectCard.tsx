@@ -9,6 +9,7 @@ import { getRandomArbitrary } from "@/utils/numbers";
 import { projectCardVariant } from "@/lib/framerVariants";
 import { projectReference } from "@/lib/projectList";
 import TechIcon from "./TechIcon";
+import Image from "next/image";
 
 const animationPropsXS: IScrollAnimations = {
   yIn: 100,
@@ -49,7 +50,14 @@ const ProjectCard = (props: {
       >
         {project.projectName}
       </header>
-      {currentBreakpoint !== "xs" ? <div className="w-full">image</div> : null}
+      {currentBreakpoint !== "xs" && project.cardImage ? (
+        <Image
+          src={project.cardImage}
+          width={500}
+          height={500}
+          alt={project.projectName}
+        />
+      ) : null}
 
       <p className="pageText text-start">{project.cardDescription}</p>
       <div className="flex flex-wrap items-center justify-center w-full gap-2 pt-4 border-t-2 justify-self-end border-secondarydarkmode dark:border-accentdarkmode">
