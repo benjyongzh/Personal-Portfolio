@@ -28,7 +28,7 @@ const projectList: projectReference[] = [
     projectName: "Portfolio",
     githubName: "Personal-Portfolio",
     href: "/", //have to update
-    cardDescription: "It's my portfolio",
+    cardDescription: "The current page you are scrolling through",
     longDescription: "In progress",
     techStack: [
       tech.typescript,
@@ -43,7 +43,8 @@ const projectList: projectReference[] = [
     projectName: "Anonymous Blog",
     githubName: "anonymous-blog",
     href: "https://anonymous-blog-production-93e5.up.railway.app/",
-    cardDescription: "lmao anon blog description",
+    cardDescription:
+      "A simple imitation of Reddit, with front-end UI and back-end API",
     longDescription: "some long description here",
     techStack: [
       tech.bootstrap,
@@ -59,7 +60,7 @@ const projectList: projectReference[] = [
     projectName: "Inventory Application",
     githubName: "Inventory-Application",
     href: "https://inventory-application-production-a970.up.railway.app/",
-    cardDescription: "inventory app thingy with drinks",
+    cardDescription: "A simple app for registering the statuses of inventory.",
     longDescription: "another long description here",
     techStack: [tech.bootstrap, tech.express, tech.mongodb, tech.nodejs],
   },
@@ -67,7 +68,7 @@ const projectList: projectReference[] = [
     projectName: "Weather App",
     githubName: "Weather-App",
     href: "https://benjyongzh.github.io/Weather-App/",
-    cardDescription: "simple weather app",
+    cardDescription: "Simple API fetching to publicly-available live data",
     longDescription: "guess whats the weather today lmao",
     techStack: [tech.html, tech.css, tech.javascript],
   },
@@ -75,7 +76,7 @@ const projectList: projectReference[] = [
     projectName: "Memory Card",
     githubName: "Memory-Card",
     href: "https://benjyongzh.github.io/Memory-Card/",
-    cardDescription: "Test your memory",
+    cardDescription: "A game of remembering what you last clicked",
     longDescription: "for animal lovers for sure",
     techStack: [tech.react, tech.css],
   },
@@ -83,30 +84,22 @@ const projectList: projectReference[] = [
     projectName: "Knights Travails",
     githubName: "Knights-Travails",
     href: "https://benjyongzh.github.io/Knights-Travails/",
-    cardDescription: "For chess lovers",
+    cardDescription: "Finding the shortest path for a Knight to reach his goal",
     longDescription:
       "Find out how many steps it takes for a knight piece to reach a particular board position",
     techStack: [tech.html, tech.css, tech.javascript],
   },
   {
-    projectName: "Library App",
-    githubName: "Library-App",
-    href: "https://benjyongzh.github.io/Library-App/",
-    cardDescription: "Its recording your books",
-    longDescription: "Even though we all know you don't read",
-    techStack: [tech.html, tech.css, tech.javascript],
-  },
-  {
     projectName: "Cursed Game",
     githubName: "", //have to update
-    cardDescription: "dota 2 custom game",
+    cardDescription: "A Dota2 custom game of horror and deception",
     longDescription: "untouched for years",
     techStack: [tech.css, tech.javascript, tech.lua],
   },
   {
-    projectName: "Cursed Game Unity",
+    projectName: "Cursed Game in Unity",
     githubName: "", //have to update
-    cardDescription: "Attempt at starting from scratch",
+    cardDescription: "An attempt at recreating the Cursed Game in Unity3D",
     longDescription: "also untouched for years",
     techStack: [tech.unity, tech.csharp],
   },
