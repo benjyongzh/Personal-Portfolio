@@ -11,7 +11,7 @@ main {
   width: 100%;
   min-height: 100vh;
   /* overflow-x: hidden; */
-  position: static;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,7 +24,7 @@ main {
   }
 
   .section {
-    @apply px-10 max-w-7xl sm:px-12;
+    @apply px-10 mx-auto max-w-7xl sm:px-12;
   }
 
   .popup {
