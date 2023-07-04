@@ -21,6 +21,28 @@ main {
   align-items: center;
 }
 
+.gradient-opacity-xs {
+  background: transparent;
+  mask: linear-gradient(
+    90deg,
+    transparent 0%,
+    white 20%,
+    white 80%,
+    transparent 100%
+  );
+}
+
+.gradient-opacity {
+  background: transparent;
+  mask: linear-gradient(
+    90deg,
+    transparent 0%,
+    white 30%,
+    white 70%,
+    transparent 100%
+  );
+}
+
 @layer components {
   .main {
     @apply bg-gradient-to-br from-bglightmode-light to-bglightmode-dark dark:from-bgdarkmode-light dark:to-bgdarkmode-dark;

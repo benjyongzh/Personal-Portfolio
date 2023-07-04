@@ -66,7 +66,11 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
         <div
           {...swipeHandlers}
-          className="relative flex items-center w-full h-full overflow-hidden"
+          className={`relative flex items-center w-full h-full overflow-hidden ${
+            currentBreakpoint === "xs"
+              ? "gradient-opacity-xs"
+              : "gradient-opacity"
+          }  `}
         >
           {images?.map((image, i) => (
             <motion.div

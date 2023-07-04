@@ -52,7 +52,7 @@ const ProjectPopup = (props: {
       <motion.header
         layout="position"
         transition={{ type: "spring", duration: 0.4 }}
-        className={`pageText pageText-pageTitle`}
+        className={`pageText pageText-pageTitle font-bold`}
       >
         {projectName}
       </motion.header>
