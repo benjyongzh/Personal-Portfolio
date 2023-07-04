@@ -27,6 +27,15 @@ const ImageCarousel = (props: { images: Array<string> }) => {
     }
   };
 
+  const handleImageClick = (imagePosition: number) => {
+    if (imagePosition === currentPosition) {
+      //clicked on current image. open popup
+    } else {
+      //clicked on other images at the side
+      setCurrentPosition(imagePosition);
+    }
+  };
+
   const swipeHandlers = useSwipeable({
     onSwiped: handleSwiped,
     onTouchStartOrOnMouseDown: ({ event }) => event.preventDefault(),
@@ -73,10 +82,8 @@ const ImageCarousel = (props: { images: Array<string> }) => {
           }  `}
         >
           {images?.map((image, i) => (
-            <motion.div
-              className={`absolute left-[50%] overflow-hidden h-full w-[240px] sm:w-[320px] rounded-xl -z-10 ${
-                currentPosition === i ? "shadow-xl" : "shadow-md"
-              }`}
+            <motion.button
+              className={`absolute left-[50%] overflow-hidden h-full cursor-pointer w-[240px] sm:w-[320px] rounded-xl`}
               animate={{
                 x:
                   currentBreakpoint === "xs"
@@ -86,6 +93,8 @@ const ImageCarousel = (props: { images: Array<string> }) => {
                 opacity: currentPosition === i ? 1 : 0.8,
               }}
               transition={{ type: "tween", duration: 0.15 }}
+              type="button"
+              onClick={() => handleImageClick(i)}
             >
               <Image
                 src={image}
@@ -93,7 +102,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
                 alt={image}
                 style={{ objectFit: "cover" }}
               />
-            </motion.div>
+            </motion.button>
           ))}
         </div>
 
