@@ -1,6 +1,5 @@
 "use client";
 import { useRef } from "react";
-// import { usePathname } from "next/navigation";
 
 //lib
 import projectList, { projectReference } from "@/lib/projectList";
@@ -10,7 +9,8 @@ import ProjectCard from "@/components/ProjectCard";
 
 //redux
 // import { useDispatch, useSelector } from "react-redux";
-import { useAppSelector } from "@/hooks/reduxHooks";
+import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
+import { addPopup, removePopup, IPopupType } from "@/features/popup/popupSlice";
 
 //animations
 import { motion } from "framer-motion";
@@ -18,11 +18,10 @@ import { textVerticalFadeMoveFromBottomVariant } from "@/lib/framerVariants";
 import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 
-export default function Projects(props: { handleCreatePopup: Function }) {
-  // const pathname = usePathname();
-
+export default function Projects() {
+  const dispatch = useAppDispatch();
   const currentProjectPopup = useAppSelector(
     (state) => state.popup.currentProjectPopup
   );
@@ -37,8 +36,12 @@ export default function Projects(props: { handleCreatePopup: Function }) {
     if (project) {
       console.log("project found: ", project);
       console.log("Open pop up");
-      props.handleCreatePopup({ type: "projectPopup", info: project });
+      createPopup({ type: "projectPopup", info: project });
     }
+  };
+
+  const createPopup = (popupType: IPopupType) => {
+    dispatch(addPopup({ id: "projectPopupID", type: popupType })); //create unique popup ID here
   };
 
   //useref usescroll for project section header
@@ -46,12 +49,6 @@ export default function Projects(props: { handleCreatePopup: Function }) {
   const { scrollY } = useScroll({
     target: targetRef,
   });
-
-  const headerTranslateY = useTransform(
-    scrollY,
-    [currentScreenSize.screenHeight, 2000],
-    [0, 2000 - currentScreenSize.screenHeight]
-  );
 
   return (
     <motion.section

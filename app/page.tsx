@@ -16,12 +16,7 @@ import ScreenGreyOut from "@/components/ScreenGreyOut";
 
 //redux
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
-import {
-  addPopup,
-  removePopup,
-  IPopup,
-  IPopupType,
-} from "@/features/popup/popupSlice";
+import { addPopup, removePopup, IPopup } from "@/features/popup/popupSlice";
 import PopupList from "@/features/popup/PopupList";
 import { storeScreenSize } from "@/features/display/displaySlice";
 
@@ -31,9 +26,6 @@ export default function Portfolio() {
 
   //general popup stuff
   const currentPopups = useAppSelector((state) => state.popup.popups);
-  const createPopup = (popupType: IPopupType) => {
-    dispatch(addPopup({ id: "hello", type: popupType })); //create unique popup ID here
-  };
 
   const deletePopup = (popup: IPopup) => {
     dispatch(removePopup(popup));
@@ -46,11 +38,7 @@ export default function Portfolio() {
   return (
     <motion.section className="relative flex flex-col items-start justify-center w-full mx-auto">
       <HomeSection />
-      <ProjectsSection
-        handleCreatePopup={(popup: IPopupType) => {
-          createPopup(popup);
-        }}
-      />
+      <ProjectsSection />
       {/* <ResumeSection /> */}
       <AboutSection />
       {/* <ContactSection /> */}
