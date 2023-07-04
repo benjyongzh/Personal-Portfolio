@@ -103,6 +103,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
         >
           {images?.map((image, i) => (
             <motion.button
+              key={i}
               className={`absolute left-[50%] overflow-hidden h-full cursor-pointer w-[240px] sm:w-[320px] rounded-xl`}
               animate={{
                 x:
@@ -151,6 +152,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
       <div className="flex items-center justify-center w-full h-3 gap-3">
         {images?.map((image, i) => (
           <motion.button
+            key={i}
             className={`h-full rounded-full cursor-pointer aspect-square ${
               currentPosition === i
                 ? "bg-primarylightmode brightness-75 dark:brightness-100"
