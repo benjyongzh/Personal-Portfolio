@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { motion } from "framer-motion";
 import ScrollAnimationWrapper, {
   IScrollAnimations,
@@ -11,12 +11,6 @@ import { projectReference } from "@/lib/projectList";
 import TechIcon from "./TechIcon";
 import Image from "next/image";
 
-const animationPropsXS: IScrollAnimations = {
-  yIn: 100,
-  yOut: -100,
-  animType: "focusCenterxs",
-};
-
 const ProjectCard = (props: {
   project: projectReference;
   click: Function;
@@ -27,7 +21,7 @@ const ProjectCard = (props: {
   );
   const { project } = props;
 
-  const getAnimPropsFromIndex = (index: number) => {
+  const getAnimPropsFromIndex = () => {
     const randomStartDistance = getRandomArbitrary(0, 150);
     const randomEndDistance = randomStartDistance + getRandomArbitrary(-75, 75);
     const randomXDistance = getRandomArbitrary(-30, 30);
@@ -74,7 +68,7 @@ const ProjectCard = (props: {
       type="button"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      // viewport={{ once: true }}
       variants={projectCardVariant}
       whileHover={{ scale: 1.05 }}
       onClick={() => {
@@ -84,7 +78,7 @@ const ProjectCard = (props: {
       {cardDetails}
     </motion.button>
   ) : (
-    <ScrollAnimationWrapper animationProps={getAnimPropsFromIndex(props.index)}>
+    <ScrollAnimationWrapper animationProps={getAnimPropsFromIndex()}>
       <motion.button
         className="flex flex-col items-stretch justify-between bg-opacity-80 backdrop-blur bg-secondarylightmode/50 dark:bg-secondarylightmode/10 rounded-[24px] max-w-lg min-w-[200px] gap-3 p-5 shadow-xl hover:z-[2] hover:shadow-2xl hover:shadow-slate-500 dark:hover:shadow-slate-900"
         type="button"

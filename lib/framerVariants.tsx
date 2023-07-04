@@ -56,18 +56,18 @@ export const projectCardHolderVariant = {
 export const projectCardVariant = {
   hidden: {
     opacity: 0,
-    y: 200,
+    // y: 150,
+    scale: 0,
     transition: {
       type: "spring",
-      duration: 1.4,
     },
   },
   visible: {
     opacity: 1,
-    y: 0,
+    // y: 0,
+    scale: 1,
     transition: {
       type: "spring",
-      duration: 1.4,
     },
   },
 };
