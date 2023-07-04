@@ -41,10 +41,10 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
   return (
     <div className="flex flex-col items-center justify-between w-full gap-5">
-      <div className="flex items-center justify-between w-full gap-10 overflow-hidden h-60">
+      <div className="flex items-center justify-between w-full gap-10 px-1 overflow-hidden h-60">
         {currentBreakpoint === "xs" ? null : (
           <button
-            className="btn-circle-primary opacity-70 justify-self-start"
+            className="btn-circle-popup justify-self-start"
             type="button"
             onClick={() => shiftImages(-1)}
           >
@@ -95,7 +95,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
         {currentBreakpoint === "xs" ? null : (
           <button
-            className="btn-circle-primary opacity-70 justify-self-end"
+            className="btn-circle-popup justify-self-end"
             type="button"
             onClick={() => shiftImages(1)}
           >
@@ -118,13 +118,13 @@ const ImageCarousel = (props: { images: Array<string> }) => {
       <div className="flex items-center justify-center w-full h-3 gap-3">
         {images?.map((image, i) => (
           <motion.button
-            className={`h-full rounded-full cursor-pointer aspect-square bg-primarylightmode hover:bg-primarylightmode-light ${
+            className={`h-full rounded-full cursor-pointer aspect-square ${
               currentPosition === i
-                ? "bg-primarylightmode"
-                : "bg-primarydarkmode hover:bg-primarydarkmode-light brightness-90"
+                ? "bg-primarylightmode brightness-75 dark:brightness-100"
+                : "bg-primarydarkmode-dark hover:bg-primarydarkmode brightness-75 dark:brightness-100"
             }`}
             animate={{
-              scale: currentPosition === i ? 1 : 0.75,
+              scale: currentPosition === i ? 1 : 0.7,
             }}
             transition={{ type: "tween", duration: 0.15 }}
             onClick={() => setImageIndex(i)}

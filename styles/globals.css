@@ -2,15 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow: visible;
+}
+
 body.has-popup {
   height: 100vh;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
 }
 
 main {
   width: 100%;
   min-height: 100vh;
-  /* overflow-x: hidden; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -33,6 +36,10 @@ main {
 
   .btn-circle-primary {
     @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center aspect-square;
+  }
+
+  .btn-circle-popup {
+    @apply text-textlightmode brightness-90 dark:brightness-100 bg-primarydarkmode hover:bg-primarydarkmode-light dark:bg-primarylightmode dark:hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center aspect-square;
   }
 
   .btn-primary {
