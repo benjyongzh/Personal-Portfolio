@@ -1,5 +1,6 @@
 import { projectReference } from "@/lib/projectList";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { imageReference } from "@/lib/images";
 
 export interface IPopup {
   id: string;
@@ -8,7 +9,7 @@ export interface IPopup {
 
 export interface IPopupType {
   type: string; //projectPopup, contact, about
-  info: projectReference; // or whatever reference for other types of popups
+  info: projectReference | imageReference; // or whatever reference for other types of popups
 }
 
 type InitialState = { popups: Array<IPopup>; currentProjectPopup: IPopup | {} };

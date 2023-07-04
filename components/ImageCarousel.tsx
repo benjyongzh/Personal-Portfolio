@@ -3,15 +3,25 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useAppSelector } from "@/hooks/reduxHooks";
 import { useSwipeable, SwipeEventData } from "react-swipeable";
 
+//redux
+import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
+import { IPopupType, addPopup } from "@/features/popup/popupSlice";
+
 const ImageCarousel = (props: { images: Array<string> }) => {
+  const { images } = props;
+  const dispatch = useAppDispatch();
   const [currentPosition, setCurrentPosition] = useState(0);
+  const currentPopups = useAppSelector((state) => state.popup.popups);
   const currentBreakpoint: string = useAppSelector(
     (state) => state.display.currentBreakpoint
   );
-  const { images } = props;
+
+  //general popup stuff
+  const createPopup = (popupId: string, popupType: IPopupType) => {
+    dispatch(addPopup({ id: popupId, type: popupType })); //create unique popup ID here
+  };
 
   const shiftImages = (position: number) => {
     if (currentPosition < 1 && position < 0) return;
@@ -30,6 +40,16 @@ const ImageCarousel = (props: { images: Array<string> }) => {
   const handleImageClick = (imagePosition: number) => {
     if (imagePosition === currentPosition) {
       //clicked on current image. open popup
+      //get currentImage
+      const imageSource = images[imagePosition];
+      createPopup(imageSource, {
+        //popupID should be better generated
+        type: "imagePopup",
+        info: {
+          image: imageSource,
+          name: imageSource, //should have an image description
+        },
+      });
     } else {
       //clicked on other images at the side
       setCurrentPosition(imagePosition);
