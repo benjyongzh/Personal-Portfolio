@@ -14,15 +14,11 @@ import { useAppSelector } from "@/hooks/reduxHooks";
 
 //animations
 import { motion } from "framer-motion";
-import {
-  projectCardHolderVariant,
-  staggerVariant,
-  textVerticalFadeMoveFromBottomVariant,
-} from "@/lib/framerVariants";
+import { textVerticalFadeMoveFromBottomVariant } from "@/lib/framerVariants";
 import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
-import { useScroll, useTransform, useSpring } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 
 export default function Projects(props: { handleCreatePopup: Function }) {
   // const pathname = usePathname();

@@ -1,10 +1,9 @@
-"use client";
+// "use client";
 
 import ImageCarousel from "@/components/ImageCarousel";
 import { projectReference } from "@/lib/projectList";
 import { motion, Variants } from "framer-motion";
-import { useState, useEffect } from "react";
-import PopupWrapper, { popupWrapperInfoType } from "./PopupWrapper";
+import PopupWrapper from "./PopupWrapper";
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 import TechIcon from "@/components/TechIcon";
