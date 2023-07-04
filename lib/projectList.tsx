@@ -16,10 +16,12 @@ export function isProjectReference(arg: any): arg is projectReference {
     arg &&
     arg.projectName &&
     typeof arg.projectName === "string" &&
-    arg.githubLink &&
-    typeof arg.githubLink === "string" &&
+    arg.githubName &&
+    typeof arg.githubName === "string" &&
     arg.cardDescription &&
-    typeof arg.cardDescription === "string"
+    typeof arg.cardDescription === "string" &&
+    arg.techStack &&
+    Array.isArray(arg.techStack)
   );
 }
 
