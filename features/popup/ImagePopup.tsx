@@ -26,6 +26,10 @@ const ImagePopup = (props: {
     );
   };
 
+  const popupIndex = currentPopups
+    .map((popup) => popup.id)
+    .indexOf(props.popupId);
+
   return (
     <motion.div
       layout
@@ -34,15 +38,17 @@ const ImagePopup = (props: {
       exit={props.initial}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="flex flex-col items-center justify-start w-[90%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
-      style={{ zIndex: 10 + currentPopups.length * 10 }}
+      className="flex flex-col items-center justify-start rounded-[36px] w-fit h-fit gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
+      style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
-      <Image
-        src={props.imageInfo.image}
-        width={500}
-        height={500}
-        alt={props.imageInfo.name}
-      />
+      <div className="min-w-max min-h-max">
+        <Image
+          src={props.imageInfo.image}
+          width={500}
+          height={500}
+          alt={props.imageInfo.name}
+        />
+      </div>
 
       <motion.button
         layout="position"
