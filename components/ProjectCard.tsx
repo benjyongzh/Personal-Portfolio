@@ -9,6 +9,7 @@ import { getRandomArbitrary } from "@/utils/numbers";
 import { projectCardVariant } from "@/lib/framerVariants";
 import { projectReference } from "@/lib/projectList";
 import TechIcon from "./TechIcon";
+import techStackList from "@/lib/techStackList";
 import Image from "next/image";
 
 const ProjectCard = (props: {
@@ -55,8 +56,13 @@ const ProjectCard = (props: {
 
       <p className="pageText text-start">{project.cardDescription}</p>
       <div className="flex flex-wrap items-center justify-center w-full gap-2 pt-4 border-t-2 justify-self-end border-secondarydarkmode dark:border-accentdarkmode">
-        {project.techStack.map((tech) => (
-          <TechIcon tech={tech} size="xs" popup={false} />
+        {project.techStack.map((tech, i) => (
+          <TechIcon
+            tech={techStackList[tech as keyof typeof techStackList]}
+            size="xs"
+            key={i}
+            popup={false}
+          />
         ))}
       </div>
     </div>

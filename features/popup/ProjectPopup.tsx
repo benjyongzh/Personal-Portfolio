@@ -7,6 +7,7 @@ import PopupWrapper from "./PopupWrapper";
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 import TechIcon from "@/components/TechIcon";
+import techStackList from "@/lib/techStackList";
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -58,7 +59,10 @@ const ProjectPopup = (props: {
       </motion.header>
       <motion.div className="flex flex-wrap items-center justify-center w-full gap-4 pb-5 border-b-2 sm:justify-start border-secondarydarkmode dark:border-accentdarkmode">
         {techStack.map((tech) => (
-          <TechIcon tech={tech} size="sm" />
+          <TechIcon
+            tech={techStackList[tech as keyof typeof techStackList]}
+            size="sm"
+          />
         ))}
       </motion.div>
       {detailImages ? <ImageCarousel images={detailImages} /> : null}

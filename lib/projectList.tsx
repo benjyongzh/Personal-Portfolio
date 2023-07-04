@@ -1,4 +1,4 @@
-import * as tech from "./techStackList";
+import techStackList from "./techStackList";
 
 export interface projectReference {
   projectName: string;
@@ -8,7 +8,7 @@ export interface projectReference {
   longDescription?: string;
   cardImage?: string;
   detailImages?: Array<string>;
-  techStack: tech.techStack;
+  techStack: Array<string>;
 }
 
 export function isProjectReference(arg: any): arg is projectReference {
@@ -31,12 +31,12 @@ const projectList: projectReference[] = [
     cardDescription: "The current page you are scrolling through",
     longDescription: "In progress",
     techStack: [
-      tech.typescript,
-      tech.nextjs,
-      tech.framermotion,
-      tech.react,
-      tech.nodejs,
-      tech.redux,
+      techStackList.typescript.id,
+      techStackList.nextjs.id,
+      techStackList.framermotion.id,
+      techStackList.react.id,
+      techStackList.nodejs.id,
+      techStackList.redux.id,
     ],
   },
   {
@@ -47,13 +47,13 @@ const projectList: projectReference[] = [
       "A simple imitation of Reddit, with front-end UI and back-end API",
     longDescription: "some long description here",
     techStack: [
-      tech.bootstrap,
-      tech.express,
-      tech.mongodb,
-      tech.react,
-      tech.passportjs,
-      tech.nodejs,
-      tech.redux,
+      techStackList.bootstrap.id,
+      techStackList.express.id,
+      techStackList.mongodb.id,
+      techStackList.react.id,
+      techStackList.passportjs.id,
+      techStackList.nodejs.id,
+      techStackList.redux.id,
     ],
   },
   {
@@ -70,7 +70,12 @@ const projectList: projectReference[] = [
       "/assets/images/inventory-application-image-4.JPG",
       "/assets/images/inventory-application-image-5.JPG",
     ],
-    techStack: [tech.bootstrap, tech.express, tech.mongodb, tech.nodejs],
+    techStack: [
+      techStackList.bootstrap.id,
+      techStackList.express.id,
+      techStackList.mongodb.id,
+      techStackList.nodejs.id,
+    ],
   },
   {
     projectName: "Weather App",
@@ -84,7 +89,11 @@ const projectList: projectReference[] = [
       "/assets/images/weather-app-image-2.JPG",
       "/assets/images/weather-app-image-3.JPG",
     ],
-    techStack: [tech.html, tech.css, tech.javascript],
+    techStack: [
+      techStackList.html.id,
+      techStackList.css.id,
+      techStackList.javascript.id,
+    ],
   },
   {
     projectName: "Memory Card",
@@ -98,7 +107,7 @@ const projectList: projectReference[] = [
       "/assets/images/memory-card-image-2.JPG",
       "/assets/images/memory-card-image-3.JPG",
     ],
-    techStack: [tech.react, tech.css],
+    techStack: [techStackList.react.id, techStackList.css.id],
   },
   {
     projectName: "Knights Travails",
@@ -115,21 +124,29 @@ const projectList: projectReference[] = [
       "/assets/images/knights-travails-image-4.JPG",
       "/assets/images/knights-travails-image-5.JPG",
     ],
-    techStack: [tech.html, tech.css, tech.javascript],
+    techStack: [
+      techStackList.html.id,
+      techStackList.css.id,
+      techStackList.javascript.id,
+    ],
   },
   {
     projectName: "Cursed Game",
     githubName: "", //have to update
     cardDescription: "A Dota2 custom game of horror and deception",
     longDescription: "untouched for years",
-    techStack: [tech.css, tech.javascript, tech.lua],
+    techStack: [
+      techStackList.css.id,
+      techStackList.javascript.id,
+      techStackList.lua.id,
+    ],
   },
   {
     projectName: "Cursed Game in Unity",
     githubName: "", //have to update
     cardDescription: "An attempt at recreating the Cursed Game in Unity3D",
     longDescription: "also untouched for years",
-    techStack: [tech.unity, tech.csharp],
+    techStack: [techStackList.unity.id, techStackList.csharp.id],
   },
 ];
 
