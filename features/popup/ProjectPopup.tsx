@@ -62,6 +62,7 @@ const ProjectPopup = (props: {
           <TechIcon
             tech={techStackList[tech as keyof typeof techStackList]}
             size="sm"
+            key={tech}
           />
         ))}
       </motion.div>
