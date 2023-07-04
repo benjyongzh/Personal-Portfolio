@@ -56,9 +56,12 @@ const ScreenGreyOut = (props: { clicked: Function }) => {
       initial="hidden"
       animate={currentPopups.length > 0 ? "visible" : "hidden"}
       className={`${
-        currentPopups.length > 0 ? "z-10" : "pointer-events-none"
+        currentPopups.length <= 0 ? "pointer-events-none" : ""
       } fixed mx-auto left-0 right-0 flex my-auto top-0 bottom-0 items-center justify-center w-screen h-screen`}
-      style={{ backgroundColor: "#020617b4" }}
+      style={{
+        backgroundColor: "#020617b4",
+        zIndex: currentPopups.length * 10 + 9,
+      }}
       onClick={() => {
         props.clicked();
       }}
