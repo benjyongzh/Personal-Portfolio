@@ -56,7 +56,7 @@ const ProjectCard = (props: {
       <p className="pageText text-start">{project.cardDescription}</p>
       <div className="flex flex-wrap items-center justify-center w-full gap-2 pt-4 border-t-2 justify-self-end border-secondarydarkmode dark:border-accentdarkmode">
         {project.techStack.map((tech) => (
-          <TechIcon tech={tech} size="xs" />
+          <TechIcon tech={tech} size="xs" popup={false} />
         ))}
       </div>
     </div>
