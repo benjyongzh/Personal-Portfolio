@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useAppSelector } from "@/hooks/reduxHooks";
+import { useSwipeable, SwipeEventData } from "react-swipeable";
 
 const ImageCarousel = (props: { images: Array<string> }) => {
   const [currentPosition, setCurrentPosition] = useState(0);
@@ -17,6 +18,22 @@ const ImageCarousel = (props: { images: Array<string> }) => {
     if (currentPosition >= images.length - 1 && position > 0) return;
     setCurrentPosition((curr) => curr + position);
   };
+
+  const handleSwiped = (eventData: SwipeEventData) => {
+    if (eventData.dir === "Left") {
+      shiftImages(1);
+    } else if (eventData.dir === "Right") {
+      shiftImages(-1);
+    }
+  };
+
+  const swipeHandlers = useSwipeable({
+    onSwiped: handleSwiped,
+    onTouchStartOrOnMouseDown: ({ event }) => event.preventDefault(),
+    touchEventOptions: { passive: false },
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
 
   const setImageIndex = (position: number) => {
     setCurrentPosition(position);
@@ -47,7 +64,10 @@ const ImageCarousel = (props: { images: Array<string> }) => {
           </button>
         )}
 
-        <div className="relative flex items-center w-full h-full">
+        <div
+          {...swipeHandlers}
+          className="relative flex items-center w-full h-full"
+        >
           {images?.map((image, i) => (
             <motion.div
               className={`absolute left-[50%] overflow-hidden h-full w-[240px] sm:w-[320px] rounded-xl -z-10 ${
