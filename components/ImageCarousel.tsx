@@ -41,10 +41,10 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
   return (
     <div className="flex flex-col items-center justify-between w-full gap-5">
-      <div className="flex items-center justify-between w-full overflow-hidden h-60">
+      <div className="flex items-center justify-between w-full gap-10 overflow-hidden h-60">
         {currentBreakpoint === "xs" ? null : (
           <button
-            className="p-3 rounded-full opacity-70 justify-self-start bg-secondarydarkmode-light dark:bg-secondarylightmode-dark hover:bg-secondarydarkmode dark:hover:bg-secondarylightmode aspect-square"
+            className="btn-circle-primary opacity-70 justify-self-start"
             type="button"
             onClick={() => shiftImages(-1)}
           >
@@ -66,7 +66,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
         <div
           {...swipeHandlers}
-          className="relative flex items-center w-full h-full"
+          className="relative flex items-center w-full h-full overflow-hidden"
         >
           {images?.map((image, i) => (
             <motion.div
@@ -95,7 +95,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
         {currentBreakpoint === "xs" ? null : (
           <button
-            className="p-3 rounded-full opacity-70 justify-self-end bg-secondarydarkmode-light dark:bg-secondarylightmode-dark hover:bg-secondarydarkmode dark:hover:bg-secondarylightmode aspect-square"
+            className="btn-circle-primary opacity-70 justify-self-end"
             type="button"
             onClick={() => shiftImages(1)}
           >

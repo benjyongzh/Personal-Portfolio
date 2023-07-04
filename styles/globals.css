@@ -4,7 +4,7 @@
 
 body.has-popup {
   height: 100vh;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 main {
@@ -32,7 +32,7 @@ main {
   }
 
   .btn-circle-primary {
-    @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center mr-2;
+    @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center aspect-square;
   }
 
   .btn-primary {
