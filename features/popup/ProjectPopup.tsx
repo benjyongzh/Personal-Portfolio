@@ -46,7 +46,7 @@ const ProjectPopup = (props: {
       animate={props.animate}
       exit={props.initial}
       variants={props.variants}
-      data-popupId={props.popupId!}
+      data-popupid={props.popupId!}
       className="flex flex-col items-start justify-start w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
       style={{ zIndex: 10 + currentPopups.length * 10 }}
     >
