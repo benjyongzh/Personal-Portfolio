@@ -1,7 +1,7 @@
 "use client";
 import { Variants } from "framer-motion";
 import { Diff } from "utility-types";
-import React, { ReactElement } from "react";
+import React from "react";
 
 // import { useAppSelector } from "@/hooks/reduxHooks";
 
