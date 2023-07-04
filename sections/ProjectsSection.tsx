@@ -1,5 +1,4 @@
 "use client";
-import { useRef } from "react";
 
 //lib
 import projectList, { projectReference } from "@/lib/projectList";
@@ -18,7 +17,6 @@ import { textVerticalFadeMoveFromBottomVariant } from "@/lib/framerVariants";
 import ScrollAnimationWrapper, {
   dampSpring,
 } from "@/components/ScrollAnimationWrapper";
-import { useScroll } from "framer-motion";
 
 export default function Projects() {
   const dispatch = useAppDispatch();
@@ -43,12 +41,6 @@ export default function Projects() {
   const createPopup = (popupType: IPopupType) => {
     dispatch(addPopup({ id: "projectPopupID", type: popupType })); //create unique popup ID here
   };
-
-  //useref usescroll for project section header
-  const targetRef = useRef(null);
-  const { scrollY } = useScroll({
-    target: targetRef,
-  });
 
   return (
     <motion.section
