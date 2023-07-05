@@ -24,6 +24,9 @@ const screenPopupVariant = {
       duration: 0.7,
     },
   },
+  exit: {
+    zIndex: 99,
+  },
 };
 
 // First we need to add a type to let us extend the incoming component.
@@ -51,6 +54,7 @@ export type popupWrapperInfoType = {
   variants: Variants;
   initial: string;
   animate: string;
+  exit: string;
 };
 
 // type Subtract<T, V> = Pick<T, Exclude<keyof T, keyof V>>;
@@ -108,6 +112,7 @@ function PopupWrapper<T extends {}>(Component: React.ComponentType<T>) {
           variants={screenPopupVariant}
           initial="hidden"
           animate="visible"
+          exit="exit"
         />
       );
     }

@@ -13,6 +13,7 @@ const ImagePopup = (props: {
   variants: Variants;
   initial: string;
   animate: string;
+  exit: string;
 }) => {
   const dispatch = useAppDispatch();
   const currentPopups = useAppSelector((state) => state.popup.popups);
@@ -35,7 +36,7 @@ const ImagePopup = (props: {
       layout
       initial={props.initial}
       animate={props.animate}
-      exit={props.initial}
+      exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
       className="flex flex-col items-center justify-start rounded-[36px] w-fit h-fit gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
