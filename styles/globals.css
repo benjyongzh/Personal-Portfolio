@@ -56,6 +56,10 @@ main {
     @apply fixed shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode p-7 sm:p-9;
   }
 
+  .popup-image {
+    @apply fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center w-screen h-screen m-auto bg-transparent shadow-2xl p-7 gap-7 sm:p-9;
+  }
+
   .btn-circle-primary {
     @apply text-textlightmode bg-primarylightmode hover:bg-primarylightmode-light focus:ring-4 focus:outline-none font-bold rounded-full text-base p-2.5 text-center inline-flex items-center aspect-square;
   }

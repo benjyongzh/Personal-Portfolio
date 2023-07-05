@@ -58,7 +58,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
 
   const swipeHandlers = useSwipeable({
     onSwiped: handleSwiped,
-    onTouchStartOrOnMouseDown: ({ event }) => event.preventDefault(),
+    // onTouchStartOrOnMouseDown: ({ event }) => event.preventDefault(),
     touchEventOptions: { passive: false },
     preventScrollOnSwipe: true,
     trackMouse: true,

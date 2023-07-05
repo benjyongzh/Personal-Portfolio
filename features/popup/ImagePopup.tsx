@@ -17,6 +17,7 @@ const ImagePopup = (props: {
 }) => {
   const dispatch = useAppDispatch();
   const currentPopups = useAppSelector((state) => state.popup.popups);
+  const currentScreenSize = useAppSelector((state) => state.display.screenSize);
 
   const close = () => {
     dispatch(
@@ -39,26 +40,28 @@ const ImagePopup = (props: {
       exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="flex flex-col items-center justify-start rounded-[36px] w-fit h-fit gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
+      className="popup-image"
       style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
-      <div className="min-w-max min-h-max">
+      <div className="object-contain h-auto border-2 border-black">
         <Image
           src={props.imageInfo.image}
-          width={500}
-          height={500}
+          // width={currentScreenSize.screenWidth}
+          // height={currentScreenSize.screenHeight}
+          fill
           alt={props.imageInfo.name}
+          style={{ objectFit: "contain", position: "absolute" }}
         />
       </div>
 
       <motion.button
         layout="position"
-        className="btn-popup-secondary-blue"
+        className="absolute top-5 right-5 btn-circle-primary"
         type="button"
         transition={{ type: "spring", duration: 0.4 }}
         onClick={() => close()}
       >
-        Close
+        <Image src="/assets/images/x.svg" width={24} height={24} alt="close" />
       </motion.button>
     </motion.div>
   );
