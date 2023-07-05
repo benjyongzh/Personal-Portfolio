@@ -86,6 +86,14 @@ main {
     @apply px-10 mx-auto max-w-7xl sm:px-12;
   }
 
+  .popup-full-base {
+    @apply fixed top-0 left-0 right-0 flex w-screen h-screen m-auto bg-transparent;
+  }
+
+  .popup-full-underlay {
+    @apply fixed w-full h-full bg-transparent;
+  }
+
   .bg-popup {
     @apply shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode;
   }

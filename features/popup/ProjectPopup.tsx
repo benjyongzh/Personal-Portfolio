@@ -57,12 +57,12 @@ const ProjectPopup = (props: {
       exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="fixed w-screen h-screen rounded-[36px] m-auto left-0 right-0 top-0 flex flex-col justify-center gap-5 items-center bg-transparent"
+      className="flex-col items-center justify-center gap-5 popup-full-base"
       style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
       <motion.div
         layout
-        className="fixed w-full h-full bg-transparent"
+        className="popup-full-underlay"
         style={{ zIndex: 9 + (popupIndex + 1) * 10 }}
         onClick={() => close()}
       />
