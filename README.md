@@ -4,12 +4,12 @@ A personal portfolio for the little projects I have done so far. This site was m
 
 ## Learning Points
 
-- NextJS folder structure
-- Tailwind, setting configs
+- NextJS
+- Tailwindcss
 - TypeScript
-- React HOC decorator pattern
+- React HOCs
 - Creating React wrapper components to add animation styling, without introducing redundant elements into DOM
-- Framer Motion animations
+- Framer Motion animations and hooks
 - Redux with TypeScript
 
 todo list
