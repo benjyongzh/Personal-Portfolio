@@ -43,6 +43,30 @@ main {
   );
 }
 
+/* width */
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #22b3a2;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3b998e;
+}
+
 @layer components {
   .main {
     @apply bg-gradient-to-br from-bglightmode-light to-bglightmode-dark dark:from-bgdarkmode-light dark:to-bgdarkmode-dark;
