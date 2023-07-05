@@ -17,7 +17,6 @@ const ImagePopup = (props: {
 }) => {
   const dispatch = useAppDispatch();
   const currentPopups = useAppSelector((state) => state.popup.popups);
-  const currentScreenSize = useAppSelector((state) => state.display.screenSize);
 
   const close = () => {
     dispatch(
@@ -46,8 +45,6 @@ const ImagePopup = (props: {
       <div className="object-contain h-auto border-2 border-black">
         <Image
           src={props.imageInfo.image}
-          // width={currentScreenSize.screenWidth}
-          // height={currentScreenSize.screenHeight}
           fill
           alt={props.imageInfo.name}
           style={{ objectFit: "contain", position: "absolute" }}
