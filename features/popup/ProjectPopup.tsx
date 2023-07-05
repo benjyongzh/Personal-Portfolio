@@ -11,6 +11,7 @@ import techStackList from "@/lib/techStackList";
 import Link from "next/link";
 
 import GithubIcon from "@/public/assets/icons/github-original.svg";
+import ExternalLinkIcon from "@/public/assets/icons/external-link.svg";
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -55,7 +56,7 @@ const ProjectPopup = (props: {
       exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="flex flex-col items-start justify-start w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
+      className="flex flex-col overflow-y-scroll items-start justify-start w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
       style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
       <motion.header
@@ -76,14 +77,36 @@ const ProjectPopup = (props: {
       </motion.div>
       {detailImages ? <ImageCarousel images={detailImages} /> : null}
 
-      <div className="flex items-center justify-start w-full gap-5">
-        <Link href="#" rel="noopener noreferrer" target="_blank">
-          {/* need to use github API to get github repo link */}
-          <GithubIcon className="w-6 h-6 link-icon" alt="Github project link" />
+      <div className="flex items-center justify-between w-full gap-5 sm:gap-8 sm:justify-start">
+        <Link
+          // need to use github API to get github repo link
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="flex items-center justify-start gap-2 group"
+        >
+          <span className="pageText pageText-bodytext group-hover:underline">
+            Github Repo
+          </span>
+          <GithubIcon
+            className="w-6 h-6 link-icon text-secondarydarkmode dark:text-primarylightmode group-hover:text-secondarydarkmode-light group-hover:dark:text-primarylightmode-light"
+            alt="Github repo link"
+          />
         </Link>
         {href ? (
-          <Link href={href} rel="noopener noreferrer" target="_blank">
-            project site link here
+          <Link
+            href={href}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="flex items-center justify-start gap-2 group"
+          >
+            <span className="pageText pageText-bodytext group-hover:underline">
+              Project Site
+            </span>
+            <ExternalLinkIcon
+              className="w-5 h-5 link-icon text-secondarydarkmode dark:text-primarylightmode group-hover:text-secondarydarkmode-light group-hover:dark:text-primarylightmode-light"
+              alt="Project site link"
+            />
           </Link>
         ) : null}
       </div>
