@@ -40,24 +40,31 @@ const ImagePopup = (props: {
       exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="popup-image"
+      className="flex-col items-center justify-start gap-5 popup-full-base"
       style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
-      <div className="object-contain h-auto border-2 border-black">
-        <Image
-          src={props.imageInfo.image}
-          fill
-          alt={props.imageInfo.name}
-          style={{ objectFit: "contain", position: "absolute" }}
-        />
-      </div>
+      <motion.div
+        layout
+        className="popup-full-underlay"
+        style={{ zIndex: 9 + (popupIndex + 1) * 10 }}
+        onClick={() => close()}
+      />
+
+      <Image
+        src={props.imageInfo.image}
+        fill
+        alt={props.imageInfo.name}
+        className="object-contain static mx-auto max-h-[85%] mt-5 shadow-2xl max-w-[85%] border-black border-2"
+        style={{ zIndex: 11 + (popupIndex + 1) * 10 }}
+      />
 
       <motion.button
         layout="position"
-        className="absolute top-5 right-5 btn-circle-primary"
+        className="btn-circle-primary"
         type="button"
         transition={{ type: "spring", duration: 0.4 }}
         onClick={() => close()}
+        style={{ zIndex: 11 + (popupIndex + 1) * 10 }}
       >
         <CloseButton className="w-6 h-6" alt="close" />
       </motion.button>
