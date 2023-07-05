@@ -8,6 +8,9 @@ import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 import TechIcon from "@/components/TechIcon";
 import techStackList from "@/lib/techStackList";
+import Link from "next/link";
+
+import GithubIcon from "@/public/assets/icons/github-original.svg";
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -73,22 +76,26 @@ const ProjectPopup = (props: {
       </motion.div>
       {detailImages ? <ImageCarousel images={detailImages} /> : null}
 
-      <motion.p
-        layout="position"
-        transition={{ type: "spring", duration: 0.4 }}
-        className="pageText pageText-bodytext"
-      >
-        {longDescription}
-      </motion.p>
-      <motion.button
-        layout="position"
+      <div className="flex items-center justify-start w-full gap-5">
+        <Link href="#" rel="noopener noreferrer" target="_blank">
+          {/* need to use github API to get github repo link */}
+          <GithubIcon className="w-6 h-6 link-icon" alt="Github project link" />
+        </Link>
+        {href ? (
+          <Link href={href} rel="noopener noreferrer" target="_blank">
+            project site link here
+          </Link>
+        ) : null}
+      </div>
+
+      <p className="pageText pageText-bodytext">{longDescription}</p>
+      <button
         className="btn-popup-secondary-blue justify-self-end"
         type="button"
-        transition={{ type: "spring", duration: 0.4 }}
         onClick={() => close()}
       >
         Close
-      </motion.button>
+      </button>
     </motion.div>
   );
 };

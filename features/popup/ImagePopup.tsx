@@ -5,6 +5,7 @@ import PopupWrapper from "./PopupWrapper";
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 import Image from "next/image";
+import CloseButton from "@/public/assets/icons/x.svg";
 import { imageReference } from "@/lib/images";
 
 const ImagePopup = (props: {
@@ -58,7 +59,7 @@ const ImagePopup = (props: {
         transition={{ type: "spring", duration: 0.4 }}
         onClick={() => close()}
       >
-        <Image src="/assets/images/x.svg" width={24} height={24} alt="close" />
+        <CloseButton className="w-6 h-6" alt="close" />
       </motion.button>
     </motion.div>
   );
