@@ -12,6 +12,7 @@ import Link from "next/link";
 
 import GithubIcon from "@/public/assets/icons/github-original.svg";
 import ExternalLinkIcon from "@/public/assets/icons/external-link.svg";
+import CloseButtonIcon from "@/public/assets/icons/x.svg";
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -56,68 +57,70 @@ const ProjectPopup = (props: {
       exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="flex flex-col overflow-y-scroll items-start justify-start w-[90%] h-[80%] rounded-[36px] gap-7 m-auto left-0 right-0 top-0 bottom-0 popup"
+      className="w-[90%] h-[80%] rounded-[36px] m-auto left-0 right-0 top-0 overflow-y-auto bottom-0 bg-popup"
       style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
-      <motion.header
-        layout="position"
-        transition={{ type: "spring", duration: 0.4 }}
-        className={`pageText pageText-pageTitle font-bold`}
-      >
-        {projectName}
-      </motion.header>
-      <motion.div className="flex flex-wrap items-center justify-center w-full gap-4 pb-5 border-b-2 sm:justify-start border-secondarydarkmode dark:border-accentdarkmode">
-        {techStack.map((tech) => (
-          <TechIcon
-            tech={techStackList[tech as keyof typeof techStackList]}
-            size="sm"
-            key={tech}
-          />
-        ))}
-      </motion.div>
-      {detailImages ? <ImageCarousel images={detailImages} /> : null}
-
-      <div className="flex items-center justify-between w-full gap-5 sm:gap-8 sm:justify-start">
-        <Link
-          // need to use github API to get github repo link
-          href="#"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="flex items-center justify-start gap-2 group"
+      <div className="flex flex-col items-start justify-start w-full h-full gap-7 p-7 sm:p-9 popup-gradient-topbottom-edges">
+        <motion.header
+          layout="position"
+          transition={{ type: "spring", duration: 0.4 }}
+          className={`pageText pageText-pageTitle font-bold`}
         >
-          <span className="pageText pageText-bodytext group-hover:underline">
-            Github Repo
-          </span>
-          <GithubIcon
-            className="w-6 h-6 link-icon text-secondarydarkmode dark:text-primarylightmode group-hover:text-secondarydarkmode-light group-hover:dark:text-primarylightmode-light"
-            alt="Github repo link"
-          />
-        </Link>
-        {href ? (
+          {projectName}
+        </motion.header>
+        <motion.div className="flex flex-wrap items-center justify-center w-full gap-4 pb-5 border-b-2 sm:justify-start border-secondarydarkmode dark:border-accentdarkmode">
+          {techStack.map((tech) => (
+            <TechIcon
+              tech={techStackList[tech as keyof typeof techStackList]}
+              size="sm"
+              key={tech}
+            />
+          ))}
+        </motion.div>
+        {detailImages ? <ImageCarousel images={detailImages} /> : null}
+
+        <div className="flex items-center justify-between w-full gap-5 sm:gap-8 sm:justify-start">
           <Link
-            href={href}
+            // need to use github API to get github repo link
+            href="#"
             rel="noopener noreferrer"
             target="_blank"
             className="flex items-center justify-start gap-2 group"
           >
             <span className="pageText pageText-bodytext group-hover:underline">
-              Project Site
+              Github Repo
             </span>
-            <ExternalLinkIcon
-              className="w-5 h-5 link-icon text-secondarydarkmode dark:text-primarylightmode group-hover:text-secondarydarkmode-light group-hover:dark:text-primarylightmode-light"
-              alt="Project site link"
+            <GithubIcon
+              className="w-6 h-6 link-icon text-secondarydarkmode dark:text-primarylightmode group-hover:text-secondarydarkmode-light group-hover:dark:text-primarylightmode-light"
+              alt="Github repo link"
             />
           </Link>
-        ) : null}
-      </div>
+          {href ? (
+            <Link
+              href={href}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="flex items-center justify-start gap-2 group"
+            >
+              <span className="pageText pageText-bodytext group-hover:underline">
+                Project Site
+              </span>
+              <ExternalLinkIcon
+                className="w-5 h-5 link-icon text-secondarydarkmode dark:text-primarylightmode group-hover:text-secondarydarkmode-light group-hover:dark:text-primarylightmode-light"
+                alt="Project site link"
+              />
+            </Link>
+          ) : null}
+        </div>
 
-      <p className="pageText pageText-bodytext">{longDescription}</p>
+        <p className="pageText pageText-bodytext">{longDescription}</p>
+      </div>
       <button
-        className="btn-popup-secondary-blue justify-self-end"
+        className="absolute top-4 right-4 btn-circle-primary"
         type="button"
         onClick={() => close()}
       >
-        Close
+        <CloseButtonIcon className="w-6 h-6" alt="close" />
       </button>
     </motion.div>
   );

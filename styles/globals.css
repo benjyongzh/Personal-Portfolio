@@ -43,10 +43,20 @@ main {
   );
 }
 
+.popup-gradient-topbottom-edges {
+  mask: linear-gradient(
+    to bottom,
+    transparent 1%,
+    white 7%,
+    white 93%,
+    transparent 99%
+  );
+}
+
 /* width */
 ::-webkit-scrollbar {
   background-color: transparent;
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
@@ -59,13 +69,13 @@ main {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #22b3a2;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: #3b998e;
-}
+} */
 
 @layer components {
   .main {
@@ -76,8 +86,8 @@ main {
     @apply px-10 mx-auto max-w-7xl sm:px-12;
   }
 
-  .popup {
-    @apply fixed shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode p-7 sm:p-9;
+  .bg-popup {
+    @apply fixed shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode;
   }
 
   .popup-image {
