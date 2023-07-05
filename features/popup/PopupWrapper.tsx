@@ -11,17 +11,16 @@ const screenPopupVariant = {
     // scale: 0,
     clipPath: `circle(0%)`,
     transition: {
-      type: "spring",
-      duration: 0.7,
+      type: "tween",
+      duration: 0.4,
     },
   },
   visible: {
     // opacity: 1,
     // scale: 1,
-    clipPath: `circle(70%)`,
+    clipPath: `circle(85%)`,
     transition: {
       type: "spring",
-      duration: 0.7,
     },
   },
   exit: {

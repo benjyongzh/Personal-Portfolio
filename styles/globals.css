@@ -47,8 +47,8 @@ main {
   mask: linear-gradient(
     to bottom,
     transparent 1%,
-    white 7%,
-    white 93%,
+    white 6%,
+    white 94%,
     transparent 99%
   );
 }
@@ -87,7 +87,7 @@ main {
   }
 
   .bg-popup {
-    @apply fixed shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode;
+    @apply shadow-2xl bg-gradient-to-br from-secondarylightmode to-secondarylightmode-dark dark:from-secondarydarkmode-light dark:to-secondarydarkmode;
   }
 
   .popup-image {
