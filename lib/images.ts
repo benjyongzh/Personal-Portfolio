@@ -6,15 +6,15 @@ export interface imageReference {
 }
 
 export interface slideshowInfo {
-  currentImage: imageReference;
+  currentIndex: number;
   images: imageReference[];
 }
 
 export function isSlideshowInfo(arg: any): arg is slideshowInfo {
   return (
     arg &&
-    arg.currentImage &&
-    isimageReference(arg.currentImage) &&
+    arg.currentIndex &&
+    typeof arg.currentIndex === "number" &&
     arg.images &&
     Array.isArray(arg.images) &&
     isArrayOfInterface(arg.images, isimageReference)

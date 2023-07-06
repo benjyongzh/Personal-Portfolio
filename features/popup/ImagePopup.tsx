@@ -7,6 +7,7 @@ import { removePopup } from "./popupSlice";
 import Image from "next/image";
 import CloseButton from "@/public/assets/icons/x.svg";
 import { imageReference, slideshowInfo } from "@/lib/images";
+import Slideshow from "@/components/Slideshow";
 
 const ImagePopup = (props: {
   imagesInfo: slideshowInfo;
@@ -40,7 +41,7 @@ const ImagePopup = (props: {
       exit={[props.initial, props.exit]}
       variants={props.variants}
       data-popupid={props.popupId!}
-      className="flex-col items-center justify-start gap-5 popup-full-base"
+      className="flex-col items-center justify-center gap-5 popup-full-base"
       style={{ zIndex: 10 + (popupIndex + 1) * 10 }}
     >
       <motion.div
@@ -51,14 +52,15 @@ const ImagePopup = (props: {
       />
 
       {/* slideshow component here */}
-
-      <Image
-        src={props.imageInfo.image}
-        fill
-        alt={props.imageInfo.name}
-        className="object-contain static mx-auto max-h-[85%] mt-5 shadow-2xl max-w-[85%] border-black border-2"
+      <div
+        className="w-[90%] h-[80%]"
         style={{ zIndex: 11 + (popupIndex + 1) * 10 }}
-      />
+      >
+        <Slideshow
+          currentIndex={props.imagesInfo.currentIndex}
+          imageRefs={props.imagesInfo.images}
+        />
+      </div>
 
       <motion.button
         layout="position"

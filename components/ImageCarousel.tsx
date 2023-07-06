@@ -47,10 +47,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
         //popupID should be better generated
         type: "imagePopup",
         info: {
-          currentImage: {
-            image: imageSource,
-            name: imageSource, //should have an image description}
-          },
+          currentIndex: imagePosition,
           images: images.map((image) => {
             return {
               image: image,

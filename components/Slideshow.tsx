@@ -8,22 +8,19 @@ import { imageReference } from "@/lib/images";
 import ItemRangeNav from "./ItemRangeNav";
 
 //redux
-import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
-import { IPopupType, addPopup } from "@/features/popup/popupSlice";
+import { useAppSelector } from "@/hooks/reduxHooks";
 
-const Slideshow = (props: { imageRefs: imageReference[] }) => {
+type slideshowProps = {
+  currentIndex: number;
+  imageRefs: imageReference[];
+};
+
+const Slideshow = (props: slideshowProps) => {
   const { imageRefs } = props;
-  const dispatch = useAppDispatch();
-  const [currentPosition, setCurrentPosition] = useState(0);
-  const currentPopups = useAppSelector((state) => state.popup.popups);
+  const [currentPosition, setCurrentPosition] = useState(props.currentIndex);
   const currentBreakpoint: string = useAppSelector(
     (state) => state.display.currentBreakpoint
   );
-
-  //general popup stuff
-  const createPopup = (popupId: string, popupType: IPopupType) => {
-    dispatch(addPopup({ id: popupId, type: popupType })); //create unique popup ID here
-  };
 
   const shiftImages = (position: number) => {
     if (currentPosition < 1 && position < 0) return;
@@ -39,11 +36,11 @@ const Slideshow = (props: { imageRefs: imageReference[] }) => {
     }
   };
 
-  const handleImageClick = (imagePosition: number) => {
+  /* const handleImageClick = (imagePosition: number) => {
     if (imagePosition === currentPosition) {
       //clicked on current image. open popup
       //get currentImage
-      const imageSource = images[imagePosition];
+      const imageSource = imageRefs[imagePosition];
       createPopup(imageSource, {
         //popupID should be better generated
         type: "imagePopup",
@@ -58,7 +55,7 @@ const Slideshow = (props: { imageRefs: imageReference[] }) => {
       //clicked on other images at the side
       setCurrentPosition(imagePosition);
     }
-  };
+  }; */
 
   const swipeHandlers = useSwipeable({
     onSwiped: handleSwiped,
@@ -68,13 +65,9 @@ const Slideshow = (props: { imageRefs: imageReference[] }) => {
     trackMouse: true,
   });
 
-  const setImageIndex = (position: number) => {
-    setCurrentPosition(position);
-  };
-
   return (
-    <div className="flex flex-col items-center justify-between w-full gap-5">
-      <div className="flex items-center justify-between w-full gap-10 px-1 overflow-hidden h-60">
+    <div className="flex flex-col items-center justify-between w-full h-full gap-5">
+      <div className="flex items-center justify-between w-full h-full gap-10 px-1 overflow-hidden">
         {currentBreakpoint === "xs" ? null : (
           <button
             className="btn-circle-popup justify-self-start"
@@ -99,35 +92,25 @@ const Slideshow = (props: { imageRefs: imageReference[] }) => {
 
         <div
           {...swipeHandlers}
-          className={`relative flex items-center w-full h-full overflow-hidden ${
-            currentBreakpoint === "xs"
-              ? "gradient-opacity-xs"
-              : "gradient-opacity"
-          }  `}
+          className={`relative flex items-center w-full h-full overflow-hidden`}
         >
-          {images?.map((image, i) => (
-            <motion.button
+          {imageRefs?.map((image, i) => (
+            <motion.div
               key={i}
-              className={`absolute left-[50%] overflow-hidden h-full cursor-pointer w-[240px] sm:w-[320px] rounded-xl`}
+              className={`overflow-hidden h-full w-full`}
               animate={{
-                x:
-                  currentBreakpoint === "xs"
-                    ? (i - currentPosition) * 240 - 120
-                    : (i - currentPosition) * 320 - 160,
-                scale: currentPosition === i ? 1 : 0.8,
-                opacity: currentPosition === i ? 1 : 0.8,
+                // x: (i - currentPosition) * 320 - 160,
+                opacity: currentPosition === i ? 1 : 0,
               }}
-              transition={{ type: "tween", duration: 0.15 }}
-              type="button"
-              onClick={() => handleImageClick(i)}
+              transition={{ type: "tween", duration: 0.2 }}
             >
               <Image
-                src={image}
+                src={image.image}
                 fill={true}
-                alt={image}
-                style={{ objectFit: "cover" }}
+                alt={image.name}
+                className="object-contain w-full h-full mx-auto border-2 border-black"
               />
-            </motion.button>
+            </motion.div>
           ))}
         </div>
 
@@ -156,7 +139,7 @@ const Slideshow = (props: { imageRefs: imageReference[] }) => {
       <ItemRangeNav
         range={imageRefs.length}
         currentPosition={currentPosition}
-        handleClick={setImageIndex}
+        handleClick={setCurrentPosition}
       />
     </div>
   );
