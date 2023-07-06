@@ -32,6 +32,13 @@ export default function About() {
     (state) => state.display.currentBreakpoint
   );
 
+  const description = aboutText.description.map((text, i) => (
+    <motion.p key={i} className="pageText pageText-bodytext">
+      {text}
+      <br />
+    </motion.p>
+  ));
+
   return (
     <motion.section
       id="about-section"
@@ -106,12 +113,8 @@ export default function About() {
               currentBreakpoint === "xs" ? "focusCenterxs" : "focusCenterlg",
           }}
         >
-          <motion.div className="flex items-stretch w-full h-full pt-6 justify-stretch sm:items-center sm:w-1/2 sm:pl-[10%] sm:pt-0 pageText pageText-bodytext">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum
-            enim at dolor in nostrum reiciendis quos distinctio, consequatur
-            accusamus. Eveniet expedita eum sit iure. Accusamus perferendis
-            obcaecati iure, alias quaerat ut vel autem dolorum itaque corporis
-            excepturi inventore veritatis omnis.
+          <motion.div className="flex flex-col items-stretch w-full h-full pt-6 justify-stretch sm:items-center sm:w-1/2 sm:pl-[10%] sm:pt-0 ">
+            {description}
           </motion.div>
         </ScrollAnimationWrapper>
       </div>
