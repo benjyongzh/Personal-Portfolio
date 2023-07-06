@@ -1,5 +1,6 @@
 import { tech } from "@/lib/techStackList";
 import { motion } from "framer-motion";
+import Tooltip from "./Tooltip";
 
 type techIconProps = {
   tech: tech;
@@ -27,11 +28,7 @@ const TechIcon = (props: techIconProps) => {
     >
       {props.tech.icon}
 
-      {usePopup && (
-        <span className="absolute w-auto px-3 py-1.5 pt-2 text-xs font-bold text-center transition-all duration-200 origin-bottom scale-0 rounded-md shadow-lg bottom-10 min-w-max group-hover:scale-100 bg-secondarydarkmode text-accentdarkmode">
-          {props.tech.name}
-        </span>
-      )}
+      {usePopup && <Tooltip text={props.tech.name} />}
     </motion.div>
   );
 };
