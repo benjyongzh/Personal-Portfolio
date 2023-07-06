@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useSwipeable, SwipeEventData } from "react-swipeable";
+import ItemRangeNav from "./ItemRangeNav";
 
 //redux
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
@@ -46,8 +47,16 @@ const ImageCarousel = (props: { images: Array<string> }) => {
         //popupID should be better generated
         type: "imagePopup",
         info: {
-          image: imageSource,
-          name: imageSource, //should have an image description
+          currentImage: {
+            image: imageSource,
+            name: imageSource, //should have an image description}
+          },
+          images: images.map((image) => {
+            return {
+              image: image,
+              name: image, //should have an image description}
+            };
+          }),
         },
       });
     } else {
@@ -149,23 +158,11 @@ const ImageCarousel = (props: { images: Array<string> }) => {
           </button>
         )}
       </div>
-      <div className="flex items-center justify-center w-full h-3 gap-3">
-        {images?.map((image, i) => (
-          <motion.button
-            key={i}
-            className={`h-full rounded-full cursor-pointer aspect-square ${
-              currentPosition === i
-                ? "bg-primarylightmode brightness-75 dark:brightness-100"
-                : "bg-primarydarkmode-dark hover:bg-primarydarkmode brightness-75 dark:brightness-100"
-            }`}
-            animate={{
-              scale: currentPosition === i ? 1 : 0.7,
-            }}
-            transition={{ type: "tween", duration: 0.15 }}
-            onClick={() => setImageIndex(i)}
-          ></motion.button>
-        ))}
-      </div>
+      <ItemRangeNav
+        range={images.length}
+        currentPosition={currentPosition}
+        handleClick={setImageIndex}
+      />
     </div>
   );
 };
