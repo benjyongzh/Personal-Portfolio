@@ -43,7 +43,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
       //clicked on current image. open popup
       //get currentImage
       const imageSource = images[imagePosition];
-      createPopup(imageSource, {
+      createPopup("imagePopupID", {
         //popupID should be better generated
         type: "imagePopup",
         info: {
