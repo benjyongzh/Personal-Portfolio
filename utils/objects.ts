@@ -17,8 +17,6 @@ export const isArrayOfInterface = (
   arr: Array<any>,
   interfaceCheckCallback: Function
 ) => {
-  if (!Array.isArray(arr)) return false;
-
   if (arr.length <= 0) return false;
 
   return arr.every((value) => {

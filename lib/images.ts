@@ -13,7 +13,6 @@ export interface slideshowInfo {
 export function isSlideshowInfo(arg: any): arg is slideshowInfo {
   return (
     arg &&
-    arg.currentIndex &&
     typeof arg.currentIndex === "number" &&
     arg.images &&
     Array.isArray(arg.images) &&
