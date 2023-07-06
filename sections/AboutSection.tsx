@@ -5,12 +5,17 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import GithubIcon from "@/public/assets/icons/github-original.svg";
 import LinkedInIcon from "@/public/assets/icons/linkedin-plain.svg";
+import PhoneIcon from "@/public/assets/icons/phone.svg";
+import EmailIcon from "@/public/assets/icons/mail.svg";
+
+import { phoneNumber, phoneNumberText, email } from "@/lib/urls";
 
 //links
 import { githubProfileURL, linkedinProfileURL } from "@/lib/urls";
 
 //components
 import aboutText from "@/lib/aboutText";
+import Tooltip from "@/components/Tooltip";
 
 //redux
 // import { useDispatch, useSelector } from "react-redux";
@@ -58,7 +63,7 @@ export default function About() {
       </ScrollAnimationWrapper>
 
       <div className="flex flex-col items-center sm:justify-center justify-stretch sm:flex-row">
-        <div className="flex flex-col sm:pr-[10%] items-center justify-between w-full h-full gap-10 pb-6 border-b-2 sm:w-1/2 sm-h-full sm:pb-0 sm:border-b-0 sm:border-r-2 border-textlightmode dark:border-accentdarkmode">
+        <div className="flex flex-col sm:pr-[10%] items-center justify-between w-full h-full gap-7 sm:gap-10 pb-6 border-b-2 sm:w-1/2 sm-h-full sm:pb-0 sm:border-b-0 sm:border-r-2 border-textlightmode dark:border-accentdarkmode">
           <ScrollAnimationWrapper
             animationProps={{
               yIn: 150,
@@ -79,29 +84,78 @@ export default function About() {
               {aboutText.header}
             </motion.div>
           </ScrollAnimationWrapper>
-          <div className="flex gap-8 justify-even">
-            <Link
-              className="link-icon"
-              href={githubProfileURL}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <GithubIcon
-                className="w-6 h-6 link-icon"
-                alt="Github profile link"
-              />
-            </Link>
-            <Link
-              className="link-icon group"
-              href={linkedinProfileURL}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <LinkedInIcon
-                className="w-6 h-6 link-icon"
-                alt="LinkedIn profile link"
-              />
-            </Link>
+          <div
+            className={`${
+              currentBreakpoint === "xs"
+                ? "grid w-full grid-flow-row grid-cols-2 gap-3"
+                : "flex items-center justify-even gap-8"
+            }`}
+          >
+            <div className="flex justify-start w-full">
+              <Link
+                className="gap-2 link-icon group"
+                href={githubProfileURL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <GithubIcon
+                  className="w-6 h-6 link-icon"
+                  alt="Github profile link"
+                />
+                {currentBreakpoint === "xs" ? (
+                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                    Github
+                  </span>
+                ) : (
+                  <Tooltip text="Github" />
+                )}
+              </Link>
+            </div>
+            <div className="flex justify-start w-full">
+              <Link
+                className="gap-2 link-icon group"
+                href={linkedinProfileURL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <LinkedInIcon
+                  className="w-6 h-6 link-icon"
+                  alt="LinkedIn profile link"
+                />
+                {currentBreakpoint === "xs" ? (
+                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                    LinkedIn
+                  </span>
+                ) : (
+                  <Tooltip text="LinkedIn" />
+                )}
+              </Link>
+            </div>
+            <div className="flex justify-start w-full">
+              <a className="gap-2 link-icon group" href={`mailto:${email}`}>
+                <EmailIcon className="w-6 h-6 link-icon" alt="email" />
+
+                {currentBreakpoint === "xs" ? (
+                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                    {email}
+                  </span>
+                ) : (
+                  <Tooltip text={email} />
+                )}
+              </a>
+            </div>
+            <div className="flex justify-start w-full">
+              <a className="gap-2 link-icon group" href={`tel:${phoneNumber}`}>
+                <PhoneIcon className="w-6 h-6 link-icon" alt="contact number" />
+                {currentBreakpoint === "xs" ? (
+                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                    {phoneNumberText}
+                  </span>
+                ) : (
+                  <Tooltip text={phoneNumberText} />
+                )}
+              </a>
+            </div>
           </div>
         </div>
         <ScrollAnimationWrapper
