@@ -13,6 +13,7 @@ import Link from "next/link";
 import GithubIcon from "@/public/assets/icons/github-original.svg";
 import ExternalLinkIcon from "@/public/assets/icons/external-link.svg";
 import CloseButtonIcon from "@/public/assets/icons/x.svg";
+import { githubAPIRepoBaseURL } from "@/lib/urls";
 
 const ProjectPopup = (props: {
   project: projectReference;
@@ -34,7 +35,7 @@ const ProjectPopup = (props: {
     techStack,
   } = props.project;
   const currentPopups = useAppSelector((state) => state.popup.popups);
-  const githubAPI = `https://api.github.com/repos/benjyongzh/${githubName}`; ///relevant methods: updated_At
+  const githubAPI = `${githubAPIRepoBaseURL}/${githubName}`; ///relevant methods: updated_At
 
   const close = () => {
     dispatch(

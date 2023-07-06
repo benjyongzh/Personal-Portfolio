@@ -6,6 +6,9 @@ import Link from "next/link";
 import GithubIcon from "@/public/assets/icons/github-original.svg";
 import LinkedInIcon from "@/public/assets/icons/linkedin-plain.svg";
 
+//links
+import { githubProfileURL, linkedinProfileURL } from "@/lib/urls";
+
 //components
 import aboutText from "@/lib/aboutText";
 
@@ -72,7 +75,7 @@ export default function About() {
           <div className="flex gap-8 justify-even">
             <Link
               className="link-icon"
-              href="https://github.com/benjyongzh"
+              href={githubProfileURL}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -83,7 +86,7 @@ export default function About() {
             </Link>
             <Link
               className="link-icon group"
-              href="/" //linkedin link here
+              href={linkedinProfileURL}
               rel="noopener noreferrer"
               target="_blank"
             >

@@ -18,6 +18,9 @@ import {
 import { useAppSelector } from "@/hooks/reduxHooks";
 import SiteLinkButton from "@/components/SiteLinkButton";
 
+//links
+import { githubProfileURL, linkedinProfileURL } from "@/lib/urls";
+
 export default function Home() {
   const currentBreakpoint: string = useAppSelector(
     (state) => state.display.currentBreakpoint
@@ -99,7 +102,7 @@ export default function Home() {
         >
           <Link
             className="link-icon"
-            href="https://github.com/benjyongzh"
+            href={githubProfileURL}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -110,7 +113,7 @@ export default function Home() {
           </Link>
           <Link
             className="link-icon group"
-            href="/" //linkedin link here
+            href={linkedinProfileURL}
             rel="noopener noreferrer"
             target="_blank"
           >
