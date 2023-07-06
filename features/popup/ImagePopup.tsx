@@ -6,10 +6,10 @@ import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { removePopup } from "./popupSlice";
 import Image from "next/image";
 import CloseButton from "@/public/assets/icons/x.svg";
-import { imageReference } from "@/lib/images";
+import { imageReference, slideshowInfo } from "@/lib/images";
 
 const ImagePopup = (props: {
-  imageInfo: imageReference;
+  imagesInfo: slideshowInfo;
   popupId: string;
   variants: Variants;
   initial: string;
@@ -23,7 +23,7 @@ const ImagePopup = (props: {
     dispatch(
       removePopup({
         id: props.popupId,
-        type: { type: "imagePopup", info: props.imageInfo },
+        type: { type: "imagePopup", info: props.imagesInfo },
       })
     );
   };
@@ -49,6 +49,8 @@ const ImagePopup = (props: {
         style={{ zIndex: 9 + (popupIndex + 1) * 10 }}
         onClick={() => close()}
       />
+
+      {/* slideshow component here */}
 
       <Image
         src={props.imageInfo.image}

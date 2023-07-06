@@ -5,7 +5,7 @@ import { IPopup } from "./popupSlice";
 import ProjectPopup from "./ProjectPopup";
 import ImagePopup from "./ImagePopup";
 import { isProjectReference } from "@/lib/projectList";
-import { isimageReference } from "@/lib/images";
+import { isimageReference, isSlideshowInfo } from "@/lib/images";
 
 const PopupList = () => {
   const currentPopups = useAppSelector((state) => state.popup.popups);
@@ -26,9 +26,9 @@ const PopupList = () => {
 
       case "imagePopup":
         return (
-          isimageReference(popup.type!.info) && (
+          isSlideshowInfo(popup.type!.info) && (
             <ImagePopup
-              imageInfo={popup.type!.info}
+              imagesInfo={popup.type!.info}
               popupId={popup.id}
               key={popup.id}
             />
