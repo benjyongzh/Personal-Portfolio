@@ -110,7 +110,7 @@ const Slideshow = (props: slideshowProps) => {
                 src={image.image}
                 fill={true}
                 alt={image.name}
-                className="object-contain w-full h-full mx-auto border-2 border-black"
+                className="object-contain w-full h-full mx-auto"
               />
             </motion.div>
           ))}

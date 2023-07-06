@@ -41,8 +41,6 @@ const ImageCarousel = (props: { images: Array<string> }) => {
   const handleImageClick = (imagePosition: number) => {
     if (imagePosition === currentPosition) {
       //clicked on current image. open popup
-      //get currentImage
-      const imageSource = images[imagePosition];
       createPopup("imagePopupID", {
         //popupID should be better generated
         type: "imagePopup",
