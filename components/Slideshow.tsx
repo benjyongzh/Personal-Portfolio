@@ -90,7 +90,9 @@ const Slideshow = (props: slideshowProps) => {
           </button>
         )}
 
-        <div
+        <motion.div
+          initial={{ opacity: 0.5, scale: 0.3 }}
+          animate={{ opacity: 1, scale: 1 }}
           {...swipeHandlers}
           className={`relative flex items-center w-full h-full overflow-hidden`}
         >
@@ -112,7 +114,7 @@ const Slideshow = (props: slideshowProps) => {
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {currentBreakpoint === "xs" ? null : (
           <button
