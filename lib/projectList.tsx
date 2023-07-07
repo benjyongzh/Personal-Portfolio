@@ -92,7 +92,7 @@ const projectList: projectReference[] = [
     href: "https://benjyongzh.github.io/Weather-App/",
     cardDescription: "Simple API fetching to publicly-available live data",
     longDescription:
-      "Typically, the OpenWeather API was fetched for this project. Vanilla html, css and JavaScript was used for the entire project. I learned the importance of understanding how to work with asynchronous requests.",
+      "Typically, the OpenWeather API was fetched for this project. Vanilla html, css and JavaScript was used for the entire project. I learned the importance of understanding how to work with asynchronous requests. This site was not designed with web-responsiveness in mind.",
     cardImage: "/assets/images/weather-app-card-image.JPG",
     detailImages: [
       "/assets/images/weather-app-image-1.JPG",
@@ -111,7 +111,7 @@ const projectList: projectReference[] = [
     href: "https://benjyongzh.github.io/Memory-Card/",
     cardDescription: "A game of remembering what you last clicked",
     longDescription:
-      "Everytime you click a card, the position of the cards reshuffle. The player has to remember which cards he/she has clicked. Every new card clicked is a point earned. Clicking on an old card ends the game, but the highscore is remembered. The focus of this tiny game was to try out React for the first time, learning to create reusable components and understanding the component lifecycle.",
+      "Everytime you click a card, the position of the cards reshuffle. The player has to remember which cards he/she has clicked. Every new card clicked is a point earned. Clicking on an old card ends the game, but the highscore is remembered. The focus of this tiny game was to try out React for the first time, learning to create reusable components and understanding the component lifecycle. This site was not designed with web-responsiveness in mind.",
     cardImage: "/assets/images/memory-card-card-image.JPG",
     detailImages: [
       "/assets/images/memory-card-image-1.JPG",
@@ -126,7 +126,7 @@ const projectList: projectReference[] = [
     href: "https://benjyongzh.github.io/Knights-Travails/",
     cardDescription: "Finding the shortest path for a Knight to reach his goal",
     longDescription:
-      "Find out how many steps it takes for a knight piece to reach a particular board position. I learned to keep in mind of the algorithms used to get the application to do what I want, and the different datastructures to work with. In this case, the BFS algorithm was employed since we are dealing with shortest paths.",
+      "Find out how many steps it takes for a knight piece to reach a particular board position. I learned to keep in mind of the algorithms used to get the application to do what I want, and the different datastructures to work with. In this case, the BFS algorithm was employed since we are dealing with shortest paths. This site was not designed with web-responsiveness in mind.",
     cardImage: "/assets/images/knights-travails-card-image.JPG",
     detailImages: [
       "/assets/images/knights-travails-image-1.JPG",
