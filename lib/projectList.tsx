@@ -1,4 +1,11 @@
 import techStackList from "./techStackList";
+import {
+  imageReference,
+  inventoryApplicationImages,
+  knightsTravailsImages,
+  memoryCardImages,
+  weatherAppImages,
+} from "./images";
 
 export interface projectReference {
   projectName: string;
@@ -6,8 +13,8 @@ export interface projectReference {
   href?: string;
   cardDescription: string;
   longDescription?: string;
-  cardImage?: string;
-  detailImages?: Array<string>;
+  cardImage?: imageReference;
+  detailImages?: Array<imageReference>;
   techStack: Array<string>;
 }
 
@@ -70,14 +77,8 @@ const projectList: projectReference[] = [
     cardDescription: "A simple app for registering the statuses of inventory.",
     longDescription:
       "This was the first back-end focused project I attempted, using MongoDB, ExpressJS and NodeJS. It was also my first time using Bootstrap, and it's more of a bonus since I had to create a UI eventually. The default Bootstrap components were used. Through this project, I gained confidence in planning out model schemas, routes and the necessary controller methods, working with MVC architecture. Pug was used for the views. Railway was used for deployment.",
-    cardImage: "/assets/images/inventory-application-card-image.JPG",
-    detailImages: [
-      "/assets/images/inventory-application-image-1.JPG",
-      "/assets/images/inventory-application-image-2.JPG",
-      "/assets/images/inventory-application-image-3.JPG",
-      "/assets/images/inventory-application-image-4.JPG",
-      "/assets/images/inventory-application-image-5.JPG",
-    ],
+    cardImage: inventoryApplicationImages.cardImage,
+    detailImages: inventoryApplicationImages.detailImages,
     techStack: [
       techStackList.express.id,
       techStackList.mongodb.id,
@@ -93,12 +94,8 @@ const projectList: projectReference[] = [
     cardDescription: "Simple API fetching to publicly-available live data",
     longDescription:
       "Typically, the OpenWeather API was fetched for this project. Vanilla html, css and JavaScript was used for the entire project. I learned the importance of understanding how to work with asynchronous requests. This site was not designed with web-responsiveness in mind.",
-    cardImage: "/assets/images/weather-app-card-image.JPG",
-    detailImages: [
-      "/assets/images/weather-app-image-1.JPG",
-      "/assets/images/weather-app-image-2.JPG",
-      "/assets/images/weather-app-image-3.JPG",
-    ],
+    cardImage: weatherAppImages.cardImage,
+    detailImages: weatherAppImages.detailImages,
     techStack: [
       techStackList.html.id,
       techStackList.css.id,
@@ -112,12 +109,8 @@ const projectList: projectReference[] = [
     cardDescription: "A game of remembering what you last clicked",
     longDescription:
       "Everytime you click a card, the position of the cards reshuffle. The player has to remember which cards he/she has clicked. Every new card clicked is a point earned. Clicking on an old card ends the game, but the highscore is remembered. The focus of this tiny game was to try out React for the first time, learning to create reusable components and understanding the component lifecycle. This site was not designed with web-responsiveness in mind.",
-    cardImage: "/assets/images/memory-card-card-image.JPG",
-    detailImages: [
-      "/assets/images/memory-card-image-1.JPG",
-      "/assets/images/memory-card-image-2.JPG",
-      "/assets/images/memory-card-image-3.JPG",
-    ],
+    cardImage: memoryCardImages.cardImage,
+    detailImages: memoryCardImages.detailImages,
     techStack: [techStackList.react.id, techStackList.css.id].sort(),
   },
   {
@@ -127,14 +120,8 @@ const projectList: projectReference[] = [
     cardDescription: "Finding the shortest path for a Knight to reach his goal",
     longDescription:
       "Find out how many steps it takes for a knight piece to reach a particular board position. I learned to keep in mind of the algorithms used to get the application to do what I want, and the different datastructures to work with. In this case, the BFS algorithm was employed since we are dealing with shortest paths. This site was not designed with web-responsiveness in mind.",
-    cardImage: "/assets/images/knights-travails-card-image.JPG",
-    detailImages: [
-      "/assets/images/knights-travails-image-1.JPG",
-      "/assets/images/knights-travails-image-2.JPG",
-      "/assets/images/knights-travails-image-3.JPG",
-      "/assets/images/knights-travails-image-4.JPG",
-      "/assets/images/knights-travails-image-5.JPG",
-    ],
+    cardImage: knightsTravailsImages.cardImage,
+    detailImages: knightsTravailsImages.detailImages,
     techStack: [
       techStackList.html.id,
       techStackList.css.id,

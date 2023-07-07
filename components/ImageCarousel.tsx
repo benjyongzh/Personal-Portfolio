@@ -5,12 +5,13 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useSwipeable, SwipeEventData } from "react-swipeable";
 import ItemRangeNav from "./ItemRangeNav";
+import { imageReference } from "@/lib/images";
 
 //redux
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { IPopupType, addPopup } from "@/features/popup/popupSlice";
 
-const ImageCarousel = (props: { images: Array<string> }) => {
+const ImageCarousel = (props: { images: Array<imageReference> }) => {
   const { images } = props;
   const dispatch = useAppDispatch();
   const [currentPosition, setCurrentPosition] = useState(0);
@@ -46,12 +47,7 @@ const ImageCarousel = (props: { images: Array<string> }) => {
         type: "imagePopup",
         info: {
           currentIndex: imagePosition,
-          images: images.map((image) => {
-            return {
-              image: image,
-              name: image, //should have an image description}
-            };
-          }),
+          images,
         },
       });
     } else {
@@ -122,9 +118,9 @@ const ImageCarousel = (props: { images: Array<string> }) => {
               onClick={() => handleImageClick(i)}
             >
               <Image
-                src={image}
+                src={image.src}
                 fill={true}
-                alt={image}
+                alt={image.name}
                 style={{ objectFit: "cover" }}
               />
             </motion.button>

@@ -107,7 +107,7 @@ const Slideshow = (props: slideshowProps) => {
               transition={{ type: "tween", duration: 0.2 }}
             >
               <Image
-                src={image.image}
+                src={image.src}
                 fill={true}
                 alt={image.name}
                 className="object-contain w-full h-full mx-auto"
@@ -138,6 +138,7 @@ const Slideshow = (props: slideshowProps) => {
           </button>
         )}
       </div>
+      <p>{imageRefs[currentPosition].description || ""}</p>
       <ItemRangeNav
         range={imageRefs.length}
         currentPosition={currentPosition}
