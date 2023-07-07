@@ -87,31 +87,31 @@ export default function About() {
           <div
             className={`${
               currentBreakpoint === "xs"
-                ? "grid w-full grid-flow-row grid-cols-2 gap-3"
+                ? "grid w-full grid-flow-row grid-cols-3 gap-3"
                 : "flex items-center justify-even gap-8"
             }`}
           >
-            <div className="flex justify-start w-full">
-              <Link
-                className="gap-2 link-icon group"
-                href={githubProfileURL}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <GithubIcon
-                  className="w-6 h-6 link-icon"
-                  alt="Github profile link"
-                />
+            <div
+              className={`flex justify-start ${
+                currentBreakpoint === "xs" ? "col-span-2" : " w-full"
+              }`}
+            >
+              <a className="gap-2 link-icon group" href={`tel:${phoneNumber}`}>
+                <PhoneIcon className="w-6 h-6 link-icon" alt="contact number" />
                 {currentBreakpoint === "xs" ? (
-                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
-                    Github
+                  <span className="text-sm pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                    {phoneNumberText}
                   </span>
                 ) : (
-                  <Tooltip text="Github" />
+                  <Tooltip text={phoneNumberText} />
                 )}
-              </Link>
+              </a>
             </div>
-            <div className="flex justify-start w-full">
+            <div
+              className={`flex justify-start ${
+                currentBreakpoint === "xs" ? "col-span-1" : " w-full"
+              }`}
+            >
               <Link
                 className="gap-2 link-icon group"
                 href={linkedinProfileURL}
@@ -123,7 +123,7 @@ export default function About() {
                   alt="LinkedIn profile link"
                 />
                 {currentBreakpoint === "xs" ? (
-                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                  <span className="text-sm pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
                     LinkedIn
                   </span>
                 ) : (
@@ -131,12 +131,16 @@ export default function About() {
                 )}
               </Link>
             </div>
-            <div className="flex justify-start w-full">
+            <div
+              className={`flex justify-start ${
+                currentBreakpoint === "xs" ? "col-span-2" : " w-full"
+              }`}
+            >
               <a className="gap-2 link-icon group" href={`mailto:${email}`}>
                 <EmailIcon className="w-6 h-6 link-icon" alt="email" />
 
                 {currentBreakpoint === "xs" ? (
-                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                  <span className="text-sm pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
                     {email}
                   </span>
                 ) : (
@@ -144,17 +148,29 @@ export default function About() {
                 )}
               </a>
             </div>
-            <div className="flex justify-start w-full">
-              <a className="gap-2 link-icon group" href={`tel:${phoneNumber}`}>
-                <PhoneIcon className="w-6 h-6 link-icon" alt="contact number" />
+            <div
+              className={`flex justify-start ${
+                currentBreakpoint === "xs" ? "col-span-1" : " w-full"
+              }`}
+            >
+              <Link
+                className="gap-2 link-icon group"
+                href={githubProfileURL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <GithubIcon
+                  className="w-6 h-6 link-icon"
+                  alt="Github profile link"
+                />
                 {currentBreakpoint === "xs" ? (
-                  <span className="text-xs pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
-                    {phoneNumberText}
+                  <span className="text-sm pageText group-hover:text-textlightmode-light group-hover:underline group-hover:dark:text-accentdarkmode-light">
+                    Github
                   </span>
                 ) : (
-                  <Tooltip text={phoneNumberText} />
+                  <Tooltip text="Github" />
                 )}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
