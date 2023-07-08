@@ -168,3 +168,84 @@ export const weatherAppImages = {
   cardImage: weatherAppCardImage,
   detailImages: weatherAppDetailImages,
 };
+
+const cursedDota2CardImage: imageReference = {
+  src: "/assets/images/cursed-dota2/card-image.jpg",
+  name: "Cursed DotA 2 custom game",
+};
+
+const cursedDota2DetailImages: imageReference[] = [
+  {
+    src: "/assets/images/cursed-dota2/assassin_original.jpg",
+    name: "assassin class",
+    description: "A range of different playable characters",
+  },
+  {
+    src: "/assets/images/cursed-dota2/barbarian_original.jpg",
+    name: "barbarian class",
+    description: "A range of different playable characters",
+  },
+  {
+    src: "/assets/images/cursed-dota2/illusionist_original.jpg",
+    name: "illusionist class",
+    description: "A range of different playable characters",
+  },
+  {
+    src: "/assets/images/cursed-dota2/samurai_original.jpg",
+    name: "samurai class",
+    description: "A range of different playable characters",
+  },
+  {
+    src: "/assets/images/cursed-dota2/scout_original.jpg",
+    name: "scout class",
+    description: "A range of different playable characters",
+  },
+  {
+    src: "/assets/images/cursed-dota2/vampire_original.jpg",
+    name: "vampire villain",
+    description: "Everyone has a chance to play as the villain",
+  },
+  {
+    src: "/assets/images/cursed-dota2/werewolf.jpg",
+    name: "werewolf villain",
+    description: "It could be anyone in the game, including yourself",
+  },
+  {
+    src: "/assets/images/cursed-dota2/zombie_original.PNG",
+    name: "zombie villain",
+    description: "No one knows who the villain is",
+  },
+  {
+    src: "/assets/images/cursed-dota2/class_selection.jpg",
+    name: "class selection",
+    description: "A range of different playable characters",
+  },
+  {
+    src: "/assets/images/cursed-dota2/level_up.jpg",
+    name: "level up characters",
+    description:
+      "Each character has its strengths and weaknesses, capable of upgrading in-game",
+  },
+  {
+    src: "/assets/images/cursed-dota2/objectives.jpg",
+    name: "objectives",
+    description: "There are objectives across the map to complete together",
+  },
+  {
+    src: "/assets/images/cursed-dota2/escape.jpg",
+    name: "escape",
+    description:
+      "Complete enough objectives to stand a chance to escape and win",
+  },
+  {
+    src: "/assets/images/cursed-dota2/zombie_hoarding.jpg",
+    name: "evil",
+    description:
+      "The villain has to prevent the objectives from getting completed, or take everyone else down",
+  },
+];
+
+export const cursedDota2Images = {
+  cardImage: cursedDota2CardImage,
+  detailImages: cursedDota2DetailImages,
+};

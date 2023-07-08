@@ -5,6 +5,7 @@ import {
   knightsTravailsImages,
   memoryCardImages,
   weatherAppImages,
+  cursedDota2Images,
 } from "./images";
 
 export interface projectReference {
@@ -128,18 +129,22 @@ const projectList: projectReference[] = [
       techStackList.javascript.id,
     ].sort(),
   },
-  /*
+
   {
-    projectName: "Cursed Game",
-    githubName: "", //have to update
-    cardDescription: "A Dota2 custom game of horror and deception",
-    longDescription: "untouched for years",
+    projectName: "Cursed Game Mod",
+    githubName: "Cursed-Game-Dota2", //have to update
+    cardDescription: "A DotA2 custom game of horror and deception",
+    longDescription:
+      "This ia a DotA 2 Mod. The game logic is written in Lua, while the UI was written in vanilla CSS and JavaScript. Some UI assets were custom-made. The premise of the game lies in having 1 villain among the players. No one knows who the villain is, except the villain himself. There are objectives to complete around the map which can be sabotaged by the villain. All players can choose a character to play as, and upgrade themselves along the way to be more capable of standing face to face against the villain Every character has strengths and weaknesses, so playing and communicating as a team is vital.",
+    cardImage: cursedDota2Images.cardImage,
+    detailImages: cursedDota2Images.detailImages,
     techStack: [
       techStackList.css.id,
       techStackList.javascript.id,
       techStackList.lua.id,
     ],
   },
+  /*
   {
     projectName: "Cursed Game in Unity",
     githubName: "", //have to update
