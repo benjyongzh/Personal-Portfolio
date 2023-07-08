@@ -312,7 +312,7 @@ const cursedUnityDetailImages: imageReference[] = [
     src: "/assets/images/cursed-unity/image-1.jpg",
     name: "Basic character movements",
     description: "Created basic character movement.",
-    youtubeVidId: "iuEvygPgZ0k",
+    youtubeVidId: "https://youtu.be/iuEvygPgZ0k",
   },
   {
     src: "/assets/images/cursed-unity/image-2.jpg",
