@@ -24,8 +24,8 @@ export function isSlideshowInfo(arg: any): arg is slideshowInfo {
 export function isimageReference(arg: any): arg is imageReference {
   return (
     arg &&
-    arg.image &&
-    typeof arg.image === "string" &&
+    arg.src &&
+    typeof arg.src === "string" &&
     arg.name &&
     typeof arg.name === "string"
   );
