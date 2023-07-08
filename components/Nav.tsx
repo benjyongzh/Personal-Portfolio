@@ -13,9 +13,8 @@ import SiteLinkButton from "./SiteLinkButton";
 const routes = [
   { href: "/#home-section", text: "Home", id: "home-section" },
   { href: "/#projects-section", text: "Projects", id: "projects-section" },
-  // { href: "/resume", text: "Resume" },
+  { href: "/#resume-section", text: "Resume", id: "resume-section" },
   { href: "/#about-section", text: "About", id: "about-section" },
-  // { href: "/contact", text: "Contact" },
 ];
 
 const dropDownMenuVariant: Variants = {

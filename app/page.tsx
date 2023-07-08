@@ -9,9 +9,8 @@ import { useWindowDimensions } from "@/hooks/displayHooks";
 //sections
 import HomeSection from "@/sections/HomeSection";
 import ProjectsSection from "@/sections/ProjectsSection";
-// import ResumeSection from "@/sections/ResumeSection";
+import ResumeSection from "@/sections/ResumeSection";
 import AboutSection from "@/sections/AboutSection";
-// import ContactSection from "@/sections/ContactSection";
 import ScreenGreyOut from "@/components/ScreenGreyOut";
 
 //redux
@@ -39,9 +38,8 @@ export default function Portfolio() {
     <motion.section className="relative flex flex-col items-start justify-center w-full mx-auto">
       <HomeSection />
       <ProjectsSection />
-      {/* <ResumeSection /> */}
+      <ResumeSection />
       <AboutSection />
-      {/* <ContactSection /> */}
       <ScreenGreyOut
         clicked={() => deletePopup(currentPopups[currentPopups.length - 1])}
       />
