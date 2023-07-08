@@ -138,7 +138,9 @@ const Slideshow = (props: slideshowProps) => {
           </button>
         )}
       </div>
-      <p>{imageRefs[currentPosition].description || ""}</p>
+      <p className="text-center pageText">
+        {imageRefs[currentPosition].description || ""}
+      </p>
       <ItemRangeNav
         range={imageRefs.length}
         currentPosition={currentPosition}
