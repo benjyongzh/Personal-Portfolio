@@ -31,6 +31,57 @@ export function isimageReference(arg: any): arg is imageReference {
   );
 }
 
+const anonymousBlogCardImage: imageReference = {
+  src: "/assets/images/anon-blog/image-5.JPG",
+  name: "Anonymous Blog Project",
+};
+
+const anonymousBlogDetailImages: imageReference[] = [
+  {
+    src: "/assets/images/anon-blog/image-1.JPG",
+    name: "Anonymous Blog Homepage",
+    description: "Homepage displaying all posts made by anyone.",
+  },
+  {
+    src: "/assets/images/anon-blog/image-2.JPG",
+    name: "Anonymous Blog Post Detail",
+    description: "Look at each post individually in detail.",
+  },
+  {
+    src: "/assets/images/anon-blog/image-3.JPG",
+    name: "Anonymous Blog User Detail",
+    description: "Look at users individually to see what posts they have made.",
+  },
+  {
+    src: "/assets/images/anon-blog/image-4.JPG",
+    name: "Anonymous Blog Comments and replies",
+    description:
+      "Users can comment on existing posts, and reply to any comments without censorship.",
+  },
+  {
+    src: "/assets/images/anon-blog/image-5.JPG",
+    name: "Anonymous Blog Dark Mode",
+    description: "Responsive web design with dark theme.",
+  },
+  {
+    src: "/assets/images/anon-blog/image-6.JPG",
+    name: "Anonymous Blog Auth",
+    description:
+      "Server-side validation for signing up and logging in. OAuth by PassportJS using JWT tokens.",
+  },
+  {
+    src: "/assets/images/anon-blog/image-7.JPG",
+    name: "Anonymous Blog members names",
+    description:
+      "Only admins and premium members can see the 'real' names of users.",
+  },
+];
+
+export const anonymousBlogImages = {
+  cardImage: anonymousBlogCardImage,
+  detailImages: anonymousBlogDetailImages,
+};
+
 const inventoryApplicationCardImage: imageReference = {
   src: "/assets/images/inventory-application/card-image.JPG",
   name: "Inventory Application Project",

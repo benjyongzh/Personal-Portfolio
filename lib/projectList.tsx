@@ -1,6 +1,7 @@
 import techStackList from "./techStackList";
 import {
   imageReference,
+  anonymousBlogImages,
   inventoryApplicationImages,
   knightsTravailsImages,
   memoryCardImages,
@@ -60,6 +61,8 @@ const projectList: projectReference[] = [
       "A simple imitation of Reddit, with front-end UI and back-end API",
     longDescription:
       "The sole purpose of this project was to train myself in creating an API which I would use a front-end to fetch from. It was also a refresher for ReactJS, and a chance to try out Redux for the first time. Features include dark mode and OAuth via JWT and sessions in the context of a MERN stack. I used cURL and Postman when developing the API. Both the front and back-end are deployed on Railway.",
+    cardImage: anonymousBlogImages.cardImage,
+    detailImages: anonymousBlogImages.detailImages,
     techStack: [
       techStackList.bootstrap.id,
       techStackList.express.id,
