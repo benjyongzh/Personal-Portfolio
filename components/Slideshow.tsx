@@ -138,7 +138,7 @@ const Slideshow = (props: slideshowProps) => {
           </button>
         )}
       </div>
-      <p className="text-center pageText">
+      <p className="text-center text-secondarylightmode dark:text-accentdarkmode">
         {imageRefs[currentPosition].description || ""}
       </p>
       <ItemRangeNav
