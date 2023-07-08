@@ -47,10 +47,10 @@ const ProjectCard = (props: {
       </header>
       {currentBreakpoint !== "xs" && project.cardImage ? (
         <Image
-          src={project.cardImage}
+          src={project.cardImage.src}
           width={500}
           height={500}
-          alt={project.projectName}
+          alt={project.cardImage.name}
         />
       ) : null}
 
