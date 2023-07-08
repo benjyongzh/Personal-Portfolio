@@ -7,6 +7,7 @@ import {
   memoryCardImages,
   weatherAppImages,
   cursedDota2Images,
+  cursedUnityImages,
 } from "./images";
 
 export interface projectReference {
@@ -138,7 +139,7 @@ const projectList: projectReference[] = [
     githubName: "Cursed-Game-Dota2", //have to update
     cardDescription: "A DotA2 custom game of horror and deception",
     longDescription:
-      "This ia a DotA 2 Mod. The game logic is written in Lua, while the UI was written in vanilla CSS and JavaScript. Some UI assets were custom-made. The premise of the game lies in having 1 villain among the players. No one knows who the villain is, except the villain himself. There are objectives to complete around the map which can be sabotaged by the villain. All players can choose a character to play as, and upgrade themselves along the way to be more capable of standing face to face against the villain Every character has strengths and weaknesses, so playing and communicating as a team is vital.",
+      "This is a DotA 2 Mod created in 2020. The game logic is written in Lua, while the UI was written in vanilla CSS and JavaScript. Some UI assets were custom-made. The premise of the game lies in having 1 villain among the players. No one knows who the villain is, except the villain himself. There are objectives to complete around the map which can be sabotaged by the villain. All players can choose a character to play as, and upgrade themselves along the way to be more capable of standing face to face against the villain Every character has strengths and weaknesses, so playing and communicating as a team is vital.",
     cardImage: cursedDota2Images.cardImage,
     detailImages: cursedDota2Images.detailImages,
     techStack: [
@@ -147,15 +148,17 @@ const projectList: projectReference[] = [
       techStackList.lua.id,
     ],
   },
-  /*
+
   {
     projectName: "Cursed Game in Unity",
-    githubName: "", //have to update
+    githubName: "Cursed-Game-Unity",
     cardDescription: "An attempt at recreating the Cursed Game in Unity3D",
-    longDescription: "also untouched for years",
+    longDescription:
+      "An attempt at recreating the Cursed Game DotA 2 mod, within the Unity game engine. Everything had to start from scratch, and assets for models and animations were taken from publicly available resources. I spent more time figuring out how to recreate specific effects and conditions within the engine, rather than producing any game content. As a result, this was more of a learning exploratory experience touching on animations and events, creating simple AI behaviours, handling multiplayer networking solutions, and UI. This project was last modified in October 2021.",
+    cardImage: cursedUnityImages.cardImage,
+    detailImages: cursedUnityImages.detailImages,
     techStack: [techStackList.unity.id, techStackList.csharp.id],
   },
-  */
 ];
 
 export default projectList;

@@ -300,3 +300,93 @@ export const cursedDota2Images = {
   cardImage: cursedDota2CardImage,
   detailImages: cursedDota2DetailImages,
 };
+
+const cursedUnityCardImage: imageReference = {
+  src: "/assets/images/cursed-unity/card-image-cropped.jpg",
+  name: "Cursed Game Unity Project",
+};
+
+const cursedUnityDetailImages: imageReference[] = [
+  {
+    src: "/assets/images/cursed-unity/image-1.jpg",
+    name: "Basic character movements",
+    description: "Created basic character movement.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-2.jpg",
+    name: "Basic animations",
+    description: "Added basic movement animations to character.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-3.jpg",
+    name: "Cameras",
+    description: "Created different cameras for player.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-4.jpg",
+    name: "Add attack animations",
+    description: "Added attack animations.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-5.jpg",
+    name: "Aim locked animations",
+    description:
+      "Altered bones to align animations with player's aim direction.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-6.jpg",
+    name: "Simple waypoint behaviour",
+    description: "Create simple AI behaviours.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-7.jpg",
+    name: "Simple waypoint behaviour",
+    description: "Further streamlining the use of behaviour tree.",
+  },
+
+  {
+    src: "/assets/images/cursed-unity/image-8.jpg",
+    name: "Raw sound detection",
+    description: "Created detection system based on in-game sounds.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-9.jpg",
+    name: "Smoothen detection atrophy.",
+    description:
+      "Tweaked sound detection to rely on dissipation instead of raw audio data.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-10.jpg",
+    name: "Add audio detection to AI",
+    description:
+      "Added audio and visual detection to AI behaviour, with UI compass for player.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-11.jpg",
+    name: "Add healthbar",
+    description: "Added more UI elements.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-12.jpg",
+    name: "Online testing of interaction",
+    description:
+      "Use Mirror networking solution to create online server to test player interactions.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-13.jpg",
+    name: "Modular ability objects",
+    description:
+      "Created class of abilities for modularity and ease of tweaking for balance.",
+  },
+  {
+    src: "/assets/images/cursed-unity/image-14.jpg",
+    name: "Modular ability objects",
+    description:
+      "Modularity of ability objects means different conditions and effects can be created.",
+  },
+];
+
+export const cursedUnityImages = {
+  cardImage: cursedUnityCardImage,
+  detailImages: cursedUnityDetailImages,
+};
