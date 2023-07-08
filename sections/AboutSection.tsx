@@ -72,10 +72,12 @@ export default function About() {
               animType: "focusCenterlg",
             }}
           >
-            <motion.div className="border-4 border-solid rounded-full w-60 border-textlightmode dark:border-accentdarkmode sm:w-full aspect-square">
+            <motion.div className="relative overflow-hidden border-4 border-solid rounded-full w-60 sm:w-full aspect-square border-textlightmode dark:border-accentdarkmode">
               <Image
-                src="/assets/images/profile-pic.JPG"
+                fill
+                src="/assets/images/profile-pic-cropped.JPG"
                 alt="personal photo"
+                className="absolute object-cover object-bottom origin-left scale-110"
               />
             </motion.div>
           </ScrollAnimationWrapper>
