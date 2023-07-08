@@ -12,6 +12,7 @@ A personal portfolio for the little projects I have done so far. This site was m
 - Framer Motion animations and hooks
 - Redux with TypeScript
 - Responsive web design with Tailwindcss
+- Embedding Youtube videos into site.
 
 ## To-do List
 

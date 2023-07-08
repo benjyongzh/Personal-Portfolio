@@ -3,6 +3,7 @@
 import Link from "next/link";
 import GithubIcon from "@/public/assets/icons/github-original.svg";
 import LinkedInIcon from "@/public/assets/icons/linkedin-plain.svg";
+import ExternalLinkIcon from "@/public/assets/icons/external-link.svg";
 
 //animations
 import { motion } from "framer-motion";
@@ -137,12 +138,28 @@ export default function Home() {
           variants={textVerticalFadeMoveFromBottomVariant}
           className="pageText pageText-bodytext"
         >
-          Here is some text. A brief description of me. blablabla. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quis laboriosam qui
-          praesentium officia earum itaque nulla voluptatum obcaecati saepe
-          suscipit! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Repudiandae officiis esse quas omnis quis ab nemo officia adipisci
-          delectus culpa.
+          This is my portfolio website focused on web app development projects.
+          The range of projects showcased here include both my pet projects as
+          well as the learning projects I underwent when I was doing{" "}
+          <a
+            className="font-bold underline cursor-pointer hover:pageText-hover"
+            href="https://www.theodinproject.com/"
+            target="_blank"
+          >
+            The Odin Project
+          </a>
+          .
+          <br />
+          <br />
+          This site is deployed on{" "}
+          <a
+            className="font-bold underline cursor-pointer hover:pageText-hover"
+            href="https://vercel.com/"
+            target="_blank"
+          >
+            Vercel
+          </a>
+          . Thank you for visiting!
         </motion.p>
       </ScrollAnimationWrapper>
       <ScrollAnimationWrapper
