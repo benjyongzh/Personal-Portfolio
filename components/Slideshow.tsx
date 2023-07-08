@@ -7,6 +7,8 @@ import { useSwipeable, SwipeEventData } from "react-swipeable";
 import { imageReference } from "@/lib/images";
 import ItemRangeNav from "./ItemRangeNav";
 
+import YouTube from "react-youtube";
+
 //redux
 import { useAppSelector } from "@/hooks/reduxHooks";
 
@@ -106,12 +108,29 @@ const Slideshow = (props: slideshowProps) => {
               }}
               transition={{ type: "tween", duration: 0.2 }}
             >
-              <Image
-                src={image.src}
-                fill={true}
-                alt={image.name}
-                className="object-contain w-full h-full mx-auto"
-              />
+              {image.youtubeVidId ? (
+                <YouTube
+                  videoId={image.youtubeVidId}
+                  opts={{
+                    height: "390",
+                    width: "640",
+                    playerVars: {
+                      autoplay: 1,
+                    },
+                  }}
+                  onReady={(event) => {
+                    // access to player in all event handlers via event.target
+                    event.target.pauseVideo();
+                  }}
+                />
+              ) : (
+                <Image
+                  src={image.src}
+                  fill={true}
+                  alt={image.name}
+                  className="object-contain w-full h-full mx-auto"
+                />
+              )}
             </motion.div>
           ))}
         </motion.div>

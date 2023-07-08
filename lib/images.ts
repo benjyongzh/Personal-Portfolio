@@ -4,6 +4,7 @@ export interface imageReference {
   src: string;
   name: string;
   description?: string;
+  youtubeVidId?: string;
 }
 
 export interface slideshowInfo {
@@ -311,6 +312,7 @@ const cursedUnityDetailImages: imageReference[] = [
     src: "/assets/images/cursed-unity/image-1.jpg",
     name: "Basic character movements",
     description: "Created basic character movement.",
+    youtubeVidId: "iuEvygPgZ0k",
   },
   {
     src: "/assets/images/cursed-unity/image-2.jpg",
