@@ -16,7 +16,7 @@ A personal portfolio for the little projects I have done so far. This site was m
 ## To-do List
 
 - linking to github api
-- content for projects and about
+- content for projects
 - format for resume
 - Parallax scrolling background
 - deploy on Vercel
