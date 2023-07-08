@@ -99,35 +99,39 @@ const Slideshow = (props: slideshowProps) => {
           {...swipeHandlers}
           className={`relative flex items-center w-full h-full overflow-hidden`}
         >
-          {imageRefs?.map((image, i) => (
-            <motion.div
-              key={i}
-              className={`overflow-hidden h-full w-full`}
-              animate={{
-                // x: (i - currentPosition) * 320 - 160,
-                opacity: currentPosition === i ? 1 : 0,
-              }}
-              transition={{ type: "tween", duration: 0.2 }}
-            >
-              {image.youtubeVidId ? (
-                <div className="absolute z-[32] flex items-center justify-center w-full h-full mx-auto">
-                  <ReactPlayer
-                    controls
-                    url={image.youtubeVidId}
-                    width="100%"
-                    height="100%"
-                  />
-                </div>
-              ) : (
+          {imageRefs?.map((image, i) =>
+            image.youtubeVidUrl ? (
+              <div
+                className={`absolute flex items-center justify-center w-full h-full mx-auto ${
+                  currentPosition === i ? "z-[32] opacity-100" : "opacity-0"
+                }`}
+              >
+                <ReactPlayer
+                  controls
+                  url={image.youtubeVidUrl}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+            ) : (
+              <motion.div
+                key={i}
+                className={`overflow-hidden h-full w-full`}
+                animate={{
+                  // x: (i - currentPosition) * 320 - 160,
+                  opacity: currentPosition === i ? 1 : 0,
+                }}
+                transition={{ type: "tween", duration: 0.2 }}
+              >
                 <Image
                   src={image.src}
                   fill={true}
                   alt={image.name}
                   className="object-contain w-full h-full mx-auto"
                 />
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          )}
         </motion.div>
 
         {currentBreakpoint === "xs" ? null : (

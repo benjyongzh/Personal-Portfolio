@@ -4,7 +4,7 @@ export interface imageReference {
   src: string;
   name: string;
   description?: string;
-  youtubeVidId?: string;
+  youtubeVidUrl?: string;
 }
 
 export interface slideshowInfo {
@@ -312,12 +312,13 @@ const cursedUnityDetailImages: imageReference[] = [
     src: "/assets/images/cursed-unity/image-1.jpg",
     name: "Basic character movements",
     description: "Created basic character movement.",
-    youtubeVidId: "https://youtu.be/iuEvygPgZ0k",
+    youtubeVidUrl: "https://youtu.be/iuEvygPgZ0k",
   },
   {
     src: "/assets/images/cursed-unity/image-2.jpg",
     name: "Basic animations",
     description: "Added basic movement animations to character.",
+    youtubeVidUrl: "https://youtu.be/rCcTirsVvPM",
   },
   {
     src: "/assets/images/cursed-unity/image-3.jpg",
@@ -344,47 +345,55 @@ const cursedUnityDetailImages: imageReference[] = [
     src: "/assets/images/cursed-unity/image-7.jpg",
     name: "Simple waypoint behaviour",
     description: "Further streamlining the use of behaviour tree.",
+    youtubeVidUrl: "https://youtu.be/Aj1qLCxUVdg",
   },
 
   {
     src: "/assets/images/cursed-unity/image-8.jpg",
     name: "Raw sound detection",
     description: "Created detection system based on in-game sounds.",
+    youtubeVidUrl: "https://youtu.be/urX4XH3RhjE",
   },
   {
     src: "/assets/images/cursed-unity/image-9.jpg",
     name: "Smoothen detection atrophy.",
     description:
       "Tweaked sound detection to rely on dissipation instead of raw audio data.",
+    youtubeVidUrl: "https://youtu.be/91Z1DGp7Peg",
   },
   {
     src: "/assets/images/cursed-unity/image-10.jpg",
     name: "Add audio detection to AI",
     description:
       "Added audio and visual detection to AI behaviour, with UI compass for player.",
+    youtubeVidUrl: "https://youtu.be/OdtIMmElsyc",
   },
   {
     src: "/assets/images/cursed-unity/image-11.jpg",
     name: "Add healthbar",
     description: "Added more UI elements.",
+    youtubeVidUrl: "https://youtu.be/9gZZkhSwKGQ",
   },
   {
     src: "/assets/images/cursed-unity/image-12.jpg",
     name: "Online testing of interaction",
     description:
       "Use Mirror networking solution to create online server to test player interactions.",
+    youtubeVidUrl: "https://youtu.be/JVcfQ_kgumc",
   },
   {
     src: "/assets/images/cursed-unity/image-13.jpg",
     name: "Modular ability objects",
     description:
       "Created class of abilities for modularity and ease of tweaking for balance.",
+    youtubeVidUrl: "https://youtu.be/amp3VFVZjxY",
   },
   {
     src: "/assets/images/cursed-unity/image-14.jpg",
     name: "Modular ability objects",
     description:
       "Modularity of ability objects means different conditions and effects can be created.",
+    youtubeVidUrl: "https://youtu.be/wvSeZoDTm7U",
   },
 ];
 
