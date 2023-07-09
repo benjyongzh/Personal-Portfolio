@@ -1,22 +1,67 @@
+import techStackList, { tech } from "./techStackList";
+
 interface resumeText {
   pageTitle: string;
-  header: string;
-  githubLink: string;
-  description: string[];
+  skills: Array<tech>;
+  professions: Array<profession>;
+  educations: Array<education>;
+}
+
+interface profession {
+  title: string;
+  company: string;
+  description: Array<string>;
+  yearStarted: number;
+  yearEnded: string | number;
+}
+
+interface education {
+  title: string;
+  institution: string;
+  country: string;
+  description: Array<string>;
+  yearStarted: number;
+  yearEnded: string | number;
 }
 
 const text: resumeText = {
-  pageTitle: "ABOUT",
-  header: "Nice to meet you!",
-  githubLink: "https://github.com/benjyongzh",
-  description: [
-    "Hi there! I am Benjamin, and I am a self-taught software developer in Singapore. My journey started when I was 15 and tinkered with game development as a hobby. More than a decade later, I tried my hand at Unity. I enjoy building tools and systems and watching things work on their own, tightening the loose screws to keep things running in balance.",
-    "",
-    "In 2022, I decided that I ought to see how far I could go with solving problems in development and programming. I started reading up about software engineering, and I embarked on The Odin Project. With it, I gained knowledge of best practices, web technologies, basic software architecture, and projects to practise my knowledge.",
-    "",
-    "While I have finished The Odin Project, I have still been putting in consistent effort almost everyday to pick up skills and technical knowhow in front and back-end development. I read up on articles on the possibilities and recommended ways of solving various problems, and the documentations of different libraries and frameworks to get something working the way they are meant to, to achieve my desired outcomes. There is a lot more I have to learn and explore, and I intend to continue pursuing software engineering, both as a career and through my pet project ideas.",
-    "",
-    "I hope to work with you soon!",
+  pageTitle: "RESUME",
+  skills: [techStackList.nextjs],
+  professions: [
+    {
+      title: "Design Manager",
+      company: "seele",
+      description: [
+        "Technical project management role.",
+        "Management and coordination of project requirements, timelines and deliverables between clients and subcontractors.",
+        "Problem solving in engineering for technical feasibility and commercial viability.",
+      ],
+      yearStarted: 2019,
+      yearEnded: 2023,
+    },
+  ],
+  educations: [
+    {
+      title: "MSc Architecture, specializing in Building Technology",
+      institution: "Delft University of Technology",
+      country: "Netherlands",
+      description: [
+        "Established a parametric workflow for a high-rise building project to facilitate efficient communication of design intent and structural necessities between team members.",
+        "Created Python and C# scripts for optimization of structure, material use, construction feasibility and environmental impact of building projects.",
+      ],
+      yearStarted: 2017,
+      yearEnded: 2019,
+    },
+    {
+      title: "BSc Architecture and Sustainable Design",
+      institution: "Singapore University of Technology and Design",
+      country: "Singapore",
+      description: [
+        "Use Python and C# for generative form-finding methods to optimize building design for various objectives such as material use and structural efficiency.",
+      ],
+      yearStarted: 2017,
+      yearEnded: 2019,
+    },
   ],
 };
 
