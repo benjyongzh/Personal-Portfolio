@@ -26,7 +26,7 @@ interface education {
 
 const text: resumeText = {
   pageTitle: "RESUME",
-  skills: [techStackList.nextjs],
+  skills: Object.values(techStackList),
   professions: [
     {
       title: "Design Manager",
