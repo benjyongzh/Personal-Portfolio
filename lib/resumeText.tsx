@@ -2,7 +2,14 @@ import techStackList, { tech } from "./techStackList";
 
 interface resumeText {
   pageTitle: string;
-  skills: Array<tech>;
+  skills: {
+    languages: Array<tech>;
+    frontend: Array<tech>;
+    backend: Array<tech>;
+    fullstack: Array<tech>;
+    tools: Array<tech>;
+    graphics: Array<tech>;
+  };
   professions: Array<profession>;
   educations: Array<education>;
 }
@@ -26,7 +33,45 @@ interface education {
 
 const text: resumeText = {
   pageTitle: "RESUME",
-  skills: Object.values(techStackList),
+  skills: {
+    languages: [
+      techStackList.html,
+      techStackList.css,
+      techStackList.javascript,
+      techStackList.typescript,
+      techStackList.lua,
+      techStackList.python,
+      techStackList.csharp,
+    ],
+    frontend: [
+      techStackList.react,
+      techStackList.redux,
+      techStackList.tailwind,
+      techStackList.bootstrap,
+      techStackList.framermotion,
+      techStackList.webpack,
+    ],
+    backend: [
+      techStackList.mongodb,
+      techStackList.express,
+      techStackList.nodejs,
+      techStackList.passportjs,
+    ],
+    fullstack: [techStackList.nextjs, techStackList.railway],
+    tools: [
+      techStackList.npm,
+      techStackList.bashcli,
+      techStackList.ubuntu,
+      techStackList.jest,
+      techStackList.git,
+      techStackList.unity,
+    ],
+    graphics: [
+      techStackList.photoshop,
+      techStackList.aftereffects,
+      techStackList.premierepro,
+    ],
+  },
   professions: [
     {
       title: "Design Manager",
