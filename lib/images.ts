@@ -324,22 +324,26 @@ const cursedUnityDetailImages: imageReference[] = [
     src: "/assets/images/cursed-unity/image-3.jpg",
     name: "Cameras",
     description: "Created different cameras for player.",
+    youtubeVidUrl: "https://youtu.be/rTFUztnxqfY",
   },
   {
     src: "/assets/images/cursed-unity/image-4.jpg",
     name: "Add attack animations",
     description: "Added attack animations.",
+    youtubeVidUrl: "https://youtu.be/iEVpN5cWRGY",
   },
   {
     src: "/assets/images/cursed-unity/image-5.jpg",
     name: "Aim locked animations",
     description:
       "Altered bones to align animations with player's aim direction.",
+    youtubeVidUrl: "https://youtu.be/nj94WH1w1bQ",
   },
   {
     src: "/assets/images/cursed-unity/image-6.jpg",
     name: "Simple waypoint behaviour",
     description: "Create simple AI behaviours.",
+    youtubeVidUrl: "https://youtu.be/pkIDhlrFdmA",
   },
   {
     src: "/assets/images/cursed-unity/image-7.jpg",
