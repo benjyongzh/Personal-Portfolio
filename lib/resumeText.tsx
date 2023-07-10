@@ -3,12 +3,12 @@ import techStackList, { tech } from "./techStackList";
 interface resumeText {
   pageTitle: string;
   skills: {
-    languages: Array<tech>;
-    frontend: Array<tech>;
-    backend: Array<tech>;
-    fullstack: Array<tech>;
-    tools: Array<tech>;
-    graphics: Array<tech>;
+    Languages: Array<tech>;
+    "Front-end": Array<tech>;
+    "Back-end": Array<tech>;
+    Fullstack: Array<tech>;
+    Tools: Array<tech>;
+    Graphics: Array<tech>;
   };
   professions: Array<profession>;
   educations: Array<education>;
@@ -34,7 +34,7 @@ interface education {
 const text: resumeText = {
   pageTitle: "RESUME",
   skills: {
-    languages: [
+    Languages: [
       techStackList.html,
       techStackList.css,
       techStackList.javascript,
@@ -43,7 +43,7 @@ const text: resumeText = {
       techStackList.python,
       techStackList.csharp,
     ],
-    frontend: [
+    "Front-end": [
       techStackList.react,
       techStackList.redux,
       techStackList.tailwind,
@@ -51,14 +51,14 @@ const text: resumeText = {
       techStackList.framermotion,
       techStackList.webpack,
     ],
-    backend: [
+    "Back-end": [
       techStackList.mongodb,
       techStackList.express,
       techStackList.nodejs,
       techStackList.passportjs,
     ],
-    fullstack: [techStackList.nextjs, techStackList.railway],
-    tools: [
+    Fullstack: [techStackList.nextjs, techStackList.railway],
+    Tools: [
       techStackList.npm,
       techStackList.bashcli,
       techStackList.ubuntu,
@@ -66,7 +66,7 @@ const text: resumeText = {
       techStackList.git,
       techStackList.unity,
     ],
-    graphics: [
+    Graphics: [
       techStackList.photoshop,
       techStackList.aftereffects,
       techStackList.premierepro,
