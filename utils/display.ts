@@ -1,6 +1,3 @@
-// import resolveConfig from "tailwindcss/resolveConfig";
-// import tailwindConfig from "@/tailwind.config.js";
-
 const resolveConfig = require("tailwindcss/resolveConfig");
 const tailwindConfig = require("../tailwind.config.js");
 const fullConfig = resolveConfig(tailwindConfig);
@@ -14,7 +11,6 @@ const mediaBreakpoints = {
   xl: parseInt(fullConfig.theme.screens.xl.split("px")[0]),
   "2xl": parseInt(fullConfig.theme.screens["2xl"].split("px")[0]),
 };
-console.log(mediaBreakpoints);
 
 export const getCurrentBreakpoint = (currentWidth: number) => {
   //switch
