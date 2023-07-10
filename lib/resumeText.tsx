@@ -57,7 +57,11 @@ const text: resumeText = {
       techStackList.nodejs,
       techStackList.passportjs,
     ],
-    Fullstack: [techStackList.nextjs, techStackList.railway],
+    Fullstack: [
+      techStackList.nextjs,
+      techStackList.railway,
+      techStackList.vercel,
+    ],
     Tools: [
       techStackList.npm,
       techStackList.bashcli,
