@@ -27,6 +27,7 @@ import PythonIcon from "@/public/assets/icons/tech/python.svg";
 import BashCliIcon from "@/public/assets/icons/tech/bashcli.svg";
 import GitIcon from "@/public/assets/icons/tech/git.svg";
 import RailwayIcon from "@/public/assets/icons/tech/railway.svg";
+import VercelIcon from "@/public/assets/icons/tech/vercel.svg";
 
 export interface tech {
   id: string;
@@ -174,6 +175,11 @@ const techStackList = {
     id: "railway",
     name: "Railway PaaS",
     icon: <RailwayIcon />,
+  },
+  vercel: {
+    id: "vercel",
+    name: "Vercel",
+    icon: <VercelIcon />,
   },
 };
 

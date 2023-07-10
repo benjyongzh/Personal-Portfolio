@@ -51,7 +51,7 @@ const projectList: projectReference[] = [
       techStackList.framermotion.id,
       techStackList.react.id,
       techStackList.nodejs.id,
-      techStackList.railway.id,
+      techStackList.vercel.id,
     ].sort(),
   },
   {
