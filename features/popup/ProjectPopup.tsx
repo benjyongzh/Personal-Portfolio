@@ -36,6 +36,7 @@ const ProjectPopup = (props: {
   } = props.project;
   const currentPopups = useAppSelector((state) => state.popup.popups);
   const githubAPI = `${githubAPIRepoBaseURL}/${githubName}`; ///relevant methods: updated_At
+  const githubRepo = `https://github.com/benjyongzh/${githubName}`; ///relevant methods: updated_At
 
   const close = () => {
     dispatch(
@@ -97,7 +98,7 @@ const ProjectPopup = (props: {
           <div className="flex items-center justify-between w-full gap-5 sm:gap-8 sm:justify-start">
             <Link
               // need to use github API to get github repo link
-              href="#"
+              href={githubRepo}
               rel="noopener noreferrer"
               target="_blank"
               className="flex items-center justify-start gap-2 group"
