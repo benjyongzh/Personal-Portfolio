@@ -13,13 +13,13 @@ const SkillsSection = (props: { skillset: object }) => {
       </motion.div>
     ));
   };
-  const skills = domainNames.map((domain) => {
+  const skills = domainNames.map((domain, i) => {
     const domainSkills: Array<tech> =
       props.skillset[domain as keyof typeof props.skillset];
     const icons = techlist(domainSkills);
     return (
       <div
-        key={domain}
+        key={i}
         className="flex flex-col items-center justify-start gap-3 p-4 sm:gap-5 pageText"
       >
         <div className="w-full text-lg text-center pageText sm:text-xl">
