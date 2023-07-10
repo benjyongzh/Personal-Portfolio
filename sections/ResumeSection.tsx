@@ -34,8 +34,10 @@ export default function Resume() {
         </div>
       </div>
       <ul className="flex flex-col items-start justify-start gap-2">
-        {job.description.map((item) => (
-          <li className="list-none">- {item}</li>
+        {job.description.map((item, i) => (
+          <li key={i} className="list-none">
+            - {item}
+          </li>
         ))}
       </ul>
     </motion.div>
@@ -60,8 +62,10 @@ export default function Resume() {
         </div>
       </div>
       <ul className="flex flex-col items-start justify-start gap-2">
-        {degree.description.map((item) => (
-          <li className="list-none">- {item}</li>
+        {degree.description.map((item, i) => (
+          <li key={i} className="list-none">
+            - {item}
+          </li>
         ))}
       </ul>
     </motion.div>
