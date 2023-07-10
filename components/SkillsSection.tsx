@@ -18,7 +18,10 @@ const SkillsSection = (props: { skillset: object }) => {
       props.skillset[domain as keyof typeof props.skillset];
     const icons = techlist(domainSkills);
     return (
-      <div className="flex flex-col items-center justify-start gap-3 p-4 sm:gap-5 pageText">
+      <div
+        key={domain}
+        className="flex flex-col items-center justify-start gap-3 p-4 sm:gap-5 pageText"
+      >
         <div className="w-full text-lg text-center pageText sm:text-xl">
           {domain}
         </div>

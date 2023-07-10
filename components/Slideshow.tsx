@@ -102,6 +102,7 @@ const Slideshow = (props: slideshowProps) => {
           {imageRefs?.map((image, i) =>
             image.youtubeVidUrl ? (
               <div
+                key={i}
                 className={`absolute flex items-center justify-center w-full h-full mx-auto ${
                   currentPosition === i ? "z-[32] opacity-100" : "opacity-0"
                 }`}
