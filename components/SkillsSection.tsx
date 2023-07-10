@@ -8,9 +8,9 @@ const SkillsSection = (props: { skillset: object }) => {
 
   const techlist = (domain: Array<tech>) => {
     return domain.map((tech, i) => (
-      <motion.p key={i} className="pageText pageText-bodytext">
+      <motion.div key={i} className="pageText pageText-bodytext">
         <TechIcon tech={tech} size="md" key={i} popup={true} />
-      </motion.p>
+      </motion.div>
     ));
   };
   const skills = domainNames.map((domain) => {
