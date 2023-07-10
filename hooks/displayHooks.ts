@@ -11,13 +11,19 @@ function getWindowDimensions() {
 }
 
 export function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  );
+  const [windowDimensions, setWindowDimensions] = useState({
+    // width: window.innerWidth,
+    // height: window.innerHeight,
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     function handleResize() {
-      setWindowDimensions(getWindowDimensions());
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
     }
 
     window.addEventListener("resize", handleResize);
