@@ -22,10 +22,13 @@ const SkillsSection = (props: { skillset: object }) => {
         key={i}
         className="flex flex-col items-center justify-start gap-3 p-4 sm:gap-5 pageText"
       >
-        <div className="w-full text-lg text-center pageText sm:text-xl">
+        <div key={i} className="w-full text-lg text-center pageText sm:text-xl">
           {domain}
         </div>
-        <ul className="flex flex-wrap items-start justify-center w-full gap-3">
+        <ul
+          key={i}
+          className="flex flex-wrap items-start justify-center w-full gap-3"
+        >
           {icons}
         </ul>
       </div>

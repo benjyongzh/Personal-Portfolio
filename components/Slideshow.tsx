@@ -112,6 +112,7 @@ const Slideshow = (props: slideshowProps) => {
                   url={image.youtubeVidUrl}
                   width="100%"
                   height="100%"
+                  key={i}
                 />
               </div>
             ) : (
