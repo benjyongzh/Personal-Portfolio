@@ -20,11 +20,16 @@ export default function Resume() {
       key={i}
       className="flex flex-col items-stretch justify-start gap-4 pageText"
     >
-      <div className="flex items-center justify-between">
-        <div>
-          {job.title} at {job.company}
+      <div className="flex flex-col items-center justify-between gap-1 sm:flex-row">
+        <div className="flex flex-col items-center justify-between sm:items-start">
+          <div className="text-base font-bold text-center sm:text-left sm:text-lg">
+            {job.title}
+          </div>
+          <div className="text-xs text-center sm:text-left sm:text-sm">
+            at {job.company}
+          </div>
         </div>
-        <div>
+        <div className="text-xs sm:text-sm">
           {job.yearStarted} - {job.yearEnded}
         </div>
       </div>
@@ -41,11 +46,16 @@ export default function Resume() {
       key={i}
       className="flex flex-col items-stretch justify-start gap-4 pageText"
     >
-      <div className="flex items-center justify-between">
-        <div>
-          {degree.title} at {degree.institution}, {degree.country}
+      <div className="flex flex-col items-center justify-between gap-1 sm:flex-row">
+        <div className="flex flex-col items-center justify-between sm:items-start">
+          <div className="text-base font-bold text-center sm:text-left sm:text-lg">
+            {degree.title}
+          </div>
+          <div className="text-xs text-center sm:text-left sm:text-sm">
+            at {degree.institution}, {degree.country}
+          </div>
         </div>
-        <div>
+        <div className="text-xs sm:text-sm">
           {degree.yearStarted} - {degree.yearEnded}
         </div>
       </div>
@@ -88,7 +98,7 @@ export default function Resume() {
         <div className="flex items-center justify-center py-2 border-t-2 border-b-2 pageText pageText-header border-secondarydarkmode dark:border-accentdarkmode">
           PROFESSIONAL EXPERIENCE
         </div>
-        <div className="flex flex-col items-stretch justify-start w-full gap-6">
+        <div className="flex flex-col items-stretch justify-start w-full gap-8">
           {professions}
         </div>
       </div>
@@ -98,7 +108,7 @@ export default function Resume() {
         <div className="flex items-center justify-center py-2 border-t-2 border-b-2 pageText pageText-header border-secondarydarkmode dark:border-accentdarkmode">
           EDUCATION
         </div>
-        <div className="flex flex-col items-stretch justify-start w-full gap-6">
+        <div className="flex flex-col items-stretch justify-start w-full gap-8">
           {educations}
         </div>
       </div>
