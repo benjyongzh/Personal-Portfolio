@@ -50,6 +50,8 @@ const ProjectCard = (props: {
           src={project.cardImage.src}
           width={500}
           height={500}
+          loading="lazy"
+          sizes="(max-width: 1023px) 50vw, (max-width: 1279px) 33vw, (max-width: 2048px) 25vw, 512px"
           alt={project.cardImage.name}
         />
       ) : null}
