@@ -1,13 +1,8 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useAppSelector } from "@/hooks/reduxHooks";
-
 import { motion, Variants } from "framer-motion";
 import SwitchToggle from "./SwitchToggle";
 import Path from "./Path";
-import { IScreenSize } from "@/features/display/displaySlice";
 import SiteLinkButton from "./SiteLinkButton";
 
 const routes = [
@@ -64,21 +59,11 @@ const dropDownListItemVariant: Variants = {
 
 const Nav = () => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const pathname = usePathname();
-  const currentScreenSize: IScreenSize = useAppSelector(
-    (state) => state.display.screenSize
-  );
 
   const toggleDropdown = () => {
     setShowDropdown((curr) => !curr);
   };
 
-  //background circle parameters
-  const navBackgroundOffsetVerticalHidden = 29;
-  const navBackgroundOffsetVerticalShown = 120;
-  const navBackgroundOffsetHorizontalHidden = 35;
-  const navBackgroundOffsetHorizontalShown = 0;
-  const navBackgroundRadiusShown = 180;
 
   return (
     <nav className="fixed top-0 z-10 flex items-center justify-end w-screen gap-3 py-1 whitespace-nowrap">
@@ -148,27 +133,12 @@ const Nav = () => {
         <motion.div
           animate={
             showDropdown
-              ? {
-                  clipPath: `circle(${navBackgroundRadiusShown}px at ${
-                    currentScreenSize.screenWidth -
-                    navBackgroundOffsetHorizontalShown
-                  }px ${navBackgroundOffsetVerticalShown}px)`, //first number is pixels counting from left. 2nd number is pixels counting from top
-                }
-              : {
-                  clipPath: `circle(0px at ${
-                    currentScreenSize.screenWidth -
-                    navBackgroundOffsetHorizontalHidden
-                  }px ${navBackgroundOffsetVerticalHidden}px)`,
-                }
+              ? { scale: 1, opacity: 1 }
+              : { scale: 0, opacity: 0 }
           }
-          initial={{
-            clipPath: `circle(0px at ${
-              currentScreenSize.screenWidth -
-              navBackgroundOffsetHorizontalHidden
-            }px ${navBackgroundOffsetVerticalHidden}px)`,
-          }}
+          initial={{ scale: 0, opacity: 0 }}
           transition={{ type: "tween", duration: 0.25 }}
-          className="absolute right-0 w-[100%] h-[100%] -z-[1] top-0 bg-secondarydarkmode dark:bg-secondarylightmode pointer-events-none"
+          className="absolute right-0 w-[100%] h-[100%] -z-[1] top-0 bg-secondarydarkmode dark:bg-secondarylightmode pointer-events-none origin-top-right"
         />
       </div>
     </nav>
