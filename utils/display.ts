@@ -1,15 +1,11 @@
-const resolveConfig = require("tailwindcss/resolveConfig");
-const tailwindConfig = require("../tailwind.config.js");
-const fullConfig = resolveConfig(tailwindConfig);
-// console.log(fullConfig.theme.screens.md);
-// => '768px'
-
+// Tailwind's default screen sizes. Hard-coded to avoid importing the
+// entire Tailwind configuration at runtime.
 const mediaBreakpoints = {
-  sm: parseInt(fullConfig.theme.screens.sm.split("px")[0]),
-  md: parseInt(fullConfig.theme.screens.md.split("px")[0]),
-  lg: parseInt(fullConfig.theme.screens.lg.split("px")[0]),
-  xl: parseInt(fullConfig.theme.screens.xl.split("px")[0]),
-  "2xl": parseInt(fullConfig.theme.screens["2xl"].split("px")[0]),
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  "2xl": 1536,
 };
 
 export const getCurrentBreakpoint = (currentWidth: number) => {
