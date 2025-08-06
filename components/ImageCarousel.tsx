@@ -11,6 +11,9 @@ import { imageReference } from "@/lib/images";
 import { useAppSelector, useAppDispatch } from "@/hooks/reduxHooks";
 import { IPopupType, addPopup } from "@/features/popup/popupSlice";
 
+const blurDataURL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxJyBoZWlnaHQ9JzEnPjxyZWN0IHdpZHRoPScxJyBoZWlnaHQ9JzEnIGZpbGw9JyNjY2MnLz48L3N2Zz4=";
+
 const ImageCarousel = (props: { images: Array<imageReference> }) => {
   const { images } = props;
   const dispatch = useAppDispatch();
@@ -121,6 +124,9 @@ const ImageCarousel = (props: { images: Array<imageReference> }) => {
                 src={image.src}
                 fill={true}
                 alt={image.name}
+                placeholder="blur"
+                blurDataURL={blurDataURL}
+                sizes="(max-width: 640px) 240px, 320px"
                 style={{ objectFit: "cover" }}
               />
             </motion.button>

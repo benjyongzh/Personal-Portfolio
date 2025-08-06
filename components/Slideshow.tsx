@@ -13,6 +13,9 @@ import ReactPlayer from "react-player/lazy";
 //redux
 import { useAppSelector } from "@/hooks/reduxHooks";
 
+const blurDataURL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxJyBoZWlnaHQ9JzEnPjxyZWN0IHdpZHRoPScxJyBoZWlnaHQ9JzEnIGZpbGw9JyNjY2MnLz48L3N2Zz4=";
+
 type slideshowProps = {
   currentIndex: number;
   imageRefs: imageReference[];
@@ -129,6 +132,9 @@ const Slideshow = (props: slideshowProps) => {
                   src={image.src}
                   fill={true}
                   alt={image.name}
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                  sizes="100vw"
                   className="object-contain w-full h-full mx-auto"
                 />
               </motion.div>
